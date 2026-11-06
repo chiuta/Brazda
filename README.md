@@ -1,0 +1,65 @@
+# BRAZDA
+
+Decodor și codor, pas cu pas, pentru **Discul de Aur Voyager** (Voyager Interstellar Record). Un singur fișier HTML (`index.html`), fără dependențe externe, fără server, fără urmăritoare. Funcționează offline: deschide fișierul într-un browser.
+
+## Ce face
+
+Aplicația are 12 pași:
+
+1. **Discul și capacul**: schemă interactivă cu zone pe care le atingi.
+2. **Viteza**: 16⅔ rpm față de alte viteze, cu efectul asupra duratei unei linii.
+3. **Ceasul hidrogenului**: tranziția de 1420,405751768 MHz (perioadă ≈ 0,704 ns) și convertor binar → timp.
+4. **Harta pulsarilor**: perioadă în secunde → număr binar de unități-hidrogen.
+5. **Semnalul unei imagini**: 512 linii × 8 ms × 384 eșantioane la 48 kHz; ascultare și export WAV.
+6. **Calibrarea cu cercul**: estimare automată a lungimii liniei, rafinată după rotunjimea cercului.
+7. **Decodare linie cu linie**: animație, viteză reglabilă, zgomot de pistă.
+8. **Culoarea**: trei cadre R, G, B.
+9. **Fișierul tău**: încarci o înregistrare audio și o decodezi local (canal, început, L, deplasare verticală, mod color, export PNG).
+10. **Contribuie**: oricine poate trimite o salutare scrisă, o imagine sau un mesaj vocal (până la 15 s), ca pachet `.json`. Nimic nu pleacă singur din browser. Adresa `…/index.html#contribuie` deschide direct acest pas.
+11. **Codare 2026–2027**: construiești discul unei sonde lansate acum. Imaginile (cu cerc de calibrare și pagină de text) devin un WAV de 48 kHz; importi contribuțiile publicului după moderare; poți adăuga o pistă muzicală, doar cu fișa drepturilor completată; exporți WAV, index, numere pentru capac și perioadele pulsarilor la data lansării.
+12. **Discul original (1977)**: cele 27 de piese, cele 55 de limbi, imaginile, mesajele și situația drepturilor de autor.
+
+## Drepturi de autor și muzică
+
+Aplicația **nu conține** nicio piesă muzicală și nicio înregistrare protejată. Pista muzicală din pasul 11 cere un fișier pe care îl furnizezi tu, plus titularii drepturilor și o referință la licență. O piesă cu drepturi neclare nu poate fi adăugată.
+
+Exemplul „Here Comes the Sun” (Beatles) e inclus ca fișă de pornire, tocmai pentru că arată problema: piesa e protejată, iar pentru originalul Beatles trebuie licență atât pentru compoziție, cât și pentru înregistrare. Pentru o interpretare proprie e nevoie doar de licența compoziției. Detaliile și sursele sunt în pasul 12.
+
+Nu e consultanță juridică.
+
+## Limite cunoscute
+
+- **Imaginile din pașii 1–8 sunt schematice**, generate în aplicație; nu sunt imaginile NASA. Pentru imaginile reale folosește pasul 9 cu un segment audio din înregistrarea discului.
+- **Decodarea pe o înregistrare reală nu a fost testată**, pentru că nu există un fișier real în depozit. Metoda e verificată pe semnale sintetice; poate fi nevoie de reglaj manual (început, L, deplasare verticală).
+- **Calibrarea automată** are două trepte. Estimarea din autocorelație dă L cu precizie de ~1 eșantion, ceea ce înseamnă o înclinare vizibilă pe 512 de coloane. Doar rafinarea după cerc ajunge la ~0,002. Imaginile periodice (șah, dungi diagonale) și tonurile pure sunt ambigue prin natura lor.
+- **Perioadele pulsarilor** (pasul 11) sunt extrapolate liniar din valori aproximative de referință. Pentru un disc real folosește perioadele măsurate pentru toți cei 14 pulsari din catalogul ATNF.
+- **Lista „Sunetele Pământului”** din pasul 12 e după memorie, de verificat în sursele NASA. Clasificarea drepturilor (A–D) e orientativă și aparține autorului aplicației.
+- **Memorie**: o codare mare cere multă memorie. Limita e 160 de cadre pe desktop și 60 pe dispozitive tactile.
+- Testat doar în **Chromium** (Playwright). Safari și Firefox nu au fost încercate; înregistrarea cu microfonul a fost încercată doar cu un dispozitiv audio simulat.
+
+## Teste
+
+```bash
+npm install            # doar pentru testele cu browser
+npm run test:unit      # 37 de verificări, fără browser
+npm run test:e2e       # Playwright, 5 dimensiuni de ecran (320 px – 1920 px)
+```
+
+Testul cu browser verifică, pe fiecare dimensiune: toți pașii, depășirile orizontale, mărimea țintelor tactile, erorile JS, fișiere audio și imagini corupte, pachete de contribuție rău-intenționate (XSS, WAV cu frecvență 0 sau uriașă, base64 trunchiat, poluare de prototip), valori extreme în câmpuri, codarea cu verificare PSNR și blocarea pistelor fără drepturi.
+
+## Securitate și confidențialitate
+
+Tot procesul rămâne în browser. Pagina are o politică CSP care interzice orice conexiune de rețea (`connect-src 'none'`). Contribuțiile sunt fișiere pe care utilizatorul le trimite singur; adresa de colectare e constanta `COLLECT_EMAIL` din `index.html`.
+
+## Surse
+
+- [Contents of the Voyager Golden Record](https://en.wikipedia.org/wiki/Contents_of_the_Voyager_Golden_Record)
+- [Voyager Golden Record](https://en.wikipedia.org/wiki/Voyager_Record)
+- [Here Comes the Sun](https://en.wikipedia.org/wiki/Here_Comes_the_Sun)
+- [Ozma Records, Voyager](https://ozmarecords.com/pages/voyager)
+
+Detalii oficiale despre disc: NASA/JPL.
+
+## Licență
+
+MIT. Vezi `LICENSE`.

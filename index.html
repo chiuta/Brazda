@@ -1,0 +1,1150 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; media-src data: blob:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0c13">
+<meta name="description" content="BRAZDA: decodor și codor pas cu pas pentru Discul de Aur Voyager, într-un singur fișier HTML, offline.">
+<meta property="og:title" content="BRAZDA — decodorul Discului de Aur Voyager">
+<meta property="og:description" content="De la capac la prima imagine, și înapoi: codează discul unei sonde din 2026–2027.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0c13'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23e6c26a' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='5' fill='none' stroke='%23e6c26a'/%3E%3Ccircle cx='16' cy='16' r='1.5' fill='%23e6c26a'/%3E%3C/svg%3E">
+<title>BRAZDA — decodorul Discului de Aur Voyager</title>
+<style>
+:root{--bg:#0a0c13;--p:#131826;--p2:#1a2033;--g:#e6c26a;--t:#e9e7e0;--m:#9aa3b8;--a:#6ad1e6;--r:#ff7a7a;--ok:#7bd88f}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 600px at 70% -10%,#1b2140 0,#0a0c13 60%) fixed;color:var(--t);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{max-width:980px;margin:auto;padding:22px 16px 8px}
+h1{margin:0;letter-spacing:.35em;color:var(--g);font-weight:600;font-size:1.7rem}
+header p{margin:.2em 0 0;color:var(--m)}
+#nav{position:sticky;top:0;z-index:5;background:#0a0c13ee;backdrop-filter:blur(6px);overflow-x:auto;white-space:nowrap;padding:8px 12px;border-bottom:1px solid #222a40}
+#nav button{background:var(--p);color:var(--m);border:1px solid #2a3350;border-radius:999px;padding:6px 12px;margin-right:6px;font-size:.85rem;cursor:pointer}
+#nav button.on{background:var(--g);color:#1a1405;border-color:var(--g);font-weight:600}
+#nav button.done{color:var(--ok)}
+main{max-width:980px;margin:auto;padding:14px 16px 60px}
+section{display:none}section.on{display:block}
+h2{color:var(--g);font-weight:600;margin:.4em 0 .3em}
+h3{color:var(--a);margin:1em 0 .3em;font-size:1.02rem}
+.card{background:var(--p);border:1px solid #232b45;border-radius:12px;padding:14px;margin:12px 0}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.row>*{flex:0 0 auto}
+.grow{flex:1 1 220px!important}
+label{color:var(--m);font-size:.9rem}
+select,input[type=number],input[type=text]{background:#0c1020;color:var(--t);border:1px solid #2d3758;border-radius:8px;padding:7px 9px;font-size:.95rem}
+input[type=range]{width:100%;accent-color:var(--g)}
+button.b{background:var(--g);color:#1a1405;border:0;border-radius:8px;padding:8px 14px;font-weight:600;cursor:pointer;font-size:.92rem}
+button.b.s{background:var(--p2);color:var(--t);border:1px solid #33406a}
+canvas{width:100%;height:auto;background:#000;border-radius:8px;display:block}
+.k{color:var(--g);font-variant-numeric:tabular-nums}
+.m{color:var(--m);font-size:.9rem}
+.ok{color:var(--ok)}.bad{color:var(--r)}
+code,.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88rem;color:var(--a);word-break:break-all}
+ul{padding-left:1.2em;margin:.4em 0}li{margin:.2em 0}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.grid3 figure{margin:0}.grid3 figcaption{font-size:.8rem;color:var(--m);text-align:center}
+.hs{cursor:pointer}.hs:hover *,.hs:focus *{stroke:#fff}
+#info0{min-height:4.5em}
+.nv{display:flex;justify-content:space-between;margin-top:18px}
+footer{max-width:980px;margin:auto;padding:0 16px 30px;color:#6b7390;font-size:.8rem}
+.bin{letter-spacing:.12em;font-size:1.15rem;color:var(--g);word-break:break-all}
+.card.warn{border-color:#5a4a1e}
+body.pub #nav,body.pub .nv{display:none}
+details{margin:6px 0}summary{cursor:pointer;color:var(--a)}
+.tag{display:inline-block;padding:0 7px;border-radius:6px;font-size:.75rem;border:1px solid #33406a;color:var(--m);white-space:nowrap}
+.tag.A{border-color:#3d7a52;color:#7bd88f}.tag.B{border-color:#5a6aa8;color:#9fb0ff}.tag.C{border-color:#a05a5a;color:#ff9a9a}.tag.D{border-color:#8a7a2e;color:#e6c26a}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin:8px 0}
+td,th{padding:4px 6px;border-bottom:1px solid #232b45;text-align:left;vertical-align:top}
+th{color:var(--m);font-weight:500}
+textarea{width:100%;background:#0c1020;color:var(--t);border:1px solid #2d3758;border-radius:8px;padding:8px;font:inherit;min-height:4.5em}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:64px;background:#0a0c13}
+body{overflow-wrap:anywhere}
+header{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+main,footer{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+h1{font-size:clamp(1.25rem,6vw,1.7rem);letter-spacing:.25em}
+.row>*{flex:0 1 auto;min-width:0;max-width:100%}
+.row>.grow{flex:1 1 220px}
+.row input[type=text],.row input[type=date]{flex:1 1 12em;width:auto}
+input[type=number]{max-width:10em}
+select,input[type=number],input[type=text],input[type=date],textarea{font-size:16px;max-width:100%}
+input[type=file]{max-width:100%;font-size:.9rem}
+audio,img,canvas,svg,video{max-width:100%}
+textarea{resize:vertical}
+canvas[height="384"]{max-width:min(100%,760px);margin-left:auto;margin-right:auto}
+#e_res,#e_pul,#e_cov,#o_mus{overflow-x:auto}
+th{white-space:nowrap}td:first-child{white-space:nowrap}
+button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible,.hs:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+#nav{scrollbar-width:thin;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+#nav button{scroll-snap-align:center;flex:none}
+@media (pointer:coarse),(hover:none),(max-width:820px){
+ button,select,input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]),summary{min-height:44px}
+ #nav button{padding:8px 14px}
+ input[type=checkbox]{width:22px;height:22px}
+ input[type=range]{height:34px}
+ label{padding:2px 0}}
+@media (max-width:700px){
+ .nv{position:sticky;bottom:0;z-index:4;background:#0a0c13f5;border-top:1px solid #222a40;margin:18px -16px 0;padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+ main{padding-bottom:12px}
+ .card{padding:12px}
+ table.stack,table.stack tbody{display:block}
+ table.stack tr:first-child{display:none}
+ table.stack tr{display:block;border:1px solid #232b45;border-radius:10px;margin:8px 0;padding:6px 10px;background:var(--p2)}
+ table.stack td{display:block;border:0;padding:1px 0}
+ table.stack td::before{content:attr(data-l) ": ";color:var(--m);font-size:.78rem}
+ .grid3{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:900px){#nav{display:flex;flex-wrap:wrap;gap:5px;overflow:visible;white-space:normal;justify-content:center}#nav button{margin:0;font-size:.8rem;padding:5px 9px}}
+@media (min-width:1100px){header,main,footer{max-width:1120px}}
+@media (min-width:1500px){body{font-size:17px}header,main,footer{max-width:1240px}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+a{color:var(--a)}
+</style>
+</head>
+<body>
+<header>
+  <h1>BRAZDA</h1>
+  <p>Decodorul pas cu pas al Discului de Aur Voyager — de la capac la prima imagine.</p>
+</header>
+<nav id="nav" aria-label="Pașii aplicației"></nav>
+<main>
+
+<!-- 0 -->
+<section id="s0">
+<h2>1 · Discul și capacul</h2>
+<div class="card">
+<p>Discul de Aur a plecat în 1977 la bordul sondelor Voyager 1 și 2: un disc fonograf de cupru placat cu aur, de 30 cm (12″). Nu are „cititor” în el. Tot ce are un descoperitor e <b>capacul</b>, pe care sunt gravate diagrame de instrucțiuni, fără cuvinte.</p>
+<ul>
+<li>115 imagini, stocate ca <b>semnal audio analogic</b></li>
+<li>salutări în 55 de limbi, „Sunetele Pământului”, circa 90 de minute de muzică</li>
+<li>redare de la margine spre centru, la <b>16⅔ rotații/minut</b></li>
+</ul>
+<p class="m">Atinge o zonă din schema de mai jos (schemă proprie, simplificată, nu reproducerea capacului).</p>
+</div>
+<div class="card">
+<svg viewBox="0 0 420 270" style="width:100%;height:auto" role="img" aria-label="Schema capacului">
+<g class="hs" data-k="1" tabindex="0"><circle cx="105" cy="135" r="92" fill="#3a2f10" stroke="#e6c26a" stroke-width="2"/><circle cx="105" cy="135" r="72" fill="none" stroke="#a88a3a"/><circle cx="105" cy="135" r="52" fill="none" stroke="#a88a3a"/><circle cx="105" cy="135" r="32" fill="none" stroke="#a88a3a"/><circle cx="105" cy="135" r="9" fill="#0a0c13" stroke="#e6c26a"/><text x="105" y="258" fill="#9aa3b8" font-size="11" text-anchor="middle">discul</text></g>
+<g class="hs" data-k="2" tabindex="0"><path d="M215 30 L135 108" stroke="#6ad1e6" stroke-width="4" fill="none"/><path d="M135 108 l12 -3 l-8 -8z" fill="#6ad1e6" stroke="#6ad1e6"/><text x="222" y="28" fill="#9aa3b8" font-size="11">acul</text></g>
+<g class="hs" data-k="3" tabindex="0"><circle cx="270" cy="62" r="13" fill="none" stroke="#e6c26a" stroke-width="2"/><circle cx="308" cy="62" r="13" fill="none" stroke="#e6c26a" stroke-width="2"/><path d="M270 54 v16 M308 70 v-16" stroke="#6ad1e6" stroke-width="2"/><path d="M283 62 h12" stroke="#fff" stroke-width="2" stroke-dasharray="3 2"/><text x="289" y="92" fill="#9aa3b8" font-size="11" text-anchor="middle">hidrogen</text></g>
+<g class="hs" data-k="4" tabindex="0"><rect x="250" y="112" width="104" height="78" fill="#000" stroke="#e6c26a" stroke-width="2"/><circle cx="302" cy="151" r="34" fill="none" stroke="#fff" stroke-width="2"/><path d="M262 112 v78 M274 112 v78 M286 112 v78" stroke="#555"/><text x="302" y="206" fill="#9aa3b8" font-size="11" text-anchor="middle">imaginea-cerc</text></g>
+<g class="hs" data-k="5" tabindex="0"><g stroke="#e6c26a" stroke-width="1.6"><path d="M370 235 L330 215 M370 235 L345 262 M370 235 L400 205 M370 235 L410 240 M370 235 L395 262 M370 235 L360 205"/></g><circle cx="370" cy="235" r="4" fill="#fff"/><text x="372" y="268" fill="#9aa3b8" font-size="11" text-anchor="middle" dx="-6">pulsari</text></g>
+</svg>
+<div id="info0" class="m">Alege un element.</div>
+</div>
+</section>
+
+<!-- 1 -->
+<section id="s1">
+<h2>2 · Viteza și acul</h2>
+<div class="card">
+<p>Capacul arată discul și acul, iar diagrama de rotație indică un ciclu complet într-un timp dat. Viteza corectă e <b>16⅔ rpm</b>. Încearcă alte viteze și vezi ce se întâmplă cu semnalul.</p>
+<div class="row"><label for="s1rpm">Viteza de redare</label>
+<select id="s1rpm"><option value="16.666667" selected>16⅔ rpm (corect)</option><option value="33.333333">33⅓ rpm</option><option value="45">45 rpm</option><option value="78">78 rpm</option></select></div>
+<div id="s1out" class="card" style="background:var(--p2)"></div>
+</div>
+<div class="card warn"><b>De ce contează.</b> Întregul decodor se bazează pe un singur număr: o linie de imagine durează 8 ms. Dacă redarea merge de două ori mai repede, linia ține 4 ms, iar imaginea se rupe în bucăți dacă păstrezi 8 ms. Cercul din pasul 6 îți verifică acest lucru.</div>
+</section>
+
+<!-- 2 -->
+<section id="s2">
+<h2>3 · Ceasul hidrogenului</h2>
+<div class="card">
+<p>Cum comunici o durată fără limbă comună? Capacul folosește un fenomen fizic pe care îl cunoaște orice civilizație tehnică: tranziția hiperfină a hidrogenului neutru (inversarea spinului electronului), la <span class="k">1420,405751768 MHz</span>, adică lungimea de undă de ≈21 cm. Perioada ei e unitatea de timp a capacului. Toate duratele sunt scrise ca <b>multipli binari ai acestei perioade</b>.</p>
+<div id="s2a" class="card" style="background:var(--p2)"></div>
+<h3>Convertor binar → timp</h3>
+<div class="row"><label for="s2b">Număr binar</label><input id="s2b" type="text" value="101011" inputmode="numeric" size="24"><span class="m">(doar 0 și 1)</span></div>
+<p class="bin" id="s2v"></p><div id="s2o" class="m"></div>
+<div class="row"><button class="b s" id="s2ex">Încarcă numărul pentru 8 ms</button><button class="b s" id="s2ex2">Încarcă 512 (linii/imagine)</button></div>
+</div>
+</section>
+
+<!-- 3 -->
+<section id="s3">
+<h2>4 · Harta pulsarilor</h2>
+<div class="card">
+<p>Capacul conține o hartă cu 14 pulsari, desenată cu linii care pornesc din același punct (Soarele). Lungimea unei linii e distanța relativă. Pe fiecare scrie perioada pulsarului ca număr binar de unități-hidrogen. Pulsarii încetinesc lent și previzibil, așa că perioada măsurată azi, comparată cu cea de pe capac, dă <b>data lansării</b>.</p>
+<p class="m">Mai jos poți face conversia care apare pe capac. Exemplele sunt perioade reale, rotunjite.</p>
+<div class="row">
+<button class="b s" data-p="0.0334">Crab (B0531+21)</button>
+<button class="b s" data-p="0.0893">Vela (B0833−45)</button>
+<button class="b s" data-p="0.7145">B0329+54</button>
+<button class="b s" data-p="1.3373">B1919+21</button>
+</div>
+<div class="row" style="margin-top:8px"><label for="s3p">Perioada (s)</label><input id="s3p" type="number" step="any" value="0.0334" min="0"></div>
+<div id="s3o" class="card" style="background:var(--p2)"></div>
+</div>
+</section>
+
+<!-- 4 -->
+<section id="s4">
+<h2>5 · Semnalul unei imagini</h2>
+<div class="card">
+<p>O imagine e împărțită în <b>512 linii verticale</b>. Fiecare linie e un fragment de <b>8 ms</b> de semnal, iar <b>amplitudinea</b> codifică luminozitatea (alb = amplitudine mare). La 48 kHz, 8 ms înseamnă <b>384 de eșantioane</b>, adică 384 de „pixeli” pe linie. Imaginea întreagă durează 512 × 8 ms ≈ 4,1 s.</p>
+<p class="m">Imaginile din aplicație sunt schematice, generate aici pentru demonstrație (nu sunt cele din NASA). Încărcarea înregistrării reale se face în pasul 9.</p>
+<div class="row"><label for="s4img">Imagine</label><select id="s4img"></select>
+<button class="b s" id="s4play">▶ Ascultă semnalul</button><button class="b s" id="s4wav">⬇ WAV (48 kHz)</button></div>
+<canvas id="s4im" style="margin-top:10px"></canvas>
+<label for="s4x">Linia (coloana) aleasă: <span class="k" id="s4xl"></span></label>
+<input type="range" id="s4x" min="0" max="511" value="256">
+<canvas id="s4wv"></canvas>
+<div class="m" id="s4inf"></div>
+</div>
+</section>
+
+<!-- 5 -->
+<section id="s5">
+<h2>6 · Calibrarea cu cercul</h2>
+<div class="card">
+<p>Prima imagine de pe disc e un <b>cerc</b>. Scopul ei: dacă după decodare cercul e rotund, ai nimerit durata liniei și proporțiile. Aici ai semnalul cercului și un parametru greșit de la început: frecvența de eșantionare presupusă (44100 Hz în loc de 48000 Hz). Corecteaz-o din slider sau lasă aplicația să o caute.</p>
+<div class="row"><label for="s5fs">Frecvența presupusă: <span class="k" id="s5fl"></span> Hz → <span class="k" id="s5ll"></span> eșantioane/linie</label></div>
+<input type="range" id="s5fs" min="40000" max="52000" step="1" value="44100">
+<div class="row" style="margin:8px 0"><button class="b" id="s5auto">Calibrează automat</button><button class="b s" id="s5rst">48000 Hz</button><label><input type="checkbox" id="s5ov"> arată cercul ideal</label></div>
+<canvas id="s5out"></canvas>
+<div id="s5m" class="card" style="background:var(--p2)"></div>
+<p class="m">Calibrarea automată face două lucruri: estimează L din autocorelația semnalului (precizie de ordinul unui eșantion), apoi îl rafinează după rotunjimea cercului (precizie de ~0,002). Fără un cerc în semnal, doar prima treaptă e disponibilă.</p>
+</div>
+</section>
+
+<!-- 6 -->
+<section id="s6">
+<h2>7 · Decodare linie cu linie</h2>
+<div class="card">
+<p>Vezi cum se construiește imaginea: sus, forma de undă a liniei curente (384 eșantioane), jos, imaginea reconstruită până la acea linie.</p>
+<div class="row">
+<label for="s6img">Imagine</label><select id="s6img"></select>
+<label for="s6sp">Viteză</label><select id="s6sp"><option value="0.25">0,25× (16 s)</option><option value="1" selected>1× timp real (4,1 s)</option><option value="4">4×</option><option value="16">16×</option></select>
+</div>
+<div class="row"><button class="b" id="s6play">▶ Redă</button><button class="b s" id="s6prev">‹ linia</button><button class="b s" id="s6next">linia ›</button><button class="b s" id="s6rst">⏮ de la început</button></div>
+<label for="s6nz">Zgomot de pistă: <span class="k" id="s6nzl">0</span></label>
+<input type="range" id="s6nz" min="0" max="1" step="0.05" value="0">
+<canvas id="s6wv" style="margin-top:8px"></canvas>
+<canvas id="s6im" style="margin-top:8px"></canvas>
+<div id="s6inf" class="m"></div>
+</div>
+</section>
+
+<!-- 7 -->
+<section id="s7">
+<h2>8 · Culoarea</h2>
+<div class="card">
+<p>Imaginile color sunt trei imagini consecutive, fiecare luminozitate prin câte un filtru (roșu, verde, albastru). Le decodezi separat și le combini.</p>
+<div class="row">
+<label><input type="checkbox" class="s7c" value="0" checked> R</label>
+<label><input type="checkbox" class="s7c" value="1" checked> G</label>
+<label><input type="checkbox" class="s7c" value="2" checked> B</label>
+<label for="s7ord">Ordinea cadrelor</label>
+<select id="s7ord"><option value="0,1,2">R, G, B (corect)</option><option value="2,1,0">B, G, R (greșit)</option><option value="1,0,2">G, R, B (greșit)</option></select>
+</div>
+<div class="grid3" style="margin:10px 0">
+<figure><canvas id="s7a"></canvas><figcaption>cadrul 1</figcaption></figure>
+<figure><canvas id="s7b"></canvas><figcaption>cadrul 2</figcaption></figure>
+<figure><canvas id="s7c2"></canvas><figcaption>cadrul 3</figcaption></figure>
+</div>
+<canvas id="s7out"></canvas>
+<p class="m">Dacă ordinea e greșită, cerul devine portocaliu și frunzele roșii: același semnal, interpretat greșit.</p>
+</div>
+</section>
+
+<!-- 8 -->
+<section id="s8">
+<h2>9 · Înregistrarea ta reală</h2>
+<div class="card">
+<p>Încarcă un fișier audio (WAV, FLAC, MP3, OGG) care conține un segment cu imaginile discului. Tot procesul rămâne local, în browser, fără trimitere în rețea. Pentru fișiere foarte lungi folosește un segment de câteva minute (memoria browserului e limitată).</p>
+<input type="file" id="s8file" accept="audio/*,.wav,.flac">
+<div id="s8info" class="m" style="margin:6px 0"></div>
+<canvas id="s8ov" style="height:90px;cursor:pointer"></canvas>
+<p class="m">Atinge forma de undă ca să muți începutul imaginii.</p>
+<div class="row">
+<label for="s8off">Început (s)</label><input id="s8off" type="number" step="0.001" value="0" min="0" style="width:8em">
+<label for="s8L">Eșantioane/linie (L)</label><input id="s8L" type="number" step="0.01" value="384" style="width:7em">
+<label for="s8lines">Linii</label><input id="s8lines" type="number" value="512" min="16" max="1024" style="width:5em">
+</div>
+<div class="row" style="margin-top:6px">
+<label for="s8ch">Canal</label><select id="s8ch"><option value="0">stânga</option><option value="1">dreapta</option><option value="m">mix</option></select>
+<label for="s8fr">Cadre</label><select id="s8fr"><option value="1">1 (alb-negru)</option><option value="3">3 (color R,G,B)</option></select>
+<label><input type="checkbox" id="s8inv"> inversează</label>
+</div>
+<label for="s8roll">Deplasare verticală: <span class="k" id="s8rl">0</span></label>
+<input type="range" id="s8roll" min="0" max="383" value="0">
+<div class="row" style="margin:8px 0"><button class="b" id="s8auto">Caută L automat</button><button class="b s" id="s8circ">Rafinează pe cercul de calibrare</button><button class="b s" id="s8png">⬇ PNG</button></div>
+<div class="row" style="margin-bottom:8px"><span class="m">Reglaj fin L:</span><button class="b s" data-dl="-0.1">−0,1</button><button class="b s" data-dl="-0.01">−0,01</button><button class="b s" data-dl="0.01">+0,01</button><button class="b s" data-dl="0.1">+0,1</button></div>
+<div id="s8msg" class="m"></div>
+<canvas id="s8out"></canvas>
+</div>
+</section>
+
+<!-- 9C -->
+<section id="s9c">
+<h2>10 · Contribuie la disc</h2>
+<div class="card">
+<p>Discul din 2026–2027 poate purta și vocea oamenilor. Oricine poate trimite o <b>salutare scrisă</b>, o <b>imagine</b> sau un <b>mesaj vocal</b> (până la 15 s), oricare dintre ele sau toate trei. Nu există server: tot ce faci rămâne pe dispozitivul tău până când trimiți tu fișierul pachetului organizatorului.</p>
+<ul>
+<li>Trimite doar ce e al tău sau ce ai dreptul să dai mai departe.</li>
+<li>Fără publicitate, ură sau date personale ale altora. Imagini cu oameni doar cu acordul lor.</li>
+<li>Mesajul poate fi citit peste mii de ani: scurt, clar, pașnic.</li>
+<li>Organizatorul poate respinge orice contribuție.</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>1 · Despre tine (opțional)</h3>
+<div class="row"><label for="c_name">Nume sau pseudonim</label><input id="c_name" type="text" maxlength="80" size="22">
+<label for="c_country">Țara</label><input id="c_country" type="text" maxlength="60" size="14"></div>
+<label style="display:block;margin-top:6px"><input type="checkbox" id="c_show"> Numele meu poate apărea în registrul contribuitorilor (altfel rămân anonim)</label>
+</div>
+
+<div class="card">
+<h3>2 · Salutare scrisă</h3>
+<div class="row"><label for="c_lang">Limba</label><input id="c_lang" type="text" maxlength="40" size="16" placeholder="ex. română"></div>
+<textarea id="c_text" maxlength="280" aria-label="Salutare" placeholder="Scrie o salutare (max. 280 de caractere)"></textarea>
+<div class="m" id="c_cnt">0 / 280</div>
+</div>
+
+<div class="card">
+<h3>3 · Imagine</h3>
+<div class="row"><input type="file" id="c_img" accept="image/*">
+<label for="c_fit">Încadrare</label><select id="c_fit"><option value="contain">întreagă</option><option value="cover">umple cadrul</option></select></div>
+<div class="row" style="margin-top:6px"><label for="c_cap">Descriere scurtă</label><input id="c_cap" type="text" maxlength="120" size="30"></div>
+<canvas id="c_prev" style="display:none;margin-top:8px"></canvas>
+</div>
+
+<div class="card">
+<h3>4 · Mesaj vocal (până la 15 s)</h3>
+<div class="row"><label for="c_alang">Limba</label><input id="c_alang" type="text" maxlength="40" size="16">
+<button class="b" id="c_rec">● Înregistrează</button><button class="b s" id="c_stop" style="display:none">■ Oprește</button>
+<button class="b s" id="c_clr">Șterge</button></div>
+<div class="row" style="margin-top:6px"><label for="c_afile">sau încarcă un fișier audio</label><input type="file" id="c_afile" accept="audio/*"></div>
+<audio id="c_aud" controls style="display:none;width:100%;margin-top:8px"></audio>
+</div>
+
+<div class="card">
+<h3>5 · Acord și trimitere</h3>
+<div class="row"><label for="c_lic">Licența contribuției</label><select id="c_lic"><option value="CC0">CC0 (domeniu public)</option><option value="CC BY 4.0">CC BY 4.0 (cu atribuire)</option></select></div>
+<label style="display:block;margin-top:8px"><input type="checkbox" id="c_rights"> Contribuția e a mea sau am dreptul să o dau mai departe, iar persoanele recognoscibile din ea sunt de acord.</label>
+<label style="display:block;margin-top:6px"><input type="checkbox" id="c_ok"> Sunt de acord ca ea să fie inclusă pe discul sondei și publicată sub licența aleasă.</label>
+<div class="row" style="margin-top:10px">
+<button class="b" id="c_dl">⬇ Descarcă pachetul</button>
+<button class="b s" id="c_sh" style="display:none">Partajează…</button>
+<button class="b s" id="c_mail">Trimite pe e-mail</button>
+</div>
+<div id="c_st" class="m" style="margin-top:8px"></div>
+<p class="m">Pachetul e un fișier .json. Trimite-l organizatorului (adresa din butonul de e-mail); aplicația nu îl trimite singură nicăieri.</p>
+<p class="m">Pentru organizator: dacă găzduiești acest fișier, distribuie adresa lui urmată de <span class="mono">#contribuie</span>. Se deschide direct pe această pagină, fără restul pașilor.</p>
+</div>
+</section>
+
+<!-- 9E -->
+<section id="s9e">
+<h2>11 · Codare 2026–2027</h2>
+<div class="card">
+<p>Acum treci de partea cealaltă: construiești <b>discul unei sonde lansate în 2026–2027</b>. Funcția de codare face exact inversul decodorului: aduce fiecare imagine la 512×384, transformă luminozitatea în amplitudine (o coloană = 8 ms = 384 de eșantioane la 48 kHz) și le înșiră în ordine. Prima e cercul de calibrare, culoarea merge în trei cadre R, G, B.</p>
+<p class="m">Totul rămâne în browser. Rezultatul: un WAV de 48 kHz, 16 biți, mono, plus un index cu momentele de start. Fiecare imagine e decodată înapoi din semnalul cuantizat, ca să vezi dacă supraviețuiește.</p>
+</div>
+
+<div class="card">
+<h3>1 · Conținutul</h3>
+<div class="row">
+<input type="file" id="e_file" accept="image/*" multiple>
+<label for="e_fit">Încadrare</label><select id="e_fit"><option value="contain">întreagă (benzi negre)</option><option value="cover">umple cadrul (taie)</option></select>
+<button class="b s" id="e_ex">+ imagini de exemplu</button>
+</div>
+<div id="e_list"></div>
+<div class="row" style="margin-top:8px">
+<label><input type="checkbox" id="e_circ" checked> cerc de calibrare la început</label>
+<label><input type="checkbox" id="e_txt" checked> pagină de text</label>
+<label for="e_sep">Liniște între imagini (s)</label><input id="e_sep" type="number" step="0.01" min="0" max="2" value="0.1" style="width:5.5em">
+</div>
+<textarea id="e_text" maxlength="900" aria-label="Text pentru pagina de text">Salutări de pe Pământ.
+Disc codat în 2026,
+pentru sondele lansate în 2026–2027.</textarea>
+<p class="m">Pagina de text e randată ca imagine, deci orice decodor care citește imagini o citește și pe ea.</p>
+</div>
+
+<div class="card">
+<h3>1b · Contribuții primite</h3>
+<p class="m">Importă pachetele (.json) trimise de public din pasul „Contribuie”. Se acceptă doar pachetele cu acord explicit. Verifică fiecare contribuție înainte să o bifezi.</p>
+<div class="row"><input type="file" id="e_cfile" accept=".json,application/json" multiple>
+<label for="e_cn">Salutări pe pagină</label><select id="e_cn"><option>1</option><option selected>2</option><option>3</option><option>4</option></select>
+<label><input type="checkbox" id="e_creg" checked> registrul contribuitorilor</label></div>
+<div id="e_clist"></div>
+<div class="row"><button class="b" id="e_cadd">Adaugă bifatele la disc</button><button class="b s" id="e_caud" style="display:none">⬇ Salutări audio (WAV)</button></div>
+<div id="e_cmsg" class="m" style="margin-top:6px"></div>
+</div>
+
+<div class="card">
+<h3>1c · Pistă muzicală (opțional)</h3>
+<p class="m">Muzica nu e inclusă în aplicație. Încarci un fișier audio pe care ai dreptul să-l folosești, completezi fișa drepturilor, iar aplicația îl pune pe disc (WAV stereo, 48 kHz) și îl trece în index. O piesă fără drepturi lămurite nu poate fi adăugată.</p>
+<div class="row"><button class="b s" id="m_hcts">Here Comes the Sun (Beatles)</button><button class="b s" id="m_blank">Altă piesă sau interpretare proprie</button></div>
+<div id="m_form" style="display:none;margin-top:10px">
+<div id="m_note" class="card" style="background:var(--p2)"></div>
+<div class="row"><label for="m_file">Fișier audio</label><input type="file" id="m_file" accept="audio/*,.wav,.flac,.mp3,.ogg"></div>
+<div class="row" style="margin-top:6px"><label for="m_title">Titlu</label><input id="m_title" type="text" maxlength="120" size="26">
+<label for="m_artist">Interpret</label><input id="m_artist" type="text" maxlength="120" size="22"><label for="m_year">An</label><input id="m_year" type="text" maxlength="4" size="5"></div>
+<div class="row" style="margin-top:6px"><label for="m_comp">Autor compoziție</label><input id="m_comp" type="text" maxlength="120" size="22">
+<label for="m_pub">Editor (compoziție)</label><input id="m_pub" type="text" maxlength="120" size="22"></div>
+<div class="row" style="margin-top:6px"><label for="m_master">Titular al înregistrării</label><input id="m_master" type="text" maxlength="120" size="30"></div>
+<div class="row" style="margin-top:6px"><label for="m_status">Drepturi</label>
+<select id="m_status">
+<option value="unclear">Neclar sau fără licență (nu poate fi inclusă)</option>
+<option value="lic">Licență obținută pentru compoziție și înregistrare</option>
+<option value="own">Interpretare proprie + licență obținută pentru compoziție</option>
+<option value="own_pd">Interpretare proprie a unei compoziții în domeniu public</option>
+<option value="pd">Domeniu public (compoziție și înregistrare verificate)</option>
+</select></div>
+<div class="row" style="margin-top:6px"><label for="m_ref">Referință licență / sursa verificării</label><input id="m_ref" type="text" maxlength="300" size="40" placeholder="ex. contract nr., e-mail, adresa paginii"></div>
+<div class="row" style="margin-top:8px"><button class="b" id="m_add">Adaugă pe disc</button></div>
+</div>
+<div id="m_msg" class="m" style="margin-top:6px"></div>
+<div id="m_list"></div>
+<div class="row"><button class="b s" id="m_wav" style="display:none">⬇ Muzică (WAV stereo 48 kHz)</button></div>
+</div>
+
+<div class="card">
+<h3>2 · Data lansării și pulsarii</h3>
+<div class="row"><label for="e_date">Data lansării</label><input id="e_date" type="date" value="2026-12-01"></div>
+<div id="e_pul"></div>
+<p class="m">Perioadele sunt extrapolate liniar din valori aproximative de referință (epoca 2020). Pentru un disc real, folosește perioadele măsurate din catalogul ATNF pentru toți cei 14 pulsari.</p>
+</div>
+
+<div class="card">
+<h3>3 · Codează</h3>
+<div class="row"><button class="b" id="e_go">Codează discul</button></div>
+<div id="e_res" style="margin-top:8px"></div>
+<canvas id="e_ov" style="height:90px;margin-top:6px;display:none"></canvas>
+<div id="e_th" class="grid3" style="margin-top:10px"></div>
+<div class="row" id="e_act" style="margin-top:10px;display:none">
+<button class="b s" id="e_play">▶ Ascultă</button>
+<button class="b" id="e_wav">⬇ WAV</button>
+<button class="b s" id="e_idx">⬇ Index (txt)</button>
+<button class="b s" id="e_dec">Verifică în decodor →</button>
+</div>
+<div id="e_cov" style="margin-top:10px"></div>
+</div>
+</section>
+
+<!-- 9 -->
+<section id="s9">
+<h2>12 · Discul original (1977)</h2>
+<div class="card">
+<p>Inventarul <b>Voyager Interstellar Record</b> (Discul de Aur), atașat sondelor Voyager 1 și 2. Sursele sunt Wikipedia („Contents of the Voyager Golden Record”, „Voyager Golden Record”) și pagina Ozma Records. Clasificarea drepturilor din tabel e <b>a mea, orientativă</b>, nu un tabel oficial NASA.</p>
+</div>
+<div class="card"><h3>Muzică · 27 de piese, ~90 min</h3>
+<div class="tbl" id="o_mus"></div>
+<p class="m"><span class="tag A">A</span> compoziție veche (domeniu public în majoritatea țărilor), înregistrarea modernă rămâne protejată · <span class="tag B">B</span> tradițional / înregistrare de teren sau de arhivă · <span class="tag C">C</span> compoziție și înregistrare comerciale, necesită licență · <span class="tag D">D</span> înregistrare din 1927, în SUA probabil domeniu public (regula de 95 de ani, de verificat).</p>
+</div>
+<div class="card"><h3>Salutări · 55 de limbi</h3>
+<p>Salutarea în engleză a secretarului general ONU <b>Kurt Waldheim</b> deschide partea vorbită. Urmează salutări în 55 de limbi (înregistrate la Cornell), în ordinea de pe disc, iar ultima, în engleză, e a lui <b>Nick Sagan</b>.</p>
+<p class="m" id="o_lang"></p></div>
+<div class="card"><h3>Sunetele Pământului</h3>
+<p>Montaj sonor realizat de Ann Druyan și echipă (listă după memorie, de verificat în sursele NASA):</p>
+<ul>
+<li>natură: vulcani, cutremur, tunet, noroaie fierbinți, vânt, ploaie, valuri, greieri, broaște, păsări, hienă, elefant, cimpanzeu, câine sălbatic</li>
+<li>om și tehnică: pași și bătăi de inimă, râs, foc, primele unelte, câine domesticit, fierar, ferăstrău, tractor, nave, căruță, tren, camion, mașină, autobuz, motocicletă, avion, Saturn V</li>
+<li>cod Morse cu <i>per aspera ad astra</i>; sărut; mamă și copil</li>
+<li>„Semnele vieții”: ~1 oră din bătăile inimii și undele cerebrale ale lui Ann Druyan, comprimate la ~1 minut</li>
+<li>cântecul balenelor cu cocoașă, din înregistrările lui Roger Payne (albumul <i>Songs of the Humpback Whale</i>, 1970)</li></ul></div>
+<div class="card"><h3>Imagini · 115 + calibrare</h3>
+<p>Wikipedia numără 116 imagini, dintre care una e cercul de calibrare (deci 115 de conținut); declarația lui Carter apare în plus, codată ca imagini.</p>
+<ul>
+<li>calibrare și referințe: cercul, harta locației Soarelui, definiții matematice și de unități, parametrii Sistemului Solar</li>
+<li>Soare, spectrul solar, Mercur, Marte, Jupiter, Pământ; Egipt–Marea Roșie–Nil</li>
+<li>chimie, ADN, celule și diviziune; anatomie umană (8 diagrame)</li>
+<li>reproducere, naștere, alăptare, familie</li>
+<li>deriva continentelor, structura Pământului, evoluția vertebratelor</li>
+<li>peisaje, plante și animale (recif, plaje, râuri, deșerturi, păduri, delfini, crocodil, vultur)</li>
+<li>Jane Goodall cu cimpanzei și oameni din lumea întreagă; activități (alpinism, gimnastică, școală, recoltă, supermarket, gătit, masă)</li>
+<li>arhitectură și orașe (Marele Zid, Taj Mahal, Oxford, Boston, ONU, Opera din Sydney)</li>
+<li>industrie și transport (fabrică, muzeu, radiografie, microscop, autostrăzi, Golden Gate, tren, avion, aeroport)</li>
+<li>explorare și știință (expediție în Antarctica, radiotelescoape, pagină din Newton, astronautul Ed White, lansarea Titan Centaur)</li>
+<li>apus cu păsări, cvartet de coarde, vioară cu partitură</li></ul></div>
+<div class="card"><h3>Mesaje</h3><ul>
+<li><b>Kurt Waldheim</b>, secretar general ONU: salutare vorbită în engleză</li>
+<li><b>Jimmy Carter</b>, președintele SUA: declarație scrisă, codată ca imagini</li></ul></div>
+<div class="card warn"><h3>Drepturi de autor · ce știm și ce nu</h3>
+<p>Un disc ca acesta combină patru feluri de drepturi: <b>compoziția</b> (autor, editor), <b>înregistrarea</b> (interpreți, casa de discuri), <b>imaginile</b> (fotograf, agenție) și <b>înregistrările de teren</b> (arhivă, comunitate). În UE și în România protecția compoziției ține viața autorului + 70 de ani.</p>
+<ul>
+<li>Nu am găsit un tabel public, oficial, cu acordurile de licență pentru fiecare piesă și imagine. Sursele consultate nu spun cine deține drepturile fiecărui element și nici ce termeni a avut NASA.</li>
+<li>Pentru imagini, sursele spun că au intrat „când drepturile de autor au permis”; multe sunt creditate unor fotografi și agenții (de exemplu Ansel Adams, Stephen Dalton, surse legate de National Geographic). Fotografia unui cuplu nud a fost înlocuită cu o siluetă.</li>
+<li>NASA a încărcat audio pe SoundCloud în 2015. A fi ascultabil public nu înseamnă licență de reutilizare.</li>
+<li>Reeditarea Ozma Records din 2017 (Kickstarter de peste 1,4 milioane $, Grammy 2018 pentru ambalaj) a existat, dar termenii ei de licență nu sunt descriși în sursele consultate.</li>
+<li><b>„Here Comes the Sun”</b> (Beatles, 1969, George Harrison): Sagan a vrut piesa. În <i>Murmurs of Earth</i> (1978) scrie că Beatles erau pentru, dar „nu dețineau drepturile, iar statutul legal părea prea neclar ca să riști”. EMI, care deținea drepturile, a refuzat. Ann Druyan a povestit în 2015 că EMI ceruse 50.000 $ per înregistrare, pentru două, în timp ce întregul disc costase 18.000 $. Timothy Ferris a contestat în 2017 că piesa a fost vreodată luată serios în calcul.</li></ul>
+<p class="m">Nu e consultanță juridică. Pentru orice reutilizare, verifică fiecare element la deținătorul drepturilor.</p></div>
+<div class="card"><h3>Surse</h3><p class="m">en.wikipedia.org/wiki/Contents_of_the_Voyager_Golden_Record · en.wikipedia.org/wiki/Voyager_Record · en.wikipedia.org/wiki/Here_Comes_the_Sun · ozmarecords.com/pages/voyager · detalii oficiale: NASA/JPL.</p></div>
+</section>
+
+<div class="nv"><button class="b s" id="prev">← Înapoi</button><button class="b" id="next">Înainte →</button></div>
+</main>
+<footer>BRAZDA — aplicație într-un singur fișier, offline, fără urmăritoare, fără dependențe externe. · <a href="https://github.com/chiuta/brazda" rel="noopener">cod sursă</a> · licență MIT</footer>
+
+<script>
+//#PURE-START
+const W=512,H=384,FS=48000,TL=0.008,HF=1420405751.768;
+function interp(sig,p){const i0=Math.floor(p);if(i0<0||i0>=sig.length-1)return 0;const f=p-i0;return sig[i0]*(1-f)+sig[i0+1]*f;}
+function decode(sig,off,L,lines,h,roll){
+  const out=new Float32Array(lines*h);
+  for(let i=0;i<lines;i++){const st=off+i*L;
+    for(let y=0;y<h;y++){const yy=(y+roll)%h;out[y*lines+i]=interp(sig,st+(yy+.5)*L/h-.5);}}
+  return out;}
+function acScore(sig,a,L,len){
+  const N=Math.floor(len);let m1=0,m2=0;
+  for(let i=0;i<N;i++){m1+=interp(sig,a+i);m2+=interp(sig,a+i+L);}
+  m1/=N;m2/=N;let c=0,e1=0,e2=0;
+  for(let i=0;i<N;i++){const x=interp(sig,a+i)-m1,y=interp(sig,a+i+L)-m2;c+=x*y;e1+=x*x;e2+=y*y;}
+  const d=Math.sqrt(e1*e2);return d>1e-9&&isFinite(c)?c/d:0;}
+/* Estimează lungimea liniei L: corelația semnalului cu el însuși la lag L, în 3 ferestre
+   răspândite; dintre maximele aproape de cel mai bun alege pe cel mai apropiat de L0
+   (rezolvă ambiguitatea la imaginile periodice când L0 e valoarea nominală). */
+function autoL(sig,off,L0,span,skip){
+  if(!sig||!(L0>8)||sig.length<L0*8)return {L:L0,score:0};
+  const maxLines=Math.floor((sig.length-off)/L0)-2,nl=Math.max(16,Math.min(150,maxLines-skip)),nw=3;
+  if(!(maxLines>=nl+2))return {L:L0,score:0};
+  const wins=[];for(let w=0;w<nw;w++)wins.push(off+(skip+Math.floor(Math.max(0,maxLines-skip-nl)*w/(nw-1)))*L0);
+  const sc=L=>{let s=0;for(const a of wins)s+=acScore(sig,a,L,nl*L0/nw);return s/nw;};
+  const N=240,lo=L0*(1-span),st=2*L0*span/N,g=[];
+  for(let k=0;k<=N;k++)g.push(sc(lo+k*st));
+  let mx=-2;for(const v of g)if(v>mx)mx=v;
+  let pick=-1,pd=1e9;
+  for(let k=0;k<=N;k++){const v=g[k];if(v<mx*.97||v<=0)continue;
+    if((k===0||v>=g[k-1])&&(k===N||v>=g[k+1])){const d=Math.abs(lo+k*st-L0);if(d<pd){pd=d;pick=k;}}}
+  if(pick<0)return {L:L0,score:Math.max(0,mx)};
+  const c=lo+pick*st;let best=c,bs=-2;
+  for(let k=-24;k<=24;k++){const L=c+k*st/24,s=sc(L);if(s>bs){bs=s;best=L;}}
+  return {L:best,score:bs};}
+/* Abaterea relativă a razelor față de media lor pentru pixelii „aprinși” (≈0 pentru un cerc). */
+function roundCost(arr,w,h,thr,dark){
+  let n=0,sx=0,sy=0;
+  for(let y=0;y<h;y++)for(let x=0;x<w;x++){const v=arr[y*w+x];if(dark?v<thr:v>thr){n++;sx+=x;sy+=y;}}
+  if(n<150||n>w*h*.5)return Infinity;
+  const cx=sx/n,cy=sy/n;let sr=0,sr2=0;
+  for(let y=0;y<h;y++)for(let x=0;x<w;x++){const v=arr[y*w+x];if(dark?v<thr:v>thr){const r=Math.hypot(x-cx,y-cy);sr+=r;sr2+=r*r;}}
+  const m=sr/n,v=Math.max(0,sr2/n-m*m);return Math.sqrt(v)/m;}
+/* Rafinează L în jurul lui L0 (±range) prin rotunjimea cercului de calibrare. */
+function refineCircle(sig,off,L0,range,lines,h,thr,dark){
+  const ev=(L,d)=>roundCost(decode(sig,off,L,lines,h,0),lines,h,thr,d);
+  if(dark===undefined)dark=ev(L0,true)<ev(L0,false);
+  let best=L0,bc=ev(L0,dark);const N=40,st=range/N;
+  for(let k=-N;k<=N;k++){const c=ev(L0+k*st,dark);if(c<bc){bc=c;best=L0+k*st;}}
+  const c0=best;
+  for(let k=-20;k<=20;k++){const L=c0+k*st/20,c=ev(L,dark);if(c<bc){bc=c;best=L;}}
+  return {L:best,cost:bc,dark};}
+function autoRange(arr){
+  const n=arr.length,step=Math.max(1,Math.floor(n/20000)),s=[];
+  for(let i=0;i<n;i+=step)s.push(arr[i]);
+  s.sort((a,b)=>a-b);
+  const lo=s[Math.floor(s.length*.01)],hi=s[Math.floor(s.length*.99)];
+  return hi-lo<1e-9?[lo-1,hi+1]:[lo,hi];}
+function withNoise(sig,a){
+  if(a<=0)return sig;const o=new Float32Array(sig.length);
+  for(let i=0;i<o.length;i++)o[i]=sig[i]+(Math.random()+Math.random()+Math.random()-1.5)*a*.8;
+  return o;}
+function buildTrack(parts,sep){
+  const nfr=parts.reduce((a,p)=>a+p.fr.length,0),sig=new Float32Array(nfr*W*H+sep*(parts.length+1)),starts=[];let pos=sep;
+  parts.forEach(p=>{starts.push(pos);
+    p.fr.forEach(a=>{for(let x=0;x<W;x++)for(let y=0;y<H;y++)sig[pos+x*H+y]=(a[y*W+x]-.5)*1.8;pos+=W*H;});
+    pos+=sep;});
+  return {sig,starts};}
+function quant16(s){const o=new Float32Array(s.length);for(let i=0;i<s.length;i++)o[i]=Math.round(Math.max(-1,Math.min(1,s[i]))*32767)/32767;return o;}
+function psnr(dec,a){let e=0;const n=a.length;for(let i=0;i<n;i++){const d=dec[i]-(a[i]-.5)*1.8;e+=d*d;}e/=n;return e<1e-14?Infinity:10*Math.log10(3.24/e);}
+//#PURE-END
+
+const $=s=>document.querySelector(s);
+const $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function wavBlob(sig,fs){const n=sig.length,buf=new ArrayBuffer(44+n*2),v=new DataView(buf);
+  const ws=(o,s)=>{for(let i=0;i<s.length;i++)v.setUint8(o+i,s.charCodeAt(i));};
+  ws(0,'RIFF');v.setUint32(4,36+n*2,true);ws(8,'WAVE');ws(12,'fmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);
+  v.setUint32(24,fs,true);v.setUint32(28,fs*2,true);v.setUint16(32,2,true);v.setUint16(34,16,true);ws(36,'data');v.setUint32(40,n*2,true);
+  for(let i=0;i<n;i++)v.setInt16(44+2*i,Math.max(-1,Math.min(1,sig[i]))*32767,true);
+  return new Blob([buf],{type:'audio/wav'});}
+function dl(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>a.remove(),500);setTimeout(()=>URL.revokeObjectURL(a.href),30000);}
+
+function wavStereo(L,R,fs){const n=L.length,buf=new ArrayBuffer(44+n*4),v=new DataView(buf);
+  const ws=(o,s)=>{for(let i=0;i<s.length;i++)v.setUint8(o+i,s.charCodeAt(i));};
+  ws(0,'RIFF');v.setUint32(4,36+n*4,true);ws(8,'WAVE');ws(12,'fmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,2,true);
+  v.setUint32(24,fs,true);v.setUint32(28,fs*4,true);v.setUint16(32,4,true);v.setUint16(34,16,true);ws(36,'data');v.setUint32(40,n*4,true);
+  for(let i=0;i<n;i++){v.setInt16(44+4*i,Math.max(-1,Math.min(1,L[i]))*32767,true);v.setInt16(46+4*i,Math.max(-1,Math.min(1,R[i]))*32767,true);}
+  return new Blob([buf],{type:'audio/wav'});}
+
+/* ---------- imagini sintetice ---------- */
+const NAMES={cerc:'Cerc de calibrare',sistem:'Soare și planete (schemă)',adn:'Dublu helix (schemă)',harta:'Hartă radială (schemă)'};
+function cvs(){const c=document.createElement('canvas');c.width=W;c.height=H;return c;}
+function drawGray(nm){
+  const c=cvs(),g=c.getContext('2d');g.fillStyle='#000';g.fillRect(0,0,W,H);g.strokeStyle='#fff';g.fillStyle='#fff';
+  if(nm==='cerc'){g.lineWidth=7;g.beginPath();g.arc(256,192,175,0,6.2832);g.stroke();}
+  else if(nm==='sistem'){g.beginPath();g.arc(36,192,34,0,6.2832);g.fill();
+    const xs=[100,138,182,226,290,352,412,466],rs=[4,7,8,6,20,16,11,11],tn=[255,200,230,190,235,210,170,150];
+    xs.forEach((x,i)=>{g.fillStyle='rgb('+tn[i]+','+tn[i]+','+tn[i]+')';g.beginPath();g.arc(x,192+(i%2?20:-20),rs[i],0,6.2832);g.fill();});
+    g.lineWidth=1;g.strokeStyle='#444';g.beginPath();g.moveTo(0,192);g.lineTo(W,192);g.stroke();}
+  else if(nm==='adn'){g.lineWidth=3;
+    for(let x=30;x<=482;x+=14){const a=90*Math.sin(x/28);g.strokeStyle='#888';g.beginPath();g.moveTo(x,192+a);g.lineTo(x,192-a);g.stroke();}
+    g.strokeStyle='#fff';g.lineWidth=5;
+    for(const ph of [0,Math.PI]){g.beginPath();for(let x=30;x<=482;x+=2){const y=192+90*Math.sin(x/28+ph);x===30?g.moveTo(x,y):g.lineTo(x,y);}g.stroke();}}
+  else if(nm==='harta'){let s=7;const rnd=()=>(s=(s*16807)%2147483647)/2147483647;
+    g.lineWidth=2;for(let i=0;i<14;i++){const a=i/14*6.2832+rnd()*.3,l=60+rnd()*115;
+      g.strokeStyle='#fff';g.beginPath();g.moveTo(256,192);g.lineTo(256+Math.cos(a)*l,192+Math.sin(a)*l);g.stroke();
+      const ex=256+Math.cos(a)*l,ey=192+Math.sin(a)*l;g.strokeStyle='#aaa';g.beginPath();g.moveTo(ex-Math.sin(a)*8,ey+Math.cos(a)*8);g.lineTo(ex+Math.sin(a)*8,ey-Math.cos(a)*8);g.stroke();}
+    g.beginPath();g.arc(256,192,6,0,6.2832);g.fill();}
+  return c;}
+function drawColor(){
+  const c=cvs(),g=c.getContext('2d');
+  const gr=g.createLinearGradient(0,0,0,H*.7);gr.addColorStop(0,'#1d3f9c');gr.addColorStop(1,'#9fd6ff');g.fillStyle=gr;g.fillRect(0,0,W,H);
+  g.fillStyle='#ffd23f';g.beginPath();g.arc(420,80,40,0,6.2832);g.fill();
+  g.fillStyle='#2f9e44';g.beginPath();g.ellipse(150,H,260,110,0,0,6.2832);g.fill();
+  g.fillStyle='#237a35';g.beginPath();g.ellipse(430,H,200,80,0,0,6.2832);g.fill();
+  g.fillStyle='#c0392b';g.fillRect(120,200,110,80);g.fillStyle='#6b2d1a';g.beginPath();g.moveTo(105,200);g.lineTo(175,150);g.lineTo(245,200);g.fill();
+  g.fillStyle='#f5f5f5';g.fillRect(160,230,30,50);
+  return c;}
+function chans(cv){
+  const d=cv.getContext('2d').getImageData(0,0,W,H).data,n=W*H,r=new Float32Array(n),g=new Float32Array(n),b=new Float32Array(n),l=new Float32Array(n);
+  for(let i=0;i<n;i++){r[i]=d[4*i]/255;g[i]=d[4*i+1]/255;b[i]=d[4*i+2]/255;l[i]=.299*r[i]+.587*g[i]+.114*b[i];}
+  return {r,g,b,l};}
+function enc(ch,out,off){for(let x=0;x<W;x++)for(let y=0;y<H;y++)out[off+x*H+y]=(ch[y*W+x]-.5)*1.8;}
+const IMG={};
+for(const k in NAMES){const cv=drawGray(k),ch=chans(cv),sig=new Float32Array(W*H);enc(ch.l,sig,0);IMG[k]={cv,sig};}
+const COL=(()=>{const cv=drawColor(),ch=chans(cv),sig=new Float32Array(3*W*H);enc(ch.r,sig,0);enc(ch.g,sig,W*H);enc(ch.b,sig,2*W*H);return {cv,sig};})();
+
+/* ---------- desen ---------- */
+function paint(cv,arr,w,h,lo,hi,inv){
+  cv.width=w;cv.height=h;const g=cv.getContext('2d'),id=g.createImageData(w,h),d=id.data,k=1/((hi-lo)||1);
+  for(let i=0;i<w*h;i++){let v=(arr[i]-lo)*k;v=v<0?0:v>1?1:v;if(inv)v=1-v;const b=v*255;d[4*i]=d[4*i+1]=d[4*i+2]=b;d[4*i+3]=255;}
+  g.putImageData(id,0,0);}
+function paintColor(cv,arrs,map,en,w,h,lo,hi){
+  cv.width=w;cv.height=h;const g=cv.getContext('2d'),id=g.createImageData(w,h),d=id.data;
+  for(let i=0;i<w*h;i++){d[4*i]=d[4*i+1]=d[4*i+2]=0;d[4*i+3]=255;}
+  arrs.forEach((a,f)=>{const c=map[f];if(!en[c])return;const k=1/((hi[f]-lo[f])||1);for(let i=0;i<w*h;i++){let v=(a[i]-lo[f])*k;v=v<0?0:v>1?1:v;d[4*i+c]=v*255;}});
+  g.putImageData(id,0,0);}
+function wave(cv,sig,start,n,color){
+  cv.width=800;cv.height=180;const w=cv.getContext('2d');w.fillStyle='#070910';w.fillRect(0,0,800,180);
+  w.strokeStyle='#27304a';w.lineWidth=1;w.beginPath();w.moveTo(0,90);w.lineTo(800,90);w.stroke();
+  w.strokeStyle=color||'#6ad1e6';w.lineWidth=1.6;w.beginPath();
+  for(let k=0;k<n;k++){const v=sig[start+k]||0,px=k/(n-1)*800,py=90-Math.max(-1,Math.min(1,v/.95))*82;k?w.lineTo(px,py):w.moveTo(px,py);}
+  w.stroke();}
+let AC,SRC;
+let PAUSE6=()=>{},MIC_STOP=()=>{};
+function ctx(){AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();return AC;}
+function play(sig){stop();const a=ctx(),b=a.createBuffer(1,sig.length,FS);b.copyToChannel(sig,0);SRC=a.createBufferSource();SRC.buffer=b;const g=a.createGain();g.gain.value=.25;SRC.connect(g);g.connect(a.destination);SRC.start();}
+function stop(){try{SRC&&SRC.stop();}catch(e){}SRC=null;}
+function fillSel(s){const e=$(s);for(const k in NAMES){const o=document.createElement('option');o.value=k;o.textContent=NAMES[k];e.appendChild(o);}}
+const fmt=(x,d=4)=>Number(x).toLocaleString('ro-RO',{maximumSignificantDigits:d});
+
+/* ---------- navigare ---------- */
+const STEPS=['Discul','Viteza','Ceasul H','Pulsari','Semnalul','Cercul','Linie cu linie','Culoare','Fișierul tău','Contribuie','Codare 2026','Discul original'];
+const INIT=[initS0,initS1,initS2,initS3,initS4,initS5,initS6,initS7,initS8,initS9C,initS9E,initS10];
+const REAL={sigs:null,fs:0,dur:0,mono:true,load:null,err:''};
+const inited={};let cur=0;
+const nav=$('#nav');
+STEPS.forEach((t,i)=>{const b=document.createElement('button');b.textContent=(i+1)+' · '+t;b.onclick=()=>show(i);nav.appendChild(b);});
+function show(i){
+  cur=Math.max(0,Math.min(STEPS.length-1,i));
+  $$('main section').forEach((s,k)=>s.classList.toggle('on',k===cur));
+  [...nav.children].forEach((b,k)=>{b.classList.toggle('on',k===cur);b.setAttribute('aria-current',k===cur?'step':'false');if(k<cur)b.classList.add('done');});
+  if(cur!==6)PAUSE6();if(cur!==9)MIC_STOP();stop();
+  if(!inited[cur]){inited[cur]=1;INIT[cur]();}
+  nav.children[cur].scrollIntoView({inline:'center',block:'nearest'});
+  window.scrollTo(0,0);
+  $('#prev').style.visibility=cur?'visible':'hidden';$('#next').style.visibility=cur<STEPS.length-1?'visible':'hidden';}
+$('#prev').onclick=()=>show(cur-1);$('#next').onclick=()=>show(cur+1);
+
+/* ---------- S0 ---------- */
+function initS0(){
+  const T={
+   1:'<b>Discul.</b> Cupru placat cu aur, 30 cm. Brazda (spirala) pornește de la margine și merge spre centru. Pentru conservarea în vid, discul e închis într-un capac de aluminiu. Pe capac, un cartuș și un ac sunt montate lângă el.',
+   2:'<b>Acul.</b> Diagrama arată cum se așază acul pe brazdă și cum se rotește discul. Fără ac pe poziția corectă nu se aude nimic. Viteza (16⅔ rpm) o dă un ciclu desenat pe capac.',
+   3:'<b>Hidrogenul.</b> Doi atomi de hidrogen cu spini opuși: tranziția dintre cele două stări emite unda de 21 cm. Perioada ei ≈ 0,704 ns e unitatea de timp pentru tot capacul (pasul 3).',
+   4:'<b>Imaginea-cerc.</b> Prima imagine de pe disc e un cerc. Diagrama arată cum fiecare linie verticală a imaginii corespunde unui fragment de semnal de 8 ms. Numărul de linii (512) e scris în binar. Vezi pașii 5–7.',
+   5:'<b>Pulsarii.</b> Harta cu 14 pulsari arată unde se află Soarele față de ei, iar perioadele lor indică și momentul lansării (pasul 4).'};
+  const set=k=>$('#info0').innerHTML=T[k];
+  $$('#s0 .hs').forEach(g=>{g.onclick=()=>set(g.dataset.k);g.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();set(g.dataset.k);}};});}
+
+/* ---------- S1 ---------- */
+function initS1(){
+  const sel=$('#s1rpm'),out=$('#s1out');
+  function run(){
+    const rpm=+sel.value,f=rpm/(50/3),rot=60/rpm,line=TL*1000/f,img=W*line/1000;
+    const semi=12*Math.log2(f);
+    out.innerHTML='<div class="row"><div>Un tur complet: <span class="k">'+fmt(rot)+' s</span></div><div>O linie: <span class="k">'+fmt(line)+' ms</span></div><div>O imagine: <span class="k">'+fmt(img)+' s</span></div></div>'+
+     '<div>Rotații pe imagine: <span class="k">'+fmt(img/rot)+'</span> · Factor de viteză: <span class="k">'+fmt(f)+'×</span> · Înălțimea sunetului: <span class="k">'+(semi>0?'+':'')+fmt(semi,3)+' semitonuri</span></div>'+
+     (Math.abs(f-1)<1e-3?'<div class="ok" style="margin-top:6px">Viteză corectă: 8 ms/linie, 384 eșantioane la 48 kHz.</div>':
+      '<div class="bad" style="margin-top:6px">Vitezele greșite scurtează linia la '+fmt(line)+' ms. Cu 8 ms/linie imaginea apare deformată.</div>');}
+  sel.onchange=run;run();}
+
+/* ---------- S2 ---------- */
+function initS2(){
+  const T=1/HF,N=TL/T;
+  $('#s2a').innerHTML='Frecvența: <span class="k">'+HF.toLocaleString('ro-RO',{maximumFractionDigits:3})+' Hz</span><br>Perioada: <span class="k">'+(T*1e9).toFixed(5)+' ns</span><br>8 ms = <span class="k">'+Math.round(N).toLocaleString('ro-RO')+'</span> perioade ≈ <span class="k">'+Math.round(N).toString(2)+'</span> în binar';
+  const inp=$('#s2b');
+  function run(){
+    const s=inp.value.replace(/[^01]/g,'');
+    $('#s2v').textContent=s.replace(/1/g,'|').replace(/0/g,'·');
+    if(!s){$('#s2o').textContent='';return;}
+    if(s.length>52){$('#s2o').textContent='Prea lung (max 52 de cifre).';return;}
+    const v=parseInt(s,2),t=v*T;
+    $('#s2o').innerHTML='Valoare: <span class="k">'+v.toLocaleString('ro-RO')+'</span> perioade-hidrogen = <span class="k">'+(t<1e-6?fmt(t*1e9,6)+' ns':t<1e-3?fmt(t*1e6,6)+' µs':t<1?fmt(t*1e3,6)+' ms':fmt(t,6)+' s')+'</span><br><span class="m">„|” = 1, „·” = 0 (convenție folosită aici)</span>';}
+  inp.oninput=run;
+  $('#s2ex').onclick=()=>{inp.value=Math.round(N).toString(2);run();};
+  $('#s2ex2').onclick=()=>{inp.value=(512).toString(2);run();};
+  run();}
+
+/* ---------- S3 ---------- */
+function initS3(){
+  const T=1/HF,inp=$('#s3p');
+  function run(){
+    const p=+inp.value;if(!(p>0)){$('#s3o').textContent='';return;}
+    const n=p/T,b=Math.round(n).toString(2);
+    $('#s3o').innerHTML='Perioada: <span class="k">'+fmt(p)+' s</span><br>= <span class="k">'+n.toExponential(4)+'</span> perioade-hidrogen<br>În binar ('+b.length+' cifre):<div class="bin">'+b+'</div><span class="m">Pe capac, cifrele sunt desenate ca trăsături. Cu cât numărul are mai multe cifre, cu atât perioada e mai lungă.</span>';}
+  inp.oninput=run;
+  $$('#s3 [data-p]').forEach(b=>b.onclick=()=>{inp.value=b.dataset.p;run();});
+  run();}
+
+/* ---------- S4 ---------- */
+function initS4(){
+  fillSel('#s4img');const sel=$('#s4img'),x=$('#s4x');
+  function draw(){
+    const nm=sel.value,xv=+x.value,cim=$('#s4im');
+    cim.width=W;cim.height=H;const g=cim.getContext('2d');g.drawImage(IMG[nm].cv,0,0);
+    g.strokeStyle='#e6c26a';g.lineWidth=2;g.beginPath();g.moveTo(xv+.5,0);g.lineTo(xv+.5,H);g.stroke();
+    wave($('#s4wv'),IMG[nm].sig,xv*H,H);
+    $('#s4xl').textContent=xv+' / 511';
+    $('#s4inf').innerHTML='Linia '+xv+' = eșantioanele '+(xv*H)+'–'+((xv+1)*H-1)+' (t = '+fmt(xv*8)+' – '+fmt((xv+1)*8)+' ms). Axa orizontală a formei de undă = rândurile imaginii de sus în jos; înălțimea = luminozitatea.';}
+  sel.onchange=draw;x.oninput=draw;draw();
+  $('#s4play').onclick=()=>play(IMG[sel.value].sig);
+  $('#s4wav').onclick=()=>dl(wavBlob(IMG[sel.value].sig,FS),'brazda-'+sel.value+'.wav');}
+
+/* ---------- S5 ---------- */
+function initS5(){
+  const sig=IMG.cerc.sig,fsR=$('#s5fs'),out=$('#s5out');
+  function run(){
+    const fs=+fsR.value,L=fs*TL;
+    $('#s5fl').textContent=fs;$('#s5ll').textContent=fmt(L,5);
+    const arr=decode(sig,0,L,W,H,0);paint(out,arr,W,H,-.9,.9,false);
+    if($('#s5ov').checked){const g=out.getContext('2d');g.setLineDash([6,5]);g.strokeStyle='#ff7a7a';g.lineWidth=1.5;g.beginPath();g.arc(256,192,175,0,6.2832);g.stroke();g.setLineDash([]);}
+    const cost=roundCost(arr,W,H,0,false),m=$('#s5m');
+    if(!isFinite(cost)){m.innerHTML='<span class="bad">Nu se vede un cerc.</span>';return;}
+    m.innerHTML='Abatere de la cerc: <span class="k">'+(cost*100).toFixed(1)+' %</span> · L = <span class="k">'+L.toFixed(2)+'</span> · '+(cost<0.045?'<span class="ok">cerc rotund: calibrare corectă</span>':'<span class="bad">forma e deformată: L sau frecvența sunt greșite</span>');}
+  fsR.oninput=run;$('#s5ov').onchange=run;
+  $('#s5rst').onclick=()=>{fsR.value=48000;run();};
+  $('#s5auto').onclick=()=>{const b=$('#s5auto');b.textContent='Se caută…';setTimeout(()=>{const r=autoL(sig,0,(+fsR.value)*TL,.25,150),q=refineCircle(sig,0,r.L,1.5,W,H,0,false);fsR.value=Math.round(q.L/TL);b.textContent='Calibrează automat';run();},30);};
+  run();}
+
+/* ---------- S6 ---------- */
+function initS6(){
+  fillSel('#s6img');
+  const sel=$('#s6img'),sp=$('#s6sp'),nz=$('#s6nz'),cv=$('#s6im'),wv=$('#s6wv'),inf=$('#s6inf'),bp=$('#s6play');
+  cv.width=W;cv.height=H;const g=cv.getContext('2d'),ID=g.createImageData(W,H);
+  let sig,arr,pos=0,pl=false,last=0;
+  function build(){sig=withNoise(IMG[sel.value].sig,+nz.value);arr=decode(sig,0,H,W,H,0);draw();}
+  function draw(){
+    const ci=Math.floor(pos),d=ID.data;d.fill(0);for(let i=3;i<d.length;i+=4)d[i]=255;
+    for(let x=0;x<ci&&x<W;x++)for(let y=0;y<H;y++){let v=(arr[y*W+x]+.9)/1.8;v=v<0?0:v>1?1:v;const o=4*(y*W+x);d[o]=d[o+1]=d[o+2]=v*255;}
+    g.putImageData(ID,0,0);const mx=Math.min(ci,W-1);
+    g.strokeStyle='#e6c26a';g.lineWidth=2;g.beginPath();g.moveTo(mx+.5,0);g.lineTo(mx+.5,H);g.stroke();
+    wave(wv,sig,mx*H,H);
+    inf.innerHTML='Linia <span class="k">'+ci+' / 512</span> · t = <span class="k">'+ci*8+' ms</span> · eșantioane '+(mx*H)+'–'+((mx+1)*H-1);}
+  function tick(t){if(!pl)return;const dt=Math.min(.1,(t-last)/1000);last=t;pos=Math.min(W,pos+dt*125*(+sp.value));
+    if(pos>=W){pl=false;bp.textContent='▶ Redă';}draw();if(pl)requestAnimationFrame(tick);}
+  bp.onclick=()=>{if(pl){pl=false;bp.textContent='▶ Redă';return;}if(pos>=W)pos=0;pl=true;bp.textContent='⏸ Pauză';last=performance.now();requestAnimationFrame(tick);};
+  $('#s6prev').onclick=()=>{pl=false;bp.textContent='▶ Redă';pos=Math.max(0,Math.floor(pos)-1);draw();};
+  $('#s6next').onclick=()=>{pl=false;bp.textContent='▶ Redă';pos=Math.min(W,Math.floor(pos)+1);draw();};
+  $('#s6rst').onclick=()=>{pl=false;bp.textContent='▶ Redă';pos=0;draw();};
+  sel.onchange=()=>{pos=0;build();};
+  nz.oninput=()=>{$('#s6nzl').textContent=(+nz.value).toFixed(2);build();};
+  PAUSE6=()=>{pl=false;bp.textContent='▶ Redă';};
+  build();}
+
+/* ---------- S7 ---------- */
+function initS7(){
+  const ords=$('#s7ord');
+  const frames=[0,1,2].map(f=>decode(COL.sig,f*W*H,H,W,H,0));
+  function run(){
+    const map=ords.value.split(',').map(Number),en=[false,false,false];
+    $$('.s7c').forEach(c=>en[+c.value]=c.checked);
+    ['#s7a','#s7b','#s7c2'].forEach((s,i)=>paint($(s),frames[i],W,H,-.9,.9,false));
+    paintColor($('#s7out'),frames,map,en,W,H,[-.9,-.9,-.9],[.9,.9,.9]);}
+  ords.onchange=run;$$('.s7c').forEach(c=>c.onchange=run);run();}
+
+/* ---------- S8 ---------- */
+function initS8(){
+  const R=REAL;let timer=0;
+  const msg=t=>$('#s8msg').innerHTML=t;
+  function curSig(){if(!R.sigs)return null;const c=$('#s8ch').value;if(c==='m'&&!R.mono){const a=R.sigs[0],b=R.sigs[1],o=new Float32Array(a.length);for(let i=0;i<o.length;i++)o[i]=(a[i]+b[i])/2;return o;}return R.sigs[R.mono?0:+c];}
+  let cache={k:'',v:null};
+  function sig(){const k=$('#s8ch').value;if(cache.k!==k||!cache.v){cache={k,v:curSig()};}return cache.v;}
+  function overview(){
+    const cv=$('#s8ov');cv.width=900;cv.height=90;const g=cv.getContext('2d');g.fillStyle='#070910';g.fillRect(0,0,900,90);
+    const s=sig();if(!s)return;
+    g.strokeStyle='#4aa3c0';g.beginPath();
+    for(let b=0;b<900;b++){const a=Math.floor(b*s.length/900),z=Math.floor((b+1)*s.length/900),st=Math.max(1,Math.floor((z-a)/200));let mn=1,mx=-1;for(let i=a;i<z;i+=st){if(s[i]<mn)mn=s[i];if(s[i]>mx)mx=s[i];}if(mx<mn){mn=mx=0;}g.moveTo(b+.5,45-mx*42);g.lineTo(b+.5,45-mn*42);}
+    g.stroke();
+    const fr=+$('#s8fr').value,L=+$('#s8L').value,lines=+$('#s8lines').value,off=(+$('#s8off').value)*R.fs;
+    g.fillStyle='rgba(230,194,106,.25)';g.fillRect(off/s.length*900,0,Math.max(2,fr*lines*L/s.length*900),90);
+    g.fillStyle='#e6c26a';g.fillRect(off/s.length*900,0,2,90);}
+  function run(){
+    const s=sig();if(!s)return;
+    $('#s8rl').textContent=$('#s8roll').value;
+    const fr=+$('#s8fr').value,L=+$('#s8L').value,lines=Math.min(1024,Math.max(16,(+$('#s8lines').value)|0)),off=Math.max(0,+$('#s8off').value||0)*R.fs,roll=(+$('#s8roll').value)|0,inv=$('#s8inv').checked;
+    if(!(L>8&&L<20000)){msg('L trebuie să fie între 8 și 20000.');return;}
+    overview();
+    const need=off+fr*lines*L;
+    msg(R.err||(need>s.length?'<span class="bad">Segmentul ales depășește fișierul ('+fmt(need/R.fs)+' s necesari, '+fmt(R.dur)+' s disponibili).</span>':'Imagine de '+fmt(fr*lines*L/R.fs)+' s decodată.'));
+    const out=$('#s8out');
+    if(fr===1){const a=decode(s,off,L,lines,H,roll),r=autoRange(a);paint(out,a,lines,H,r[0],r[1],inv);}
+    else{const arrs=[0,1,2].map(f=>decode(s,off+f*lines*L,L,lines,H,roll)),lo=[],hi=[];
+      arrs.forEach((a,i)=>{const r=autoRange(a);lo[i]=r[0];hi[i]=r[1];});
+      // paintColor folosește un singur hi/lo global: normalizăm per canal
+      const norm=arrs.map((a,i)=>{const o=new Float32Array(a.length),k=1/((hi[i]-lo[i])||1);for(let j=0;j<a.length;j++)o[j]=(a[j]-lo[i])*k;return o;});
+      paintColor(out,norm,[0,1,2],[true,true,true],lines,H,[0,0,0],[1,1,1]);
+      if(inv){const g=out.getContext('2d'),id=g.getImageData(0,0,lines,H),d=id.data;for(let i=0;i<d.length;i+=4){d[i]=255-d[i];d[i+1]=255-d[i+1];d[i+2]=255-d[i+2];}g.putImageData(id,0,0);}}}
+  function sched(){clearTimeout(timer);timer=setTimeout(run,150);}
+  ['s8off','s8L','s8lines','s8ch','s8fr','s8inv','s8roll'].forEach(id=>$('#'+id).addEventListener(id==='s8ch'?'change':'input',()=>{if(id==='s8ch')cache.k='';sched();}));
+  let loadTok=0;
+  $('#s8file').onchange=async e=>{
+    const f=e.target.files[0];if(!f)return;const tok=++loadTok;
+    if(f.size>150e6){msg('<span class="bad">Fișier prea mare ('+fmt(f.size/1e6)+' MB). Taie un segment de câteva minute.</span>');return;}
+    msg('Se decodează fișierul…');
+    try{const ab=await ctx().decodeAudioData(await f.arrayBuffer());
+      if(tok!==loadTok)return;
+      R.err='';R.fs=ab.sampleRate;R.dur=ab.duration;R.mono=ab.numberOfChannels<2;R.sigs=[ab.getChannelData(0)];if(!R.mono)R.sigs.push(ab.getChannelData(1));
+      cache={k:'',v:null};
+      $('#s8L').value=(R.fs*TL).toFixed(2);$('#s8off').value=0;
+      $('#s8info').innerHTML=esc(f.name)+' · <span class="k">'+fmt(R.dur)+' s</span> · <span class="k">'+R.fs+' Hz</span> · '+(R.mono?'mono':'stereo');
+      run();}
+    catch(err){if(tok===loadTok){R.err='<span class="bad">Nu am putut decodifica fișierul: '+esc(err&&err.message||err)+'</span>';msg(R.err);}}};
+  $('#s8ov').onclick=e=>{if(!R.sigs)return;const r=e.target.getBoundingClientRect();$('#s8off').value=((e.clientX-r.left)/r.width*R.dur).toFixed(3);run();};
+  $('#s8auto').onclick=()=>{const s=sig();if(!s){msg('Încarcă mai întâi un fișier.');return;}
+    msg('Se caută L…');setTimeout(()=>{const L0=+$('#s8L').value,off=(+$('#s8off').value)*R.fs,r=autoL(s,off,L0,.12,100);
+      $('#s8L').value=r.L.toFixed(2);run();msg('L = '+r.L.toFixed(2)+' eșantioane/linie · potrivire '+r.score.toFixed(2)+' (aproape de 1 = clar, aproape de 0 = nu e imagine; un ton pur sau o imagine periodică pot da tot ~1)');},30);};
+  $$('#s8 [data-dl]').forEach(b=>b.onclick=()=>{const v=+$('#s8L').value||0;$('#s8L').value=(v+(+b.dataset.dl)).toFixed(3);run();});
+  $('#s8circ').onclick=()=>{const s=sig();if(!s){msg('Încarcă mai întâi un fișier.');return;}
+    msg('Se caută cercul…');setTimeout(()=>{
+      const L=+$('#s8L').value,lines=Math.min(1024,Math.max(16,(+$('#s8lines').value)|0)),off=Math.max(0,+$('#s8off').value||0)*R.fs;
+      if(!(L>8&&L<20000)){msg('L invalid.');return;}
+      const a=decode(s,off,L,lines,H,0),r=autoRange(a),thr=(r[0]+r[1])/2,q=refineCircle(s,off,L,Math.min(2,L*.01),lines,H,thr);
+      if(!isFinite(q.cost)){msg('<span class="bad">Nu găsesc un cerc în segmentul ales. Verifică începutul și canalul.</span>');return;}
+      $('#s8L').value=q.L.toFixed(3);run();
+      msg('L = '+q.L.toFixed(3)+' · abatere de la cerc '+(q.cost*100).toFixed(1)+' %'+(q.cost<0.045?' · <span class="ok">rotund</span>':' · <span class="bad">încă deformat: ajustează începutul sau canalul</span>'));},30);};
+  $('#s8png').onclick=()=>$('#s8out').toBlob(b=>b&&dl(b,'brazda-imagine.png'));
+  R.load=(sigs,fs,name,off,fr)=>{
+    R.err='';R.sigs=sigs;R.fs=fs;R.dur=sigs[0].length/fs;R.mono=sigs.length<2;cache={k:'',v:null};
+    $('#s8L').value=(fs*TL).toFixed(2);$('#s8off').value=(off||0).toFixed(3);$('#s8fr').value=String(fr||1);$('#s8roll').value=0;
+    $('#s8info').innerHTML=esc(name)+' · <span class="k">'+fmt(R.dur)+' s</span> · <span class="k">'+fs+' Hz</span> · '+(R.mono?'mono':'stereo');
+    run();};
+}
+
+/* ---------- S9C: contribuții publice ---------- */
+const COLLECT_EMAIL='alexio@trom.tf'; // adresa la care publicul trimite pachetele; schimb-o dacă e cazul
+const rid=()=>Array.from(crypto.getRandomValues(new Uint8Array(4)),b=>b.toString(16).padStart(2,'0')).join('');
+function b64(blob){return new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>ok(r.result);r.onerror=no;r.readAsDataURL(blob);});}
+function fitTo(img,mode){const c=cvs(),g=c.getContext('2d');g.fillStyle='#000';g.fillRect(0,0,W,H);
+  const iw=img.naturalWidth||img.width,ih=img.naturalHeight||img.height;if(!iw||!ih)return c;const s=mode==='cover'?Math.max(W/iw,H/ih):Math.min(W/iw,H/ih),w=iw*s,h=ih*s;
+  g.drawImage(img,(W-w)/2,(H-h)/2,w,h);return c;}
+function resample(sig,from,to){if(from===to)return sig;const n=Math.floor(sig.length*to/from),o=new Float32Array(n),k=from/to;for(let i=0;i<n;i++)o[i]=interp(sig,i*k);return o;}
+async function toWav(blob,maxS){
+  const ab=await ctx().decodeAudioData(await blob.arrayBuffer()),n=ab.length,mono=new Float32Array(n);
+  for(let c=0;c<ab.numberOfChannels;c++){const d=ab.getChannelData(c);for(let i=0;i<n;i++)mono[i]+=d[i]/ab.numberOfChannels;}
+  let s=resample(mono,ab.sampleRate,24000);if(s.length>maxS*24000)s=s.subarray(0,maxS*24000);
+  let pk=0;for(let i=0;i<s.length;i++)pk=Math.max(pk,Math.abs(s[i]));
+  const g=pk>1e-4?.9/pk:1,o=new Float32Array(s.length);for(let i=0;i<o.length;i++)o[i]=s[i]*g;
+  return {sig:o,fs:24000,blob:wavBlob(o,24000)};}
+function parseWav(url){
+  const b=atob((url.split(',')[1])||''),u=new Uint8Array(b.length);for(let i=0;i<b.length;i++)u[i]=b.charCodeAt(i);
+  if(b.slice(0,4)!=='RIFF'||b.slice(8,12)!=='WAVE')return null;
+  const v=new DataView(u.buffer);if(v.getUint16(20,true)!==1||v.getUint16(22,true)!==1||v.getUint16(34,true)!==16)return null;
+  const fs=v.getUint32(24,true);if(!(fs>=8000&&fs<=192000))return null;let p=12;
+  while(p+8<=u.length){const id=b.slice(p,p+4),sz=v.getUint32(p+4,true);
+    if(id==='data'){const n=Math.min(sz,u.length-p-8)>>1,o=new Float32Array(n);for(let i=0;i<n;i++)o[i]=v.getInt16(p+8+2*i,true)/32767;return {sig:o,fs};}
+    p+=8+sz+(sz&1);}
+  return null;}
+function initS9C(){
+  let imgData=null,audio=null,curImg=null,mr=null,stream=null,tmr=0;const id=rid();
+  const st=(m,bad)=>{const e=$('#c_st');e.textContent=m;e.className=bad?'bad':'m';};
+  $('#c_text').oninput=()=>{$('#c_cnt').textContent=$('#c_text').value.length+' / 280';};
+  function drawImg(){if(!curImg)return;const cv=fitTo(curImg,$('#c_fit').value),pv=$('#c_prev');pv.style.display='block';pv.width=W;pv.height=H;pv.getContext('2d').drawImage(cv,0,0);imgData=cv.toDataURL('image/jpeg',0.85);}
+  $('#c_img').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const im=new Image();im.src=URL.createObjectURL(f);await im.decode();curImg=im;drawImg();}catch(err){st('Nu am putut citi imaginea.',1);}};
+  $('#c_fit').onchange=drawImg;
+  async function setAudio(blob){
+    try{st('Se procesează sunetul…');const a=await toWav(blob,15);a.b64=await b64(a.blob);audio=a;
+      const p=$('#c_aud');p.style.display='block';p.src=URL.createObjectURL(a.blob);st('Mesaj vocal gata: '+(a.sig.length/a.fs).toFixed(1)+' s.');}
+    catch(err){st('Nu am putut citi sunetul: '+err.message,1);}}
+  $('#c_afile').onchange=e=>{const f=e.target.files[0];if(f)setAudio(f);};
+  $('#c_clr').onclick=()=>{audio=null;const p=$('#c_aud');p.style.display='none';p.removeAttribute('src');st('');};
+  function stopRec(){if(mr&&mr.state!=='inactive')mr.stop();}
+  $('#c_stop').onclick=stopRec;MIC_STOP=stopRec;
+  $('#c_rec').onclick=async()=>{
+    if(!navigator.mediaDevices||!window.MediaRecorder){st('Înregistrarea nu e disponibilă în acest browser. Încarcă un fișier audio.',1);return;}
+    try{stream=await navigator.mediaDevices.getUserMedia({audio:true});const chunks=[];mr=new MediaRecorder(stream);
+      mr.ondataavailable=e=>{if(e.data.size)chunks.push(e.data);};
+      mr.onstop=()=>{stream.getTracks().forEach(t=>t.stop());clearInterval(tmr);$('#c_rec').style.display='';$('#c_stop').style.display='none';setAudio(new Blob(chunks,{type:mr.mimeType}));};
+      mr.start();const t0=Date.now();$('#c_rec').style.display='none';$('#c_stop').style.display='';
+      tmr=setInterval(()=>{const s=(Date.now()-t0)/1000;st('Se înregistrează… '+s.toFixed(1)+' / 15 s');if(s>=15)stopRec();},200);}
+    catch(err){st('Microfonul nu poate fi folosit: '+err.message+'. Poți încărca un fișier audio.',1);}};
+  async function pack(){
+    if(!($('#c_ok').checked&&$('#c_rights').checked)){st('Bifează ambele acorduri de la pasul 5.',1);return null;}
+    const txt=$('#c_text').value.trim();
+    if(!txt&&!imgData&&!audio){st('Adaugă măcar o salutare, o imagine sau un mesaj vocal.',1);return null;}
+    const p={brazda:1,kind:'contribution',id,created:new Date().toISOString(),
+      author:{name:$('#c_name').value.trim(),country:$('#c_country').value.trim(),show:$('#c_show').checked},license:$('#c_lic').value,consent:true,rights:true};
+    if(txt)p.greeting={lang:$('#c_lang').value.trim(),text:txt};
+    if(imgData)p.image={caption:$('#c_cap').value.trim(),jpeg:imgData};
+    if(audio)p.audio={lang:$('#c_alang').value.trim(),fs:audio.fs,wav:audio.b64};
+    return p;}
+  const fname=p=>'contributie-brazda-'+p.id+'.json';
+  const blobOf=p=>new Blob([JSON.stringify(p)],{type:'application/json'});
+  $('#c_dl').onclick=async()=>{const p=await pack();if(!p)return;const b=blobOf(p);dl(b,fname(p));st('Pachet descărcat ('+fmt(b.size/1024)+' KB). Trimite-l organizatorului.');};
+  $('#c_mail').onclick=async()=>{const p=await pack();if(!p)return;dl(blobOf(p),fname(p));
+    location.href='mailto:'+COLLECT_EMAIL+'?subject='+encodeURIComponent('Contribuție BRAZDA '+p.id)+'&body='+encodeURIComponent('Atașează fișierul '+fname(p)+' descărcat acum.');
+    st('Pachet descărcat. Atașează-l la mesajul de e-mail.');};
+  if(navigator.share){$('#c_sh').style.display='';
+    $('#c_sh').onclick=async()=>{const p=await pack();if(!p)return;const f=new File([blobOf(p)],fname(p),{type:'application/json'});
+      try{if(navigator.canShare&&navigator.canShare({files:[f]}))await navigator.share({files:[f],title:'Contribuție BRAZDA'});else{dl(blobOf(p),fname(p));st('Partajarea fișierelor nu e disponibilă; pachetul a fost descărcat.');}}
+      catch(err){}};}
+}
+
+/* ---------- S9E: codare 2026–2027 ---------- */
+const PULS=[['Crab (B0531+21)',0.033392,4.21e-13],['Vela (B0833−45)',0.08933,1.25e-13],['B0329+54',0.714519,2.05e-15],['B1919+21',1.337302,1.35e-15]];
+const bin=n=>Math.round(n).toString(2);
+function pulsTable(dateStr){
+  const t=Date.parse(dateStr+'T00:00:00Z'),dt=(t-Date.UTC(2020,0,1))/1000,T=1/HF;
+  return PULS.map(p=>{const P=p[1]+p[2]*dt;return {n:p[0],P,N:P/T,b:bin(P/T)};});}
+function coverNums(nImg,nFr){
+  const T=1/HF;
+  return [['Perioada hidrogenului (ns, zecimal)',(T*1e9).toFixed(5)],['Durata unei linii (8 ms) în perioade-H',bin(TL/T)],['Linii pe imagine (512)',bin(512)],['Eșantioane pe linie (384)',bin(384)],['Imagini codate ('+nImg+')',bin(nImg)],['Cadre totale ('+nFr+')',bin(nFr)]];}
+function textPage(txt){
+  const c=cvs(),g=c.getContext('2d');g.fillStyle='#000';g.fillRect(0,0,W,H);g.fillStyle='#fff';g.textAlign='center';g.textBaseline='top';
+  let size=28,lines;
+  for(;;){g.font='bold '+size+'px sans-serif';lines=[];
+    const fitw=w=>{const o=[];while(g.measureText(w).width>W-48&&w.length>1){let k=w.length;while(k>1&&g.measureText(w.slice(0,k)).width>W-48)k--;o.push(w.slice(0,k));w=w.slice(k);}o.push(w);return o;};
+    txt.split('\n').forEach(par=>{let cur='';par.split(' ').flatMap(fitw).forEach(w=>{const t=cur?cur+' '+w:w;if(g.measureText(t).width>W-48&&cur){lines.push(cur);cur=w;}else cur=t;});lines.push(cur);});
+    if(lines.length*size*1.4<=H-20||size<=11)break;size--;}
+  const lh=size*1.4,y0=Math.max(10,(H-lines.length*lh)/2);
+  lines.forEach((l,i)=>g.fillText(l,W/2,y0+i*lh));
+  return c;}
+function initS9E(){
+  const items=[];let res=null;const list=$('#e_list');
+  function isColor(cv){const d=cv.getContext('2d').getImageData(0,0,W,H).data;let c=0,n=0;
+    for(let i=0;i<d.length;i+=388){n++;if(Math.max(Math.abs(d[i]-d[i+1]),Math.abs(d[i+1]-d[i+2]))>24)c++;}return c/n>.01;}
+  function fit(img){const c=cvs(),g=c.getContext('2d');g.fillStyle='#000';g.fillRect(0,0,W,H);
+    const iw=img.naturalWidth||img.width,ih=img.naturalHeight||img.height;if(!iw||!ih)return c;const m=$('#e_fit').value,
+      s=m==='cover'?Math.max(W/iw,H/ih):Math.min(W/iw,H/ih),w=iw*s,h=ih*s;g.drawImage(img,(W-w)/2,(H-h)/2,w,h);return c;}
+  function render(){
+    list.innerHTML='';
+    if(!items.length){list.innerHTML='<div class="m" style="margin:6px 0">Nicio imagine adăugată. Încarcă imagini sau folosește exemplele.</div>';return;}
+    items.forEach((it,i)=>{
+      const row=document.createElement('div');row.className='row';row.style.margin='6px 0';
+      const th=document.createElement('canvas');th.width=96;th.height=72;th.style.width='96px';th.getContext('2d').drawImage(it.cv,0,0,96,72);
+      const nm=document.createElement('span');nm.className='grow';nm.textContent=(i+1)+'. '+it.name;
+      const lb=document.createElement('label'),cb=document.createElement('input');cb.type='checkbox';cb.checked=it.color;cb.onchange=()=>{it.color=cb.checked;};lb.appendChild(cb);lb.append(' color');
+      const mk=(t,f)=>{const b=document.createElement('button');b.className='b s';b.textContent=t;b.onclick=f;return b;};
+      row.append(th,nm,lb,
+        mk('↑',()=>{if(i>0){[items[i-1],items[i]]=[items[i],items[i-1]];render();}}),
+        mk('↓',()=>{if(i<items.length-1){[items[i+1],items[i]]=[items[i],items[i+1]];render();}}),
+        mk('✕',()=>{items.splice(i,1);render();}));
+      list.appendChild(row);});}
+  $('#e_file').onchange=async e=>{
+    for(const f of e.target.files){try{const img=new Image();img.src=URL.createObjectURL(f);await img.decode();const cv=fit(img);items.push({name:f.name,img,cv,color:isColor(cv)});}catch(err){}}
+    e.target.value='';render();};
+  $('#e_fit').onchange=()=>{items.forEach(it=>{if(it.img)it.cv=fit(it.img);});render();};
+  $('#e_ex').onclick=()=>{['sistem','adn','harta'].forEach(k=>items.push({name:NAMES[k],cv:IMG[k].cv,color:false}));items.push({name:'Peisaj color (schemă)',cv:COL.cv,color:true});render();};
+  /* contribuții primite */
+  const contribs=[],meta=[],allAud=[];let audioG=null;const cmsg=t=>{$('#e_cmsg').textContent=t;};
+  const lim=(s,n)=>String(s==null?'':s).slice(0,n);
+  function validate(p,fn){
+    if(!p||p.brazda!==1||p.kind!=='contribution')return {bad:'nu e un pachet BRAZDA',name:fn};
+    if(p.consent!==true||p.rights!==true)return {bad:'fără acord explicit',name:fn};
+    const a=p.author||{},q={id:lim(p.id,16),lic:p.license==='CC0'?'CC0':'CC BY 4.0',author:{name:lim(a.name,80),country:lim(a.country,60),show:!!a.show},fn,on:true};
+    if(p.greeting&&p.greeting.text)q.gr={lang:lim(p.greeting.lang,40),text:lim(p.greeting.text,300)};
+    if(p.image&&typeof p.image.jpeg==='string'&&p.image.jpeg.length<4e6&&/^data:image\/jpeg;base64,/.test(p.image.jpeg))q.im={caption:lim(p.image.caption,120),url:p.image.jpeg};
+    if(p.audio&&typeof p.audio.wav==='string'&&p.audio.wav.length<3e6&&/^data:audio\/[a-z0-9.+-]+;base64,/.test(p.audio.wav)){let w=null;try{w=parseWav(p.audio.wav);}catch(e){}if(w&&w.sig.length<=w.fs*20)q.au={lang:lim(p.audio.lang,40),sig:w.sig,fs:w.fs,url:p.audio.wav};}
+    if(!q.gr&&!q.im&&!q.au)return {bad:'fără conținut valid',name:fn};
+    return q;}
+  function renderC(){
+    const L=$('#e_clist');L.innerHTML='';
+    contribs.forEach((c,i)=>{
+      const row=document.createElement('div');row.className='row';row.style.cssText='margin:8px 0;padding-bottom:8px;border-bottom:1px solid #232b45';
+      if(c.bad){const s=document.createElement('span');s.className='bad grow';s.textContent=c.name+' — respins: '+c.bad;row.appendChild(s);
+        const x=document.createElement('button');x.className='b s';x.textContent='✕';x.onclick=()=>{contribs.splice(i,1);renderC();};row.appendChild(x);L.appendChild(row);return;}
+      const cb=document.createElement('input');cb.type='checkbox';cb.checked=c.on&&!c.added;cb.disabled=!!c.added;cb.onchange=()=>{c.on=cb.checked;};row.appendChild(cb);
+      if(c.im){const im=document.createElement('img');im.src=c.im.url;im.style.cssText='width:96px;border-radius:6px';row.appendChild(im);}
+      const d=document.createElement('div');d.className='grow';
+      const parts=[c.gr?'salutare':'',c.im?'imagine':'',c.au?'mesaj vocal':''].filter(Boolean).join(', ');
+      d.append((c.author.name||'anonim')+(c.author.country?' ('+c.author.country+')':'')+' · '+c.lic+' · '+parts+(c.added?' · adăugată':''));
+      if(c.im&&c.im.caption){const e=document.createElement('div');e.className='m';e.textContent='Imagine: '+c.im.caption;d.appendChild(e);}
+      if(c.gr){const e=document.createElement('div');e.className='m';e.textContent='['+(c.gr.lang||'?')+'] '+c.gr.text;d.appendChild(e);}
+      if(c.au){const a=document.createElement('audio');a.controls=true;a.src=c.au.url;a.style.cssText='width:100%;margin-top:4px';d.appendChild(a);}
+      row.appendChild(d);
+      const x=document.createElement('button');x.className='b s';x.textContent='✕';x.onclick=()=>{contribs.splice(i,1);renderC();};row.appendChild(x);
+      L.appendChild(row);});}
+  $('#e_cfile').onchange=async e=>{
+    for(const f of e.target.files){
+      if(f.size>12e6){contribs.push({bad:'fișier prea mare',name:f.name});continue;}
+      try{const q=validate(JSON.parse(await f.text()),f.name);
+        if(!q.bad&&q.id&&contribs.some(c=>c.id===q.id)){cmsg('Duplicat ignorat: '+f.name);continue;}
+        contribs.push(q);}
+      catch(err){contribs.push({bad:'JSON invalid',name:f.name});}}
+    e.target.value='';renderC();};
+  function rebuildAudio(){
+    if(!allAud.length){audioG=null;$('#e_caud').style.display='none';return;}
+    const FSA=24000,gap=Math.round(.5*FSA);let tot=gap*(allAud.length+1);allAud.forEach(a=>tot+=a.sig.length);
+    const o=new Float32Array(tot),list=[];let p=gap;
+    allAud.forEach(a=>{list.push({label:a.label,start:p/FSA,dur:a.sig.length/FSA});o.set(a.sig,p);p+=a.sig.length+gap;});
+    audioG={sig:o,list};$('#e_caud').style.display='';}
+  $('#e_cadd').onclick=async()=>{
+    const sel=contribs.filter(c=>!c.bad&&c.on&&!c.added);
+    if(!sel.length){cmsg('Nimic nou de adăugat.');return;}
+    const greets=[],names=[];let nImg=0;
+    for(const c of sel){
+      const credit=(c.author.show&&c.author.name)?c.author.name:'';
+      if(c.im){try{const img=new Image();img.src=c.im.url;await img.decode();const cv=fitTo(img,'contain');items.push({name:'Contribuție'+(c.im.caption?': '+c.im.caption:''),cv,color:isColor(cv)});nImg++;}catch(err){}}
+      if(c.gr)greets.push('['+(c.gr.lang||'?')+'] '+c.gr.text+(credit?' — '+credit:''));
+      if(c.au)allAud.push({label:(c.au.lang||'?')+(credit?' — '+credit:''),sig:resample(c.au.sig,c.au.fs,24000)});
+      if(credit)names.push(credit+(c.author.country?' ('+c.author.country+')':''));
+      meta.push({lic:c.lic,im:!!c.im,gr:!!c.gr,au:!!c.au,credit});
+      c.added=true;}
+    const n=+$('#e_cn').value;
+    for(let i=0;i<greets.length;i+=n)items.push({name:'Salutări (pagina '+(Math.floor(i/n)+1)+')',cv:textPage(greets.slice(i,i+n).join('\n\n')),color:false});
+    if($('#e_creg').checked&&names.length)for(let i=0;i<names.length;i+=12)items.push({name:'Registrul contribuitorilor (p. '+(Math.floor(i/12)+1)+')',cv:textPage((i?'':'Contribuitori\n\n')+names.slice(i,i+12).join('\n')),color:false});
+    rebuildAudio();render();renderC();
+    cmsg(sel.length+' contribuții adăugate: '+nImg+' imagini, '+greets.length+' salutări text, '+allAud.length+' mesaje vocale în total.');};
+  $('#e_caud').onclick=()=>{if(audioG)dl(wavBlob(audioG.sig,24000),'salutari-audio.wav');};
+  /* pistă muzicală */
+  const MUS=[];let mLoaded=null;const MFS=48000;
+  const mset=t=>{$('#m_msg').textContent=t;$('#m_msg').className='m';};
+  const mbad=t=>{$('#m_msg').textContent=t;$('#m_msg').className='bad';};
+  const mf=(id,v)=>{$('#'+id).value=v;};
+  function showForm(note){$('#m_form').style.display='block';$('#m_note').innerHTML=note;}
+  $('#m_hcts').onclick=()=>{
+    showForm('<b>Here Comes the Sun</b> · compoziție de George Harrison, 1969 (<i>Abbey Road</i>). Piesa e <b>încă protejată</b>: autorul a murit în 2001, iar în UE protecția ține până la sfârșitul lui 2071.<br>Pentru <b>înregistrarea originală a Beatles</b> ai nevoie de licență pentru <b>compoziție ȘI pentru înregistrare</b>, de la doi titulari diferiți. Pentru o <b>interpretare proprie</b> ai nevoie doar de licența compoziției.<br>În 1977, echipa Sagan a cerut piesa pentru Discul de Aur, iar EMI a refuzat (Druyan: 50.000 $ per înregistrare, pentru două; Ferris contestă că a fost luată serios în calcul). Aplicația nu conține piesa și nu o poate adăuga fără licență.');
+    mf('m_title','Here Comes the Sun');mf('m_artist','The Beatles');mf('m_year','1969');mf('m_comp','George Harrison');
+    mf('m_pub','(de verificat: editorul compoziției)');mf('m_master','(de verificat: titularul înregistrării Beatles)');mf('m_status','unclear');mf('m_ref','');
+    mset('Alege fișierul, apoi completează titularii și referința licenței. Cât timp drepturile sunt „neclare”, piesa nu se adaugă.');};
+  $('#m_blank').onclick=()=>{
+    showForm('Alege fișierul și completează fișa. Interpretarea proprie a unei piese protejate cere totuși licența compoziției.');
+    ['m_title','m_artist','m_year','m_comp','m_pub','m_master','m_ref'].forEach(i=>mf(i,''));mf('m_status','unclear');mset('');};
+  $('#m_file').onchange=async e=>{
+    const f=e.target.files[0];mLoaded=null;if(!f)return;mset('Se decodează fișierul…');
+    try{const ab=await ctx().decodeAudioData(await f.arrayBuffer()),ch=ab.numberOfChannels,
+        l=resample(ab.getChannelData(0),ab.sampleRate,MFS),r=ch>1?resample(ab.getChannelData(1),ab.sampleRate,MFS):l;
+      mLoaded={name:f.name,L:l,R:r};if(!$('#m_title').value)mf('m_title',f.name.replace(/\.[^.]+$/,''));
+      mset('Fișier încărcat: '+fmt(l.length/MFS)+' s.');}
+    catch(err){mbad('Nu am putut citi fișierul audio: '+err.message);}};
+  const STAT={lic:'licență obținută (compoziție + înregistrare)',own:'interpretare proprie + licență compoziție',own_pd:'interpretare proprie, compoziție în domeniu public',pd:'domeniu public verificat'};
+  function mrender(){
+    const L=$('#m_list');L.innerHTML='';
+    MUS.forEach((m,i)=>{const r=document.createElement('div');r.className='row';r.style.margin='4px 0';
+      const s=document.createElement('span');s.className='grow';s.textContent=(i+1)+'. '+m.title+' — '+m.artist+' · '+fmt(m.L.length/MFS)+' s · '+STAT[m.status];
+      const x=document.createElement('button');x.className='b s';x.textContent='✕';x.onclick=()=>{MUS.splice(i,1);mrender();};
+      r.append(s,x);L.appendChild(r);});
+    $('#m_wav').style.display=MUS.length?'':'none';}
+  $('#m_add').onclick=()=>{
+    const v=id=>$('#'+id).value.trim(),st=v('m_status');
+    if(!mLoaded){mbad('Alege mai întâi un fișier audio.');return;}
+    if(!v('m_title')){mbad('Completează titlul.');return;}
+    if(st==='unclear'){mbad('Fără licență sau fără drepturi lămurite, piesa nu poate fi pusă pe disc. Obține licența (compoziție și, dacă folosești înregistrarea originală, și înregistrare), apoi schimbă statusul.');return;}
+    if(!v('m_ref')){mbad('Completează referința licenței sau sursa verificării.');return;}
+    MUS.push({title:v('m_title'),artist:v('m_artist')||'—',year:v('m_year'),comp:v('m_comp'),pub:v('m_pub'),master:v('m_master'),status:st,ref:v('m_ref'),L:mLoaded.L,R:mLoaded.R});
+    mLoaded=null;$('#m_file').value='';mset('Piesă adăugată.');mrender();};
+  function musicTrack(){
+    const gap=MFS*2;let tot=gap;MUS.forEach(m=>tot+=m.L.length+gap);
+    const L=new Float32Array(tot),R=new Float32Array(tot),list=[];let p=gap;
+    MUS.forEach(m=>{L.set(m.L,p);R.set(m.R,p);list.push({m,start:p/MFS});p+=m.L.length+gap;});
+    return {L,R,list};}
+  $('#m_wav').onclick=()=>{if(!MUS.length)return;const t=musicTrack();dl(wavStereo(t.L,t.R,MFS),'muzica-disc.wav');};
+  mrender();
+  function pul(){
+    const rows=pulsTable($('#e_date').value||'2026-12-01');
+    $('#e_pul').innerHTML='<table class="stack"><tr><th>Pulsar</th><th>Perioadă estimată (s)</th><th>Perioade-H (zecimal)</th><th>Binar</th></tr>'+
+      rows.map(r=>'<tr><td data-l="Pulsar">'+r.n+'</td><td data-l="Perioadă (s)" class="k">'+r.P.toFixed(9)+'</td><td data-l="Perioade-H">'+r.N.toExponential(4)+'</td><td data-l="Binar" class="mono">'+r.b+'</td></tr>').join('')+'</table>';}
+  $('#e_date').onchange=pul;pul();
+  function envelope(cv,s){
+    cv.style.display='block';cv.width=900;cv.height=90;const g=cv.getContext('2d');g.fillStyle='#070910';g.fillRect(0,0,900,90);g.strokeStyle='#4aa3c0';g.beginPath();
+    for(let b=0;b<900;b++){const a=Math.floor(b*s.length/900),z=Math.floor((b+1)*s.length/900),st=Math.max(1,Math.floor((z-a)/200));let mn=1,mx=-1;
+      for(let i=a;i<z;i+=st){if(s[i]<mn)mn=s[i];if(s[i]>mx)mx=s[i];}if(mx<mn){mn=mx=0;}g.moveTo(b+.5,45-mx*42);g.lineTo(b+.5,45-mn*42);}
+    g.stroke();}
+  function indexText(){
+    const nfr=res.parts.reduce((a,p)=>a+p.fr.length,0),d=$('#e_date').value;
+    let s='BRAZDA — index disc 2026–2027\n\nParametri\n- semnal: '+FS+' Hz, mono, 16 biți\n- imagine: 512 linii verticale × 384 eșantioane; o linie = 8 ms; imagine = 4,096 s\n- luminozitate = amplitudine: v = a/1,8 + 0,5 (a în [−0,9; 0,9])\n- imagini color: 3 cadre consecutive, ordinea R, G, B\n- liniște între imagini: '+$('#e_sep').value+' s\n\nConținut\n';
+    res.parts.forEach((p,i)=>{s+=(i+1)+'. '+p.name+' · '+(p.color?'color (3 cadre)':'alb-negru')+' · start '+(res.starts[i]/FS).toFixed(3)+' s · durată '+(p.fr.length*W*H/FS).toFixed(3)+' s\n';});
+    s+='\nNumere de pe capac (binar)\n';coverNums(res.parts.length,nfr).forEach(r=>{s+='- '+r[0]+': '+r[1]+'\n';});
+    s+='\nPulsari la '+d+'\n';pulsTable(d||'2026-12-01').forEach(r=>{s+='- '+r.n+': '+r.P.toFixed(9)+' s = '+r.b+' (perioade-H)\n';});
+    if(meta.length){s+='\nContribuții publice ('+meta.length+')\n';meta.forEach(m=>{s+='- '+(m.credit||'anonim')+' · '+m.lic+' · '+[m.gr?'salutare':'',m.im?'imagine':'',m.au?'audio':''].filter(Boolean).join(', ')+'\n';});}
+    if(audioG){s+='\nSalutări audio (salutari-audio.wav, 24 kHz mono)\n';audioG.list.forEach(a=>{s+='- '+a.label+' · start '+a.start.toFixed(2)+' s · '+a.dur.toFixed(2)+' s\n';});}
+    if(MUS.length){const t=musicTrack();s+='\nMuzică (muzica-disc.wav, 48 kHz stereo, 16 biți)\n';t.list.forEach(x=>{const m=x.m;s+='- '+m.title+' · '+m.artist+(m.year?' ('+m.year+')':'')+' · start '+x.start.toFixed(2)+' s · '+(m.L.length/MFS).toFixed(2)+' s\n  compoziție: '+(m.comp||'—')+' / editor: '+(m.pub||'—')+'\n  înregistrare: '+(m.master||'—')+'\n  drepturi: '+STAT[m.status]+' · referință: '+m.ref+'\n';});}
+    return s;}
+  function encode(){
+    const out=$('#e_res'),parts=[];
+    if($('#e_circ').checked)parts.push({name:'Cerc de calibrare',color:false,cv:IMG.cerc.cv});
+    if($('#e_txt').checked)parts.push({name:'Pagină de text',color:false,cv:textPage($('#e_text').value)});
+    items.forEach(it=>parts.push({name:it.name,color:it.color,cv:it.cv}));
+    if(!parts.length){out.innerHTML='<span class="bad">Nu e nimic de codat.</span>';return;}
+    const nf0=parts.reduce((a,p)=>a+(p.color?3:1),0);
+    const CAP=(matchMedia('(pointer:coarse)').matches||innerWidth<700)?60:160;
+    if(nf0>CAP){out.innerHTML='<span class="bad">Prea multe cadre ('+nf0+'). Limita pe acest dispozitiv e '+CAP+' de cadre pe disc (memorie); împarte conținutul în mai multe discuri.</span>';return;}
+    parts.forEach(p=>{const ch=chans(p.cv);p.fr=p.color?[ch.r,ch.g,ch.b]:[ch.l];});
+    const sep=Math.round(Math.min(5,Math.max(0,+$('#e_sep').value||0))*FS),T=buildTrack(parts,sep),sig=T.sig,sq=quant16(sig);
+    res={sig,starts:T.starts,parts};
+    const nfr=parts.reduce((a,p)=>a+p.fr.length,0),thumbs=[];
+    let h='<div>Durată: <span class="k">'+fmt(sig.length/FS)+' s</span> · imagini: <span class="k">'+parts.length+'</span> · cadre: <span class="k">'+nfr+'</span> · WAV ≈ <span class="k">'+fmt(sig.length*2/1e6)+' MB</span></div><table class="stack"><tr><th>#</th><th>Conținut</th><th>Tip</th><th>Start (s)</th><th>Durată (s)</th><th>PSNR</th></tr>';
+    parts.forEach((p,i)=>{
+      const st=T.starts[i],decs=p.fr.map((a,f)=>decode(sq,st+f*W*H,H,W,H,0)),ps=Math.min(...p.fr.map((a,f)=>psnr(decs[f],a))),c=document.createElement('canvas');
+      if(p.color)paintColor(c,decs,[0,1,2],[true,true,true],W,H,[-.9,-.9,-.9],[.9,.9,.9]);else paint(c,decs[0],W,H,-.9,.9,false);
+      const pt=isFinite(ps)?ps.toFixed(1)+' dB':'∞';thumbs.push([c,p.name+' · '+pt]);
+      h+='<tr><td data-l="Nr.">'+(i+1)+'</td><td data-l="Conținut">'+p.name.replace(/</g,'&lt;')+'</td><td data-l="Tip">'+(p.color?'color ×3':'alb-negru')+'</td><td data-l="Start (s)" class="k">'+(st/FS).toFixed(3)+'</td><td data-l="Durată (s)" class="k">'+(p.fr.length*W*H/FS).toFixed(3)+'</td><td data-l="PSNR">'+pt+'</td></tr>';});
+    out.innerHTML=h+'</table><div class="m">PSNR după cuantizarea pe 16 biți și decodare; peste 60 dB înseamnă practic fără pierderi vizibile.</div>';
+    envelope($('#e_ov'),sig);
+    const th=$('#e_th');th.innerHTML='';
+    thumbs.forEach(t=>{const f=document.createElement('figure'),cp=document.createElement('figcaption');f.appendChild(t[0]);cp.textContent=t[1];f.appendChild(cp);th.appendChild(f);});
+    $('#e_act').style.display='flex';
+    $('#e_cov').innerHTML='<h3>Numere de gravat pe capac</h3><table>'+coverNums(parts.length,nfr).map(r=>'<tr><td>'+r[0]+'</td><td class="mono">'+r[1]+'</td></tr>').join('')+'</table>';}
+  $('#e_go').onclick=()=>{$('#e_res').textContent='Se codează…';setTimeout(encode,30);};
+  $('#e_play').onclick=()=>{if(res)play(res.sig);};
+  $('#e_wav').onclick=()=>{if(res)dl(wavBlob(res.sig,FS),'disc-2026-2027.wav');};
+  $('#e_idx').onclick=()=>{if(res)dl(new Blob([indexText()],{type:'text/plain;charset=utf-8'}),'disc-2026-2027-index.txt');};
+  $('#e_dec').onclick=()=>{if(!res)return;show(8);REAL.load([quant16(res.sig)],FS,'semnal codat 2026–2027',res.starts[0]/FS,1);};
+  render();}
+
+/* ---------- S10: discul original ---------- */
+const ORIG_MUS=[
+[1,'J. S. Bach','Brandenburg Concerto nr. 2, I. Allegro','Munich Bach Orchestra / Karl Richter; Karl-Heinz Schneeberger (vioară)','A'],
+[2,'Mangkunegara IV (Indonezia)','Ketawang: Puspåwarnå (Kinds of Flowers)','Orchestra Palatului Pura Paku Alaman / K.R.T. Wasitodipuro','B'],
+[3,'Tradițional (Benin)','Cengunmé','Muzicieni mahi din Benin','B'],
+[4,'Tradițional (Zair)','Alima Song','Mbuti din pădurea Ituri','B'],
+[5,'Tradițional (Australia)','Barnumbirr (Morning Star) și Moikoi Song','Tom Djäwa, Mudpo, Waliparu','B'],
+[6,'Lorenzo Barcelata (Mexic)','El Cascabel','Antonio Maciel și Los Aguilillas, Mariachi México de Pepe Villa','C'],
+[7,'Chuck Berry (SUA)','Johnny B. Goode','Chuck Berry, Lafayette Leake, Willie Dixon, Fred Below','C'],
+[8,'Tradițional (Papua Noua Guinee)','Mariuamangɨ','Pranis Pandang și Kumbui, clanul Nyaura','B'],
+[9,'Tradițional, aranj. Kinko Kurosawa (Japonia)','Sokaku-Reibo (Cranes in Their Nest)','Gorō Yamaguchi (shakuhachi)','C'],
+[10,'J. S. Bach','Partita pentru vioară solo nr. 3, III. Gavotte en Rondeau','Arthur Grumiaux','A'],
+[11,'W. A. Mozart','Flautul fermecat, Actul II, „Der Hölle Rache”','Edda Moser; Bavarian State Opera / Wolfgang Sawallisch','A'],
+[12,'Tradițional (Georgia)','Chakrulo','Georgian State Merited Ensemble / Anzor Kavsadze','B'],
+[13,'Tradițional (Peru)','Roncadoras and Drums','Muzicieni din Ancash','B'],
+[14,'Marty Bloom și Walter Melrose (SUA)','Melancholy Blues','Louis Armstrong and His Hot Seven','D'],
+[15,'Tradițional (Azerbaidjan)','Muğam (Çahargah ahəngi)','Kamil Jalilov (balaban)','B'],
+[16,'Igor Stravinski','Le Sacre du printemps, partea a II-a, Sacrificial Dance','Columbia Symphony Orchestra / Stravinski','C'],
+[17,'J. S. Bach','Clavecinul bine temperat, Cartea a II-a, Preludiu și fugă în do major, BWV 870','Glenn Gould','A'],
+[18,'L. van Beethoven','Simfonia nr. 5, I. Allegro con brio','Philharmonia Orchestra / Otto Klemperer','A'],
+[19,'Tradițional (Bulgaria)','Izlel ye Delyo Haydutin','Valya Balkanska, Lazar Kanevski, Stephan Zahmanov','B'],
+[20,'Tradițional (Navajo, SUA)','Night Chant, Yeibichai Dance','Ambrose Roan Horse, Chester Roan, Tom Roan','B'],
+[21,'Anthony Holborne (Regatul Unit)','The Fairie Round','Early Music Consort of London / David Munrow','A'],
+[22,'Tradițional (Insulele Solomon)','Naranaratana Kookokoo (Cry of the Megapode Bird)','Comunitatea satelor Oloha și Palasu\'u','B'],
+[23,'Tradițional (Peru)','Wedding Song','O tânără din Huancavelica','B'],
+[24,'Tradițional, atribuit lui Bo Ya (China)','Liu Shui (Flowing Streams)','Guan Pinghu (guqin)','B'],
+[25,'Tradițional (India)','Bhairavi: Jaat Kahan Ho','Kesarbai Kerkar','B'],
+[26,'Blind Willie Johnson (SUA)','Dark Was the Night, Cold Was the Ground','Blind Willie Johnson','D'],
+[27,'L. van Beethoven','Cvartetul de coarde nr. 13, op. 130, V. Cavatina','Budapest String Quartet','A']];
+const ORIG_LANG='Sumeriană, greacă veche, portugheză, cantoneză, akkadiană, rusă, thai, arabă, română, franceză, birmană, ebraică, spaniolă, indoneziană, quechua, punjabi, hitită, bengaleză, latină, aramaică, olandeză, germană, urdu, vietnameză, turcă, japoneză, hindi, galeză, italiană, singhaleză, zulu, sotho, wu, armeană, coreeană, poloneză, nepaleză, mandarină, ila, suedeză, nyanja, gujarati, ucraineană, persană, sârbă, oriya, ganda, marathi, amoy (hokkien), maghiară, telugu, cehă, kannada, rajasthani, engleză'.split(', ');
+function initS10(){
+  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  $('#o_mus').innerHTML='<table class="stack"><tr><th>#</th><th>Autor / tradiție</th><th>Titlu</th><th>Interpreți</th><th>Drepturi</th></tr>'+
+    ORIG_MUS.map(r=>'<tr><td data-l="Nr.">'+r[0]+'</td><td data-l="Autor">'+esc(r[1])+'</td><td data-l="Titlu">'+esc(r[2])+'</td><td data-l="Interpreți">'+esc(r[3])+'</td><td data-l="Drepturi"><span class="tag '+r[4]+'">'+r[4]+'</span></td></tr>').join('')+'</table>';
+  $('#o_lang').textContent=ORIG_LANG.map((l,i)=>(i+1)+'. '+l).join(' · ');}
+
+const PUB=/contribuie/i.test(location.hash);
+if(PUB)document.body.classList.add('pub');
+show(PUB?9:0);
+document.addEventListener('keydown',e=>{
+  if(document.body.classList.contains('pub')||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey)return;
+  if(/^(INPUT|SELECT|TEXTAREA|AUDIO)$/.test((e.target||{}).tagName||''))return;
+  if(e.key==='ArrowRight')show(cur+1);else if(e.key==='ArrowLeft')show(cur-1);});
+addEventListener('hashchange',()=>{const p=/contribuie/i.test(location.hash);document.body.classList.toggle('pub',p);show(p?9:cur);});
+['s8msg','c_st','m_msg','e_cmsg','e_res'].forEach(i=>{const e=document.getElementById(i);if(e)e.setAttribute('aria-live','polite');});
+</script>
+</body>
+</html>

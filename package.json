@@ -1,0 +1,12 @@
+{
+  "name": "brazda",
+  "version": "1.0.0",
+  "description": "BRAZDA — decodor și codor pentru Discul de Aur Voyager, într-un singur fișier HTML",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test:unit": "node tests/unit.js",
+    "test:e2e": "node tests/e2e.js index.html shots"
+  },
+  "devDependencies": { "playwright": "^1.40.0" }
+}
