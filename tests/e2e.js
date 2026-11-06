@@ -1,6 +1,6 @@
 // Test adversarial end-to-end pentru BRAZDA. Rulare: node e2e.js <cale/index.html> <director-capturi>
 const {chromium}=require('playwright');const fs=require('fs');const path=require('path');
-const FILE='file://'+path.resolve(process.argv[2]);const OUT=path.resolve(process.argv[3]||'shots');fs.mkdirSync(OUT,{recursive:true});
+const FILE='file://'+path.resolve(process.argv[2])+'?lang=ro';const OUT=path.resolve(process.argv[3]||'shots');fs.mkdirSync(OUT,{recursive:true});
 const fails=[];let nOk=0;
 const F=m=>{fails.push(m);console.log('  FAIL',m);};const OK=(c,m)=>{if(c)nOk++;else F(m);};
 
