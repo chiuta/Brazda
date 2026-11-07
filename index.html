@@ -729,7 +729,7 @@ function initS6(){
     g.strokeStyle='#e6c26a';g.lineWidth=2;g.beginPath();g.moveTo(mx+.5,0);g.lineTo(mx+.5,H);g.stroke();
     wave(wv,sig,mx*H,H);
     inf.innerHTML=t('s6.inf',ci,ci*8,mx*H,(mx+1)*H-1);}
-  function tick(t){if(!pl)return;const dt=Math.min(.1,(t-last)/1000);last=t;pos=Math.min(W,pos+dt*125*(+sp.value));
+  function tick(ts){if(!pl)return;const dt=Math.min(.1,(ts-last)/1000);last=ts;pos=Math.min(W,pos+dt*125*(+sp.value));
     if(pos>=W){pl=false;bp.textContent=t('s6.9');}draw();if(pl)requestAnimationFrame(tick);}
   bp.onclick=()=>{if(pl){pl=false;bp.textContent=t('s6.9');return;}if(pos>=W)pos=0;pl=true;bp.textContent=t('pl.pause');last=performance.now();requestAnimationFrame(tick);};
   $('#s6prev').onclick=()=>{pl=false;bp.textContent=t('s6.9');pos=Math.max(0,Math.floor(pos)-1);draw();};
