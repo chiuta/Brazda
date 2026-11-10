@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Versiune: 1.1.0 · Ultima actualizare: 2026-11-06
+Versiune: 1.1.3 · Ultima actualizare: 2026-11-10
 
 Decodor și codor, pas cu pas, pentru **Discul de Aur Voyager** (Voyager Interstellar Record). Un singur fișier HTML (`index.html`), fără dependențe externe, fără server, fără urmăritoare. Funcționează offline: deschide fișierul într-un browser.
 
