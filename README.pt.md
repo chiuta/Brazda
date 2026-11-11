@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Versão: 1.1.3 · Última atualização: 2026-11-10
+Versão: 1.1.4 · Última atualização: 2026-11-10
 
 Um descodificador e codificador passo a passo do **Disco de Ouro da Voyager** (Voyager Interstellar Record). Um único ficheiro HTML (`index.html`), sem dependências externas, sem servidor, sem rastreadores. Funciona offline: basta abrir o ficheiro num navegador.
 

@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Versione: 1.1.3 · Ultimo aggiornamento: 2026-11-10
+Versione: 1.1.4 · Ultimo aggiornamento: 2026-11-10
 
 Un decodificatore e codificatore passo dopo passo per il **Voyager Golden Record** (Voyager Interstellar Record, il Disco d'Oro). Un unico file HTML (`index.html`), senza dipendenze esterne, senza server, senza tracciamento. Funziona offline: apri il file in un browser.
 
