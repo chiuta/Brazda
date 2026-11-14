@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Versão: 1.1.6 · Última atualização: 2026-11-13
+Versão: 1.2.0 · Última atualização: 2026-11-14
 
 Um descodificador e codificador passo a passo do **Disco de Ouro da Voyager** (Voyager Interstellar Record). Um único ficheiro HTML (`index.html`), sem dependências externas, sem servidor, sem rastreadores. Funciona offline: basta abrir o ficheiro num navegador.
 
@@ -10,7 +10,7 @@ A aplicação está disponível em **8 idiomas** (English, Română, Français, 
 
 ## O que faz
 
-A aplicação tem 12 passos:
+A aplicação tem 12 passos numerados e um passo inicial em direto:
 
 1. **O disco e a sua capa**: um diagrama interativo com zonas em que pode tocar.
 2. **Velocidade**: 16⅔ rpm comparadas com outras velocidades, e o efeito na duração de uma linha.
@@ -24,6 +24,8 @@ A aplicação tem 12 passos:
 10. **Contribuir**: qualquer pessoa pode enviar uma saudação escrita, uma imagem ou uma mensagem de voz (até 15 s) como pacote `.json`. Nada sai do navegador por si só. O endereço `…/index.html#contribute` abre diretamente este passo.
 11. **Codificação 2026–2027**: construir o disco de uma sonda lançada agora. As imagens (com um círculo de calibração e uma página de texto) tornam-se um WAV de 48 kHz; importa as contribuições do público após moderação; pode adicionar uma faixa musical, apenas com uma ficha de direitos preenchida; exporta o WAV, um índice, os números para a capa e os períodos dos pulsares à data de lançamento.
 12. **O disco original (1977)**: as 27 peças de música, as 55 línguas, as imagens, as mensagens e a situação dos direitos de autor.
+
+◉ **Voyager hoje** (abre a aplicação): a distância da Voyager 1 à Terra em tempo real, com contagem decrescente até ao limiar de um dia-luz (18 de novembro de 2026, 10:16:07 UTC), um mostrador de 24 horas-luz, a linha do «raio de uma mensagem» e unidades em km, UA, dias-luz ou tempo-luz. É calculada offline, a partir de um modelo calibrado com marcos publicados; o desvio face ao JPL Horizons não foi medido, e a Voyager 2 é uma estimativa mais grosseira (±1 UA). O passo 1 tem também uma legenda acessível para o diagrama da capa, e o passo 11 pode exportar um **postal PNG** do disco codificado.
 
 ## Direitos de autor e música
 

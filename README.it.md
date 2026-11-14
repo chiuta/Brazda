@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Versione: 1.1.6 · Ultimo aggiornamento: 2026-11-13
+Versione: 1.2.0 · Ultimo aggiornamento: 2026-11-14
 
 Un decodificatore e codificatore passo dopo passo per il **Voyager Golden Record** (Voyager Interstellar Record, il Disco d'Oro). Un unico file HTML (`index.html`), senza dipendenze esterne, senza server, senza tracciamento. Funziona offline: apri il file in un browser.
 
@@ -10,7 +10,7 @@ L'app è disponibile in **8 lingue** (English, Română, Français, Italiano, Es
 
 ## Che cosa fa
 
-L'app ha 12 passi:
+L'app ha 12 passi numerati e un passo iniziale dal vivo:
 
 1. **Il disco e la copertina**: un diagramma interattivo con zone che puoi toccare.
 2. **La velocità**: 16⅔ rpm a confronto con altre velocità, e l'effetto sulla durata di una riga.
@@ -24,6 +24,8 @@ L'app ha 12 passi:
 10. **Contribuisci**: chiunque può inviare un saluto scritto, un'immagine o un messaggio vocale (fino a 15 s) come pacchetto `.json`. Nulla lascia il browser da solo. L'indirizzo `…/index.html#contribute` apre direttamente questo passo.
 11. **Codifica 2026–2027**: costruisci il disco di una sonda lanciata ora. Le immagini (con un cerchio di calibrazione e una pagina di testo) diventano un WAV a 48 kHz; importi i contributi del pubblico dopo la moderazione; puoi aggiungere una traccia musicale, solo con una scheda dei diritti compilata; esporti il WAV, un indice, i numeri per la copertina e i periodi dei pulsar alla data di lancio.
 12. **Il disco originale (1977)**: i 27 brani musicali, le 55 lingue, le immagini, i messaggi e la situazione del diritto d'autore.
+
+◉ **Voyager oggi** (apre l’app): la distanza di Voyager 1 dalla Terra in tempo reale, con conto alla rovescia fino alla soglia di un giorno-luce (18 novembre 2026, 10:16:07 UTC), un quadrante di 24 ore-luce, la linea del «raggio di un messaggio» e unità in km, UA, giorni-luce o tempo-luce. Il calcolo è offline, da un modello calibrato su riferimenti pubblicati; lo scarto da JPL Horizons non è stato misurato e Voyager 2 è una stima più grossolana (±1 UA). Il passo 1 ha anche una legenda accessibile per il diagramma della copertina, e il passo 11 può esportare una **cartolina PNG** del disco codificato.
 
 ## Diritto d'autore e musica
 

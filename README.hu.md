@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Verzió: 1.1.6 · Utolsó frissítés: 2026-11-13
+Verzió: 1.2.0 · Utolsó frissítés: 2026-11-14
 
 Lépésről lépésre működő dekóder és kódoló a **Voyager Aranylemezhez** (Voyager Interstellar Record). Egyetlen HTML-fájl (`index.html`), külső függőségek, szerver és követők nélkül. Offline működik: elég megnyitni a fájlt egy böngészőben.
 
@@ -10,7 +10,7 @@ Az alkalmazás **8 nyelven** érhető el (English, Română, Français, Italiano
 
 ## Mit tud
 
-Az alkalmazásnak 12 lépése van:
+Az alkalmazásnak 12 számozott lépése és egy élő nyitólépése van:
 
 1. **A lemez és a borító**: interaktív ábra, érinthető területekkel.
 2. **Sebesség**: a 16⅔ rpm összevetése más sebességekkel, és a hatás egy sor időtartamára.
@@ -24,6 +24,8 @@ Az alkalmazásnak 12 lépése van:
 10. **Közreműködés**: bárki küldhet írott üdvözletet, képet vagy hangüzenetet (legfeljebb 15 mp) `.json` csomagként. A böngészőből magától semmi sem távozik. A `…/index.html#contribute` cím közvetlenül erre a lépésre nyílik.
 11. **Kódolás 2026–2027**: egy most indított szonda lemezének elkészítése. A képekből (kalibráló körrel és szövegoldallal) 48 kHz-es WAV lesz; moderálás után importálhatod a közönség hozzájárulásait; zenei sávot csak kitöltött jogi adatlappal adhatsz hozzá; exportálhatod a WAV-ot, egy indexet, a borítóra szánt számokat és a pulzárok periódusait az indítás dátumán.
 12. **Az eredeti lemez (1977)**: a 27 zeneszám, az 55 nyelv, a képek, az üzenetek és a szerzői jogi helyzet.
+
+◉ **Voyager ma** (ezzel nyílik meg az alkalmazás): a Voyager 1 Földtől mért távolsága valós időben, visszaszámlálással az egy fénynapos küszöbig (2026. november 18., 10:16:07 UTC), 24 fényórás számlappal, az „üzenet sugara” idővonallal, és km, CSE, fénynap vagy fényidő egységekkel. Hálózat nélkül számolja egy közzétett támpontokra kalibrált modell; a JPL Horizonstól való eltérését nem mértük meg, a Voyager 2 pedig durvább becslés (±1 CSE). Az 1. lépésben hozzáférhető jelmagyarázat is van a borítódiagramhoz, a 11. lépés pedig **PNG képeslapot** exportálhat a kódolt lemezről.
 
 ## Szerzői jog és zene
 

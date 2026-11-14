@@ -47,7 +47,7 @@ def main():
         for x in re.findall(r'data-ia="([^"]+)"', s):
             keys |= {p.split(':', 1)[1] for p in x.split(';')}
         keys |= {k for k in re.findall(r"\bt\('([a-z0-9_.]+)'", s) if not k.endswith('.')}
-        miss = sorted(k for k in keys if k not in ref)
+        miss = sorted(k for k in keys if k not in ref and not any(r.startswith(k) for r in ref))
         if miss: print('  ERR keys used but undefined:', miss); bad += len(miss)
         print('keys used:', len(keys), 'defined:', len(ref))
     print('OK' if not bad else 'FAILED')

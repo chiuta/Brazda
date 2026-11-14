@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Version: 1.1.6 · Letzte Aktualisierung: 2026-11-13
+Version: 1.2.0 · Letzte Aktualisierung: 2026-11-14
 
 Ein Schritt-für-Schritt-Decoder und -Encoder für die **Voyager Golden Record** (Voyager Interstellar Record). Eine HTML-Datei (`index.html`), keine externen Abhängigkeiten, kein Server, keine Tracker. Sie funktioniert offline: Die Datei einfach im Browser öffnen.
 
@@ -10,7 +10,7 @@ Die App ist in **8 Sprachen** verfügbar (English, Română, Français, Italiano
 
 ## Was sie kann
 
-Die App hat 12 Schritte:
+Die App hat 12 nummerierte Schritte und einen Live-Einstiegsschritt:
 
 1. **Die Platte und ihre Hülle**: ein interaktives Diagramm mit antippbaren Zonen.
 2. **Geschwindigkeit**: 16⅔ rpm im Vergleich zu anderen Geschwindigkeiten und die Auswirkung auf die Dauer einer Zeile.
@@ -24,6 +24,8 @@ Die App hat 12 Schritte:
 10. **Beitragen**: Jeder kann einen schriftlichen Gruß, ein Bild oder eine Sprachnachricht (bis zu 15 s) als `.json`-Paket senden. Nichts verlässt den Browser von selbst. Die Adresse `…/index.html#contribute` öffnet diesen Schritt direkt.
 11. **Codierung 2026–2027**: die Platte einer Sonde bauen, die jetzt startet. Bilder (mit einem Kalibrierkreis und einer Textseite) werden zu einer WAV-Datei mit 48 kHz; die Beiträge der Öffentlichkeit werden nach der Moderation importiert; eine Musikspur kann hinzugefügt werden, aber nur mit einem ausgefüllten Rechteblatt; exportiert werden die WAV-Datei, ein Index, die Zahlen für die Hülle und die Pulsarperioden zum Startdatum.
 12. **Die Originalplatte (1977)**: die 27 Musikstücke, die 55 Sprachen, die Bilder, die Botschaften und die urheberrechtliche Lage.
+
+◉ **Voyager heute** (öffnet die App): die Entfernung von Voyager 1 zur Erde in Echtzeit, mit Countdown bis zur Schwelle von einem Lichttag (18. November 2026, 10:16:07 UTC), einem Zifferblatt mit 24 Lichtstunden, der Zeitleiste „Strahl einer Nachricht“ und Einheiten in km, AE, Lichttagen oder Lichtzeit. Die Berechnung läuft offline aus einem an veröffentlichten Eckdaten kalibrierten Modell; die Abweichung von JPL Horizons wurde nicht gemessen, und Voyager 2 ist eine gröbere Schätzung (±1 AE). Schritt 1 hat außerdem eine barrierefreie Legende für das Hüllendiagramm, und Schritt 11 kann eine **Postkarte als PNG** der kodierten Scheibe exportieren.
 
 ## Urheberrecht und Musik
 

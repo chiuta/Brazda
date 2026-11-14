@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Version: 1.1.6 · Last updated: 2026-11-13
+Version: 1.2.0 · Last updated: 2026-11-14
 
 A step-by-step decoder and encoder for the **Voyager Golden Record** (Voyager Interstellar Record). One HTML file (`index.html`), no external dependencies, no server, no trackers. It works offline: open the file in a browser.
 
@@ -10,7 +10,7 @@ The app is available in **8 languages** (English, Română, Français, Italiano,
 
 ## What it does
 
-The app has 12 steps:
+The app has 12 numbered steps plus an opening live step:
 
 1. **The disc and its cover**: an interactive diagram with zones you can tap.
 2. **Speed**: 16⅔ rpm compared with other speeds, and the effect on the duration of a line.
@@ -24,6 +24,8 @@ The app has 12 steps:
 10. **Contribute**: anyone can send a written greeting, an image or a voice message (up to 15 s) as a `.json` package. Nothing leaves the browser by itself. The address `…/index.html#contribute` opens this step directly.
 11. **Encoding 2026–2027**: build the disc of a probe launched now. Images (with a calibration circle and a text page) become a 48 kHz WAV; you import the public's contributions after moderation; you can add a music track, only with a completed rights sheet; you export the WAV, an index, the numbers for the cover and the pulsar periods at the launch date.
 12. **The original disc (1977)**: the 27 pieces of music, the 55 languages, the images, the messages and the copyright situation.
+
+◉ **Voyager today** (opens the app): the distance of Voyager 1 from Earth in real time, with a countdown to the one-light-day threshold (18 November 2026, 10:16:07 UTC), a 24 light-hour dial, the “ray of a message” timeline and units in km, AU, light-days or light time. It is computed offline from a model calibrated on published milestones; its deviation from JPL Horizons has not been measured, and Voyager 2 is a coarser estimate (±1 AU). Step 1 also has an accessible legend for the cover diagram, and step 11 can export a **postcard PNG** of the encoded disc.
 
 ## Copyright and music
 

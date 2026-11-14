@@ -13,8 +13,8 @@ const fails=[];let nOk=0;const F=m=>{fails.push(m);console.log('  FAIL',m);};con
       await page.goto(FILE+'?lang='+L);await page.waitForTimeout(150);
       const tag=`[${L} ${vw}]`;
       OK(await page.evaluate(()=>document.documentElement.lang)===L,tag+' html lang');
-      for(let i=0;i<12;i++){
-        await page.evaluate(i=>document.querySelectorAll('#nav button')[i].click(),i);await page.waitForTimeout(60);
+      for(let i=0;i<13;i++){
+        await page.evaluate(i=>document.querySelector('#nav button[data-s="'+i+'"]').click(),i);await page.waitForTimeout(60);
         if(i===10){await page.click('#e_ex');await page.click('#e_go');await page.waitForSelector('#e_res table',{timeout:20000});
           await page.click('#m_hcts');}
         if(i===5){await page.click('#s5auto');await page.waitForTimeout(500);}

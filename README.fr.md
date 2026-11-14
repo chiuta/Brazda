@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Version : 1.1.6 · Dernière mise à jour : 2026-11-13
+Version : 1.2.0 · Dernière mise à jour : 2026-11-14
 
 Un décodeur et codeur pas à pas du **Disque d'or Voyager** (Voyager Interstellar Record). Un seul fichier HTML (`index.html`), sans dépendances externes, sans serveur, sans traqueurs. Il fonctionne hors ligne : ouvre le fichier dans un navigateur.
 
@@ -10,7 +10,7 @@ L'application est disponible en **8 langues** (English, Română, Français, Ita
 
 ## Ce qu'elle fait
 
-L'application comporte 12 étapes :
+L'application comporte 12 étapes numérotées et une étape d'ouverture en direct :
 
 1. **Le disque et sa pochette** : un schéma interactif avec des zones sur lesquelles tu peux appuyer.
 2. **La vitesse** : 16⅔ tr/min comparé à d'autres vitesses, et l'effet sur la durée d'une ligne.
@@ -24,6 +24,8 @@ L'application comporte 12 étapes :
 10. **Contribuer** : tout le monde peut envoyer une salutation écrite, une image ou un message vocal (jusqu'à 15 s) sous forme de paquet `.json`. Rien ne quitte le navigateur de lui-même. L'adresse `…/index.html#contribute` ouvre directement cette étape.
 11. **Codage 2026–2027** : construis le disque d'une sonde lancée maintenant. Les images (avec un cercle de calibrage et une page de texte) deviennent un WAV de 48 kHz ; tu importes les contributions du public après modération ; tu peux ajouter une piste musicale, uniquement avec une fiche de droits complétée ; tu exportes le WAV, un index, les nombres pour la pochette et les périodes des pulsars à la date de lancement.
 12. **Le disque original (1977)** : les 27 morceaux de musique, les 55 langues, les images, les messages et la situation du droit d'auteur.
+
+◉ **Voyager aujourd’hui** (ouvre l’application) : la distance de Voyager 1 à la Terre en temps réel, avec un compte à rebours jusqu’au seuil d’un jour-lumière (18 novembre 2026, 10:16:07 UTC), un cadran de 24 heures-lumière, la frise du « rayon d’un message » et des unités en km, UA, jours-lumière ou temps-lumière. Le calcul est hors ligne, à partir d’un modèle calibré sur des repères publiés ; son écart avec JPL Horizons n’a pas été mesuré, et Voyager 2 est une estimation plus grossière (±1 UA). L’étape 1 a aussi une légende accessible pour le schéma de la pochette, et l’étape 11 peut exporter une **carte postale PNG** du disque encodé.
 
 ## Droit d'auteur et musique
 

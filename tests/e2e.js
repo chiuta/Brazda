@@ -35,10 +35,21 @@ for(const [vn,vp,extra] of VPS){
     if(r.sw>r.vw+1||r.bad.length)F(vn+' '+tag+': depășire orizontală sw='+r.sw+' vw='+r.vw+' '+r.bad.join(', '));};
   const shot=async n=>{await page.screenshot({path:path.join(OUT,vn+'-'+n+'.png'),fullPage:true});};
   const tf=async(sel,v)=>{try{await page.fill(sel,v);}catch(e){}};
-  const nav=async i=>{await page.click('#nav button:nth-child('+i+')');await page.waitForTimeout(120);};
+  const nav=async i=>{await page.click('#nav button[data-s="'+(i-1)+'"]');await page.waitForTimeout(120);};
 
   /* parcurgere simplă a tuturor pașilor */
-  for(let i=1;i<=12;i++){await nav(i);await overflow('pas '+i);if(i===1||i===5||i===6||i===10||i===11||i===12)await shot('pas'+String(i).padStart(2,'0'));}
+  for(let i=1;i<=13;i++){await nav(i);await overflow('pas '+i);if(i===1||i===5||i===6||i===10||i===11||i===12||i===13)await shot('pas'+String(i).padStart(2,'0'));}
+
+  /* Voyager azi (pasul 13, aterizarea) */
+  OK((await page.textContent('#nav button.on')).includes('Voyager'),'LIVE: pagina nu aterizează pe Voyager azi');
+  await nav(13);await page.waitForTimeout(600);
+  const dv=await page.textContent('#s12d');OK(/\d/.test(dv)&&/25|26/.test(dv.replace(/\D/g,'').slice(0,2)),'LIVE: distanța nu se afișează: '+dv);
+  const c1=await page.textContent('#s12c');await page.waitForTimeout(1100);const c2=await page.textContent('#s12c');OK(c1!==c2,'LIVE: contorul nu se actualizează');
+  for(const u of ['au','ld','lt','km']){await page.selectOption('#s12u',u);await page.waitForTimeout(300);OK(/\d/.test(await page.textContent('#s12d')),'LIVE: unitatea '+u);}
+  await page.fill('#s12r','100');await page.dispatchEvent('#s12r','input');OK((await page.textContent('#s12o')).length>20,'LIVE: tabelul razei gol');
+  await overflow('LIVE după interacțiuni');
+  await nav(1);OK((await page.$$('#s0leg button')).length===5,'S0: legenda are 5 butoane');
+  await page.click('#s0leg button:nth-child(3)');OK((await page.textContent('#info0')).length>10,'S0: legenda nu arată informații');
 
   /* S1 selecții */
   await nav(2);for(const v of ['33.333333','45','78','16.666667'])await page.selectOption('#s1rpm',v);
@@ -172,7 +183,7 @@ for(const [vn,vp,extra] of VPS){
   await overflow('după trimitere în decodor');
 
   /* ținte tactile pe dispozitive tactile */
-  if(extra.hasTouch){for(const i of [9,10,11,12]){await nav(i);
+  if(extra.hasTouch){for(const i of [9,10,11,12,13]){await nav(i);
     const small=await page.evaluate(()=>{const o=[];document.querySelectorAll('button,select,input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]),summary').forEach(e=>{const r=e.getBoundingClientRect();if(!r.width||!r.height)return;if(r.height<40)o.push((e.id||e.tagName)+':'+Math.round(r.height));});return o.slice(0,6);});
     if(small.length)F(vn+' ținte tactile prea mici pe pasul '+i+': '+small.join(', '));
     const fz=await page.evaluate(()=>{const o=[];document.querySelectorAll('input[type=text],input[type=number],input[type=date],select,textarea').forEach(e=>{const r=e.getBoundingClientRect();if(!r.width)return;if(parseFloat(getComputedStyle(e).fontSize)<16)o.push(e.id);});return o.slice(0,5);});
@@ -182,6 +193,8 @@ for(const [vn,vp,extra] of VPS){
     OK((await page.textContent('#nav button.on')).startsWith('2'),'TASTATURĂ: săgeata dreapta nu merge la pasul 2');
     await page.keyboard.press('ArrowLeft');await page.waitForTimeout(100);OK((await page.textContent('#nav button.on')).startsWith('1'),'TASTATURĂ: săgeata stânga');}
   /* mod public */
+  /* carte poștală */
+  await nav(11);const [dpc]=await Promise.all([page.waitForEvent('download'),page.click('#e_card')]);OK((await dpc.suggestedFilename()).endsWith('.png'),'POSTAL: nu se descarcă PNG');
   const pg2=await ctx.newPage();await pg2.goto(FILE+'#contribuie');await pg2.waitForTimeout(300);
   OK(await pg2.isVisible('#c_dl')&&!(await pg2.isVisible('#nav')),'MOD PUBLIC: nu se deschide direct pe Contribuie');
   await pg2.close();

@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Versiune: 1.1.6 · Ultima actualizare: 2026-11-13
+Versiune: 1.2.0 · Ultima actualizare: 2026-11-14
 
 Decodor și codor, pas cu pas, pentru **Discul de Aur Voyager** (Voyager Interstellar Record). Un singur fișier HTML (`index.html`), fără dependențe externe, fără server, fără urmăritoare. Funcționează offline: deschide fișierul într-un browser.
 
@@ -10,7 +10,7 @@ Aplicația există în **8 limbi** (English, Română, Français, Italiano, Espa
 
 ## Ce face
 
-Aplicația are 12 pași:
+Aplicația are 12 pași numerotați și un pas viu de deschidere:
 
 1. **Discul și capacul**: schemă interactivă cu zone pe care le atingi.
 2. **Viteza**: 16⅔ rpm față de alte viteze, cu efectul asupra duratei unei linii.
@@ -24,6 +24,8 @@ Aplicația are 12 pași:
 10. **Contribuie**: oricine poate trimite o salutare scrisă, o imagine sau un mesaj vocal (până la 15 s), ca pachet `.json`. Nimic nu pleacă singur din browser. Adresa `…/index.html#contribuie` deschide direct acest pas.
 11. **Codare 2026–2027**: construiești discul unei sonde lansate acum. Imaginile (cu cerc de calibrare și pagină de text) devin un WAV de 48 kHz; importi contribuțiile publicului după moderare; poți adăuga o pistă muzicală, doar cu fișa drepturilor completată; exporți WAV, index, numere pentru capac și perioadele pulsarilor la data lansării.
 12. **Discul original (1977)**: cele 27 de piese, cele 55 de limbi, imaginile, mesajele și situația drepturilor de autor.
+
+◉ **Voyager azi** (deschide aplicația): distanța lui Voyager 1 față de Pământ în timp real, cu numărătoare inversă până la pragul de o zi-lumină (18 noiembrie 2026, 10:16:07 UTC), cadran de 24 de ore-lumină, axa „razei unui mesaj” și unități în km, UA, zile-lumină sau timp-lumină. E calculată offline dintr-un model calibrat pe repere publicate; abaterea față de JPL Horizons nu a fost măsurată, iar Voyager 2 e o estimare mai grosieră (±1 UA). Pasul 1 are și o legendă accesibilă pentru diagrama capacului, iar pasul 11 poate exporta o **carte poștală PNG** a discului codat.
 
 ## Drepturi de autor și muzică
 
