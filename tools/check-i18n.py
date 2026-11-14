@@ -43,6 +43,7 @@ def main():
         for l in langs:
             if emb.get(l) != jl(l): print('  ERR embedded copy of', l, 'differs: run tools/build-i18n.py'); bad += 1
         # every data-i / data-ia key and every t('...') literal exists in ro
+        s = re.sub(r'<script id="fff-kit">.*?</script>', '', s, flags=re.S)
         keys = set(re.findall(r'data-i="([^"]+)"', s))
         for x in re.findall(r'data-ia="([^"]+)"', s):
             keys |= {p.split(':', 1)[1] for p in x.split(';')}
