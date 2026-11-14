@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Versão: 1.2.0 · Última atualização: 2026-11-14
+Versão: 1.3.0 · Última atualização: 2026-11-14
 
 Um descodificador e codificador passo a passo do **Disco de Ouro da Voyager** (Voyager Interstellar Record). Um único ficheiro HTML (`index.html`), sem dependências externas, sem servidor, sem rastreadores. Funciona offline: basta abrir o ficheiro num navegador.
 
@@ -26,6 +26,8 @@ A aplicação tem 12 passos numerados e um passo inicial em direto:
 12. **O disco original (1977)**: as 27 peças de música, as 55 línguas, as imagens, as mensagens e a situação dos direitos de autor.
 
 ◉ **Voyager hoje** (abre a aplicação): a distância da Voyager 1 à Terra em tempo real, com contagem decrescente até ao limiar de um dia-luz (18 de novembro de 2026, 10:16:07 UTC), um mostrador de 24 horas-luz, a linha do «raio de uma mensagem» e unidades em km, UA, dias-luz ou tempo-luz. É calculada offline, a partir de um modelo calibrado com marcos publicados; o desvio face ao JPL Horizons não foi medido, e a Voyager 2 é uma estimativa mais grosseira (±1 UA). O passo 1 tem também uma legenda acessível para o diagrama da capa, e o passo 11 pode exportar um **postal PNG** do disco codificado.
+
+A 1.3.0 acrescenta: um disco giratório no passo 2 (uma linha ocupa sempre 0,8° do sulco; uma imagem são 1,14 voltas), pulsares audíveis no passo 4 (estalidos no período real), uma escala «Grande Viagem» no passo em direto (planetas, o Pale Blue Dot de 1990, choques de terminação e heliopausas das duas sondas), uma barra de quatro atos acima da navegação por passos e uma PWA (manifesto, service worker, ícones) que se instala e funciona offline quando a aplicação é servida por https; aberta como ficheiro único comporta-se exatamente como antes. A nova `tools/csp-hash.py` recalcula os hashes CSP após qualquer alteração do script inline, e `npm run test:pwa` verifica o service worker offline.
 
 ## Direitos de autor e música
 

@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Version: 1.2.0 · Last updated: 2026-11-14
+Version: 1.3.0 · Last updated: 2026-11-14
 
 A step-by-step decoder and encoder for the **Voyager Golden Record** (Voyager Interstellar Record). One HTML file (`index.html`), no external dependencies, no server, no trackers. It works offline: open the file in a browser.
 
@@ -26,6 +26,8 @@ The app has 12 numbered steps plus an opening live step:
 12. **The original disc (1977)**: the 27 pieces of music, the 55 languages, the images, the messages and the copyright situation.
 
 ◉ **Voyager today** (opens the app): the distance of Voyager 1 from Earth in real time, with a countdown to the one-light-day threshold (18 November 2026, 10:16:07 UTC), a 24 light-hour dial, the “ray of a message” timeline and units in km, AU, light-days or light time. It is computed offline from a model calibrated on published milestones; its deviation from JPL Horizons has not been measured, and Voyager 2 is a coarser estimate (±1 AU). Step 1 also has an accessible legend for the cover diagram, and step 11 can export a **postcard PNG** of the encoded disc.
+
+1.3.0 adds: a rotating disc in step 2 (a line always takes 0.8° of the groove; one image is 1.14 turns), audible pulsars in step 4 (clicks at the real period), a “Grand Tour” scale in the live step (planets, the Pale Blue Dot of 1990, termination shocks and heliopauses of both probes), a bar of four acts above the step navigation, and a PWA (manifest, service worker, icons) that installs and works offline when the app is served over https; opened as a single file it behaves exactly as before. The new `tools/csp-hash.py` recomputes the CSP script hashes after any inline-script edit, and `npm run test:pwa` checks the service worker offline.
 
 ## Copyright and music
 

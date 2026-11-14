@@ -1,0 +1,25 @@
+// Test PWA: servește repo-ul pe localhost, verifică manifestul, service worker-ul și funcționarea offline. Rulare: node tests/pwa.js
+const {chromium}=require('playwright');const http=require('http');const fs=require('fs');const path=require('path');
+const root=path.resolve(__dirname,'..');let nOk=0;const fails=[];
+const OK=(c,m)=>{if(c)nOk++;else{fails.push(m);console.log('  FAIL',m);}};
+const types={'.html':'text/html; charset=utf-8','.js':'text/javascript','.png':'image/png','.webmanifest':'application/manifest+json'};
+const srv=http.createServer((q,r)=>{let u=decodeURIComponent(q.url.split('?')[0]);if(u==='/')u='/index.html';const f=path.join(root,u);
+  if(!f.startsWith(root)||!fs.existsSync(f)){r.writeHead(404);return r.end();}r.writeHead(200,{'content-type':types[path.extname(f)]||'application/octet-stream'});fs.createReadStream(f).pipe(r);});
+(async()=>{await new Promise(r=>srv.listen(0,'127.0.0.1',r));const port=srv.address().port,base='http://localhost:'+port+'/';
+ const br=await chromium.launch();const ctx=await br.newContext();const page=await ctx.newPage();const errs=[];
+ page.on('pageerror',e=>errs.push(e.message));page.on('console',m=>{if(m.type()==='error')errs.push(m.text());});
+ await page.goto(base+'?lang=ro');
+ await page.evaluate(()=>navigator.serviceWorker.ready);await page.waitForTimeout(800);
+ const m=JSON.parse(fs.readFileSync(path.join(root,'manifest.webmanifest'),'utf8'));
+ OK(m.icons.every(i=>fs.existsSync(path.join(root,i.src))),'PWA: icoană lipsă');OK(m.display==='standalone'&&m.name&&m.start_url,'PWA: manifest incomplet');
+ OK(await page.evaluate(()=>!!document.querySelector('link[rel=manifest]')),'PWA: link manifest absent');
+ const keys=await page.evaluate(async()=>{const c=await caches.keys();return c;});OK(keys.length===1&&keys[0].startsWith('brazda-'),'PWA: cache absent '+keys);
+ const cached=await page.evaluate(async()=>{const c=await caches.open((await caches.keys())[0]);return (await c.keys()).map(r=>new URL(r.url).pathname);});
+ OK(cached.includes('/index.html')&&cached.includes('/manifest.webmanifest'),'PWA: fișiere necache-uite '+cached);
+ await page.reload();await page.waitForTimeout(500);
+ await ctx.setOffline(true);await page.reload();await page.waitForTimeout(800);
+ OK((await page.title()).length>0&&(await page.$('#nav button'))!==null,'PWA: nu pornește offline');
+ await ctx.setOffline(false);
+ OK(errs.length===0,'PWA: erori '+errs.slice(0,3).join(' | '));
+ await br.close();srv.close();
+ console.log(nOk+' verificări ok, '+fails.length+' eșecuri');process.exit(fails.length?1:0);})();

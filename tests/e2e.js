@@ -51,6 +51,19 @@ for(const [vn,vp,extra] of VPS){
   await nav(1);OK((await page.$$('#s0leg button')).length===5,'S0: legenda are 5 butoane');
   await page.click('#s0leg button:nth-child(3)');OK((await page.textContent('#info0')).length>10,'S0: legenda nu arată informații');
 
+  /* acte, disc rotitor, pulsari, Marele Tur */
+  OK((await page.$$('#acts button')).length===4,'ACTE: 4 butoane');
+  await page.click('#acts button:nth-child(2)');OK((await page.textContent('#nav button.on')).startsWith('1'),'ACTE: Capacul nu duce la pasul 1');
+  await page.click('#acts button:nth-child(1)');OK((await page.textContent('#nav button.on')).includes('Voyager'),'ACTE: Acum nu duce la Voyager azi');
+  await nav(13);OK((await page.$$('#s12gt .gtr')).length>=12,'MARELE TUR: rânduri lipsă');
+  OK((await page.textContent('#s12gt')).includes('Pale Blue Dot'),'MARELE TUR: lipsește Pale Blue Dot');
+  await nav(2);await page.waitForTimeout(500);
+  if(!(await page.evaluate(()=>matchMedia('(prefers-reduced-motion:reduce)').matches))){const r0=await page.getAttribute('#s1rot','transform');await page.waitForTimeout(600);OK((await page.getAttribute('#s1rot','transform'))!==r0,'DISC: nu se rotește');
+    await page.click('#s1sp');const r1=await page.getAttribute('#s1rot','transform');await page.waitForTimeout(400);OK((await page.getAttribute('#s1rot','transform'))===r1,'DISC: nu se oprește');}
+  OK((await page.textContent('#s1deg')).includes('0,8'),'DISC: unghiul pe linie');
+  await nav(4);await page.click('#s3play');OK((await page.textContent('#s3hz')).length>10,'PULSAR: cadența nu apare');await page.click('#s3stop');
+  await page.fill('#s3p','0.00001');await page.click('#s3play');OK((await page.textContent('#s3hz')).includes('0,002'),'PULSAR: perioadă în afara intervalului');await page.fill('#s3p','0.0334');
+
   /* S1 selecții */
   await nav(2);for(const v of ['33.333333','45','78','16.666667'])await page.selectOption('#s1rpm',v);
   OK((await page.textContent('#s1out')).includes('Viteză corectă'),'S1 nu arată „viteză corectă” la 16⅔');

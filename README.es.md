@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Versión: 1.2.0 · Última actualización: 2026-11-14
+Versión: 1.3.0 · Última actualización: 2026-11-14
 
 Un decodificador y codificador paso a paso del **Disco de Oro de la Voyager** (Voyager Interstellar Record). Un solo archivo HTML (`index.html`), sin dependencias externas, sin servidor, sin rastreadores. Funciona sin conexión: abre el archivo en un navegador.
 
@@ -26,6 +26,8 @@ La aplicación tiene 12 pasos numerados y un paso inicial en vivo:
 12. **El disco original (1977)**: las 27 piezas de música, los 55 idiomas, las imágenes, los mensajes y la situación de los derechos de autor.
 
 ◉ **Voyager hoy** (abre la aplicación): la distancia de Voyager 1 a la Tierra en tiempo real, con cuenta atrás hasta el umbral de un día-luz (18 de noviembre de 2026, 10:16:07 UTC), una esfera de 24 horas-luz, la línea del «rayo de un mensaje» y unidades en km, UA, días-luz o tiempo-luz. Se calcula sin conexión, con un modelo calibrado con hitos publicados; su desviación respecto a JPL Horizons no se ha medido, y Voyager 2 es una estimación más tosca (±1 UA). El paso 1 tiene además una leyenda accesible para el diagrama de la funda, y el paso 11 puede exportar una **postal PNG** del disco codificado.
+
+La 1.3.0 añade: un disco giratorio en el paso 2 (una línea ocupa siempre 0,8° del surco; una imagen son 1,14 vueltas), púlsares audibles en el paso 4 (chasquidos con el periodo real), una escala «Gran Tour» en el paso en vivo (planetas, el Pale Blue Dot de 1990, choques de terminación y heliopausas de las dos sondas), una barra de cuatro actos sobre la navegación por pasos y una PWA (manifiesto, service worker, iconos) que se instala y funciona sin conexión cuando la aplicación se sirve por https; abierta como archivo único se comporta exactamente como antes. La nueva `tools/csp-hash.py` recalcula los hashes CSP tras cualquier cambio del script en línea, y `npm run test:pwa` comprueba el service worker sin conexión.
 
 ## Derechos de autor y música
 

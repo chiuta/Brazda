@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Version : 1.2.0 · Dernière mise à jour : 2026-11-14
+Version : 1.3.0 · Dernière mise à jour : 2026-11-14
 
 Un décodeur et codeur pas à pas du **Disque d'or Voyager** (Voyager Interstellar Record). Un seul fichier HTML (`index.html`), sans dépendances externes, sans serveur, sans traqueurs. Il fonctionne hors ligne : ouvre le fichier dans un navigateur.
 
@@ -26,6 +26,8 @@ L'application comporte 12 étapes numérotées et une étape d'ouverture en dire
 12. **Le disque original (1977)** : les 27 morceaux de musique, les 55 langues, les images, les messages et la situation du droit d'auteur.
 
 ◉ **Voyager aujourd’hui** (ouvre l’application) : la distance de Voyager 1 à la Terre en temps réel, avec un compte à rebours jusqu’au seuil d’un jour-lumière (18 novembre 2026, 10:16:07 UTC), un cadran de 24 heures-lumière, la frise du « rayon d’un message » et des unités en km, UA, jours-lumière ou temps-lumière. Le calcul est hors ligne, à partir d’un modèle calibré sur des repères publiés ; son écart avec JPL Horizons n’a pas été mesuré, et Voyager 2 est une estimation plus grossière (±1 UA). L’étape 1 a aussi une légende accessible pour le schéma de la pochette, et l’étape 11 peut exporter une **carte postale PNG** du disque encodé.
+
+La 1.3.0 ajoute : un disque tournant à l’étape 2 (une ligne occupe toujours 0,8° du sillon ; une image fait 1,14 tour), des pulsars audibles à l’étape 4 (clics à la période réelle), une échelle « Grand Tour » dans l’étape en direct (planètes, Pale Blue Dot de 1990, chocs terminaux et héliopauses des deux sondes), une barre de quatre actes au-dessus de la navigation par étapes, et une PWA (manifeste, service worker, icônes) qui s’installe et fonctionne hors ligne lorsque l’application est servie en https ; ouverte comme fichier unique, elle se comporte exactement comme avant. Le nouvel outil `tools/csp-hash.py` recalcule les hachages CSP après toute modification du script en ligne, et `npm run test:pwa` vérifie le service worker hors ligne.
 
 ## Droit d'auteur et musique
 

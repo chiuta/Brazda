@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Verzió: 1.2.0 · Utolsó frissítés: 2026-11-14
+Verzió: 1.3.0 · Utolsó frissítés: 2026-11-14
 
 Lépésről lépésre működő dekóder és kódoló a **Voyager Aranylemezhez** (Voyager Interstellar Record). Egyetlen HTML-fájl (`index.html`), külső függőségek, szerver és követők nélkül. Offline működik: elég megnyitni a fájlt egy böngészőben.
 
@@ -26,6 +26,8 @@ Az alkalmazásnak 12 számozott lépése és egy élő nyitólépése van:
 12. **Az eredeti lemez (1977)**: a 27 zeneszám, az 55 nyelv, a képek, az üzenetek és a szerzői jogi helyzet.
 
 ◉ **Voyager ma** (ezzel nyílik meg az alkalmazás): a Voyager 1 Földtől mért távolsága valós időben, visszaszámlálással az egy fénynapos küszöbig (2026. november 18., 10:16:07 UTC), 24 fényórás számlappal, az „üzenet sugara” idővonallal, és km, CSE, fénynap vagy fényidő egységekkel. Hálózat nélkül számolja egy közzétett támpontokra kalibrált modell; a JPL Horizonstól való eltérését nem mértük meg, a Voyager 2 pedig durvább becslés (±1 CSE). Az 1. lépésben hozzáférhető jelmagyarázat is van a borítódiagramhoz, a 11. lépés pedig **PNG képeslapot** exportálhat a kódolt lemezről.
+
+Az 1.3.0 újdonságai: forgó lemez a 2. lépésben (egy sor mindig a barázda 0,8°-át foglalja; egy kép 1,14 fordulat), hallható pulzárok a 4. lépésben (kattanások a valódi periódussal), „Grand Tour” skála az élő lépésben (bolygók, az 1990-es Pale Blue Dot, a két szonda lökéshullám-határa és heliopauzája), négy felvonásból álló sáv a lépésnavigáció fölött, valamint PWA (manifeszt, service worker, ikonok), amely https-en kiszolgálva telepíthető és offline is működik; egyetlen fájlként megnyitva pontosan úgy viselkedik, mint korábban. Az új `tools/csp-hash.py` újraszámolja a CSP-hash-eket a beágyazott szkript bármilyen módosítása után, az `npm run test:pwa` pedig offline ellenőrzi a service workert.
 
 ## Szerzői jog és zene
 
