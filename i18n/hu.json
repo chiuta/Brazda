@@ -561,5 +561,22 @@
  "sh.ok": "Link kimásolva",
  "sh.mail": "E-mail",
  "sh.msg": "BRAZDA — a Voyager Aranylemez dekódolója: dekódold lépésről lépésre a lemezt, és nézd élőben, milyen messze van a Voyager 1.",
- "sh.sub": "Minden gomb a kiválasztott alkalmazást vagy oldalt nyitja meg kész linkkel. A BRAZDA magától nem küld semmit, és nem használ követőket."
+ "sh.sub": "Minden gomb a kiválasztott alkalmazást vagy oldalt nyitja meg kész linkkel. A BRAZDA magától nem küld semmit, és nem használ követőket.",
+ "a.skip": "Ugrás a tartalomra",
+ "a.btn": "Hozzáférhetőség",
+ "a.up": "Vissza a tetejére",
+ "a.t": "Hozzáférhetőségi beállítások",
+ "a.sz": "Szövegméret",
+ "a.sm": "Kisebb",
+ "a.lg": "Nagyobb",
+ "a.rs": "Minden visszaállítása",
+ "a.hc": "Magas kontraszt",
+ "a.rm": "Animációk nélkül",
+ "a.rf": "Olvasható szöveg (tágabb térköz)",
+ "a.ul": "Aláhúzott linkek, erős fókusz",
+ "a.tts": "🔊 A lépés felolvasása",
+ "a.tts2": "■ Felolvasás leállítása",
+ "a.tt0": "A hangfelolvasás nem érhető el ebben a böngészőben.",
+ "a.cl": "Bezárás",
+ "a.pc": "{0}%"
 }

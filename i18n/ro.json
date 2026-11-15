@@ -561,5 +561,22 @@
  "sh.ok": "Link copiat",
  "sh.mail": "E-mail",
  "sh.msg": "BRAZDA — decodorul Discului de Aur Voyager: decodează pas cu pas discul și vezi în direct cât de departe e Voyager 1.",
- "sh.sub": "Fiecare buton deschide aplicația sau site-ul ales, cu linkul pregătit. BRAZDA nu trimite nimic singură și nu folosește urmăritoare."
+ "sh.sub": "Fiecare buton deschide aplicația sau site-ul ales, cu linkul pregătit. BRAZDA nu trimite nimic singură și nu folosește urmăritoare.",
+ "a.skip": "Sari la conținut",
+ "a.btn": "Accesibilitate",
+ "a.up": "Înapoi sus",
+ "a.t": "Opțiuni de accesibilitate",
+ "a.sz": "Mărimea textului",
+ "a.sm": "Mai mic",
+ "a.lg": "Mai mare",
+ "a.rs": "Resetează tot",
+ "a.hc": "Contrast ridicat",
+ "a.rm": "Fără animații",
+ "a.rf": "Text lizibil (spațiere mărită)",
+ "a.ul": "Linkuri subliniate, focus accentuat",
+ "a.tts": "🔊 Citește pasul",
+ "a.tts2": "■ Oprește citirea",
+ "a.tt0": "Citirea cu voce nu e disponibilă în acest browser.",
+ "a.cl": "Închide",
+ "a.pc": "{0}%"
 }

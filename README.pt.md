@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Versão: 1.5.0 · Última atualização: 2026-11-15
+Versão: 1.6.0 · Última atualização: 2026-11-15
 
 Um descodificador e codificador passo a passo do **Disco de Ouro da Voyager** (Voyager Interstellar Record). Um único ficheiro HTML (`index.html`), sem dependências externas, sem servidor, sem rastreadores. Funciona offline: basta abrir o ficheiro num navegador.
 
@@ -32,6 +32,8 @@ A 1.3.0 acrescenta: um disco giratório no passo 2 (uma linha ocupa sempre 0,8°
 A 1.4.0 acrescenta pré-visualizações de ligação atraentes: etiquetas Open Graph e Twitter Card com uma imagem de 1200×630 (`og-image.jpg`), ligação canónica e dados schema.org, para que a ligação apareça bem no WhatsApp, Telegram, Facebook, X, LinkedIn e outros. As etiquetas apontam para `https://brazda.chiuta.ro/` (ver `CNAME`); a pré-visualização funciona quando a página é servida nesse endereço. `tools/fff-hash.py` atualiza o hash canónico e o tamanho após alterações.
 
 A 1.5.0 acrescenta botões de partilha no fundo de cada passo: WhatsApp, Telegram, Facebook, X, LinkedIn, Reddit, e-mail, o menu nativo de partilha do dispositivo (onde existir) e «Copiar a ligação». Cada um apenas abre a aplicação ou o site escolhido com a ligação pronta; a BRAZDA não envia nada por si. Se a pré-visualização não aparecer, a página ainda não é servida em `https://brazda.chiuta.ro/` (ative o GitHub Pages: Settings → Pages → ramo `main`, pasta raiz) ou a rede guarda uma pré-visualização antiga em cache (atualize-a com o Facebook Sharing Debugger).
+
+A 1.6.0 torna a interface mais compacta em computador, tablet e telemóvel (cabeçalho mais fino, cartões mais justos, duas colunas em «Voyager hoje» em ecrãs largos) e acrescenta um botão flutuante «voltar ao topo», um painel de acessibilidade (tamanho do texto 85–160 %, contraste elevado, sem animações, texto legível com espaçamento maior, ligações sublinhadas com foco reforçado e leitura em voz alta do passo através da síntese de voz do navegador), uma ligação «Saltar para o conteúdo» e o respeito das definições do sistema de movimento reduzido e contraste elevado. As escolhas ficam apenas no seu dispositivo.
 
 ## Direitos de autor e música
 

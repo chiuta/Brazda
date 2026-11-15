@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Versión: 1.5.0 · Última actualización: 2026-11-15
+Versión: 1.6.0 · Última actualización: 2026-11-15
 
 Un decodificador y codificador paso a paso del **Disco de Oro de la Voyager** (Voyager Interstellar Record). Un solo archivo HTML (`index.html`), sin dependencias externas, sin servidor, sin rastreadores. Funciona sin conexión: abre el archivo en un navegador.
 
@@ -32,6 +32,8 @@ La 1.3.0 añade: un disco giratorio en el paso 2 (una línea ocupa siempre 0,8°
 La 1.4.0 añade vistas previas de enlace atractivas: etiquetas Open Graph y Twitter Card con una imagen de 1200×630 (`og-image.jpg`), enlace canónico y datos schema.org, para que el enlace luzca bien en WhatsApp, Telegram, Facebook, X, LinkedIn y otros. Las etiquetas apuntan a `https://brazda.chiuta.ro/` (véase `CNAME`); la vista previa funciona cuando la página se sirve desde esa dirección. `tools/fff-hash.py` actualiza el hash canónico y el tamaño tras los cambios.
 
 La 1.5.0 añade botones para compartir al pie de cada paso: WhatsApp, Telegram, Facebook, X, LinkedIn, Reddit, correo, el menú nativo de compartir del dispositivo (donde exista) y «Copiar el enlace». Cada uno solo abre la aplicación o el sitio elegido con el enlace listo; BRAZDA no envía nada por sí sola. Si la vista previa no aparece, la página aún no se sirve en `https://brazda.chiuta.ro/` (activa GitHub Pages: Settings → Pages → rama `main`, carpeta raíz) o la red guarda una vista previa antigua en caché (actualízala con el Facebook Sharing Debugger).
+
+La 1.6.0 hace la interfaz más compacta en escritorio, tableta y móvil (cabecera más fina, tarjetas más ajustadas, dos columnas en «Voyager hoy» en pantallas anchas) y añade un botón flotante «volver arriba», un panel de accesibilidad (tamaño del texto 85–160 %, contraste alto, sin animaciones, texto legible con espaciado amplio, enlaces subrayados con foco marcado y lectura en voz alta del paso mediante la síntesis de voz del navegador), un enlace «Saltar al contenido» y el respeto de los ajustes del sistema de movimiento reducido y contraste alto. Las elecciones se guardan solo en tu dispositivo.
 
 ## Derechos de autor y música
 

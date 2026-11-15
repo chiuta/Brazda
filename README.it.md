@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Versione: 1.5.0 · Ultimo aggiornamento: 2026-11-15
+Versione: 1.6.0 · Ultimo aggiornamento: 2026-11-15
 
 Un decodificatore e codificatore passo dopo passo per il **Voyager Golden Record** (Voyager Interstellar Record, il Disco d'Oro). Un unico file HTML (`index.html`), senza dipendenze esterne, senza server, senza tracciamento. Funziona offline: apri il file in un browser.
 
@@ -32,6 +32,8 @@ La 1.3.0 aggiunge: un disco rotante al passo 2 (una riga occupa sempre 0,8° del
 La 1.4.0 aggiunge anteprime di link accattivanti: tag Open Graph e Twitter Card con un’immagine 1200×630 (`og-image.jpg`), link canonico e dati schema.org, così il link si presenta bene su WhatsApp, Telegram, Facebook, X, LinkedIn e altri. I tag puntano a `https://brazda.chiuta.ro/` (vedi `CNAME`); l’anteprima funziona quando la pagina è servita da quell’indirizzo. `tools/fff-hash.py` aggiorna hash canonico e dimensione dopo le modifiche.
 
 La 1.5.0 aggiunge pulsanti di condivisione in fondo a ogni passo: WhatsApp, Telegram, Facebook, X, LinkedIn, Reddit, e-mail, la condivisione nativa del dispositivo (dove disponibile) e «Copia il link». Ognuno apre soltanto l’app o il sito scelto con il link pronto; BRAZDA non invia nulla da sola. Se l’anteprima non compare, la pagina non è ancora servita su `https://brazda.chiuta.ro/` (attiva GitHub Pages: Settings → Pages → ramo `main`, cartella root) oppure la rete conserva un’anteprima vecchia in cache (aggiornala con il Facebook Sharing Debugger).
+
+La 1.6.0 rende l’interfaccia più compatta su desktop, tablet e telefono (intestazione più sottile, schede più strette, due colonne per «Voyager oggi» sugli schermi larghi) e aggiunge un pulsante flottante «torna su», un pannello di accessibilità (dimensione del testo 85–160 %, contrasto elevato, senza animazioni, testo leggibile con spaziatura ampia, link sottolineati con focus marcato, lettura ad alta voce del passo tramite la sintesi vocale del browser), un link «Vai al contenuto» e il rispetto delle impostazioni di sistema per movimento ridotto e contrasto elevato. Le scelte restano solo sul tuo dispositivo.
 
 ## Diritto d'autore e musica
 

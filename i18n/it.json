@@ -561,5 +561,22 @@
  "sh.ok": "Link copiato",
  "sh.mail": "E-mail",
  "sh.msg": "BRAZDA — il decodificatore del Disco d’oro di Voyager: decodifica il disco passo passo e guarda dal vivo quanto è lontana Voyager 1.",
- "sh.sub": "Ogni pulsante apre l’app o il sito scelto con il link pronto. BRAZDA non invia nulla da sola e non usa tracker."
+ "sh.sub": "Ogni pulsante apre l’app o il sito scelto con il link pronto. BRAZDA non invia nulla da sola e non usa tracker.",
+ "a.skip": "Vai al contenuto",
+ "a.btn": "Accessibilità",
+ "a.up": "Torna su",
+ "a.t": "Opzioni di accessibilità",
+ "a.sz": "Dimensione del testo",
+ "a.sm": "Più piccolo",
+ "a.lg": "Più grande",
+ "a.rs": "Ripristina tutto",
+ "a.hc": "Contrasto elevato",
+ "a.rm": "Senza animazioni",
+ "a.rf": "Testo leggibile (spaziatura ampia)",
+ "a.ul": "Link sottolineati, focus marcato",
+ "a.tts": "🔊 Leggi il passo",
+ "a.tts2": "■ Ferma la lettura",
+ "a.tt0": "La lettura vocale non è disponibile in questo browser.",
+ "a.cl": "Chiudi",
+ "a.pc": "{0}%"
 }

@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Versiune: 1.5.0 · Ultima actualizare: 2026-11-15
+Versiune: 1.6.0 · Ultima actualizare: 2026-11-15
 
 Decodor și codor, pas cu pas, pentru **Discul de Aur Voyager** (Voyager Interstellar Record). Un singur fișier HTML (`index.html`), fără dependențe externe, fără server, fără urmăritoare. Funcționează offline: deschide fișierul într-un browser.
 
@@ -32,6 +32,8 @@ Aplicația are 12 pași numerotați și un pas viu de deschidere:
 1.4.0 adaugă previzualizări atractive la partajarea linkului: etichete Open Graph și Twitter Card cu o imagine de 1200×630 (`og-image.jpg`), link canonic și date schema.org, astfel încât linkul arată bine pe WhatsApp, Telegram, Facebook, X, LinkedIn și altele. Etichetele trimit la `https://brazda.chiuta.ro/` (vezi `CNAME`); previzualizarea funcționează după ce pagina e servită de la acea adresă. `tools/fff-hash.py` reînnoiește hash-ul canonic și dimensiunea după modificări.
 
 1.5.0 adaugă butoane de distribuire în josul fiecărui pas: WhatsApp, Telegram, Facebook, X, LinkedIn, Reddit, e-mail, meniul nativ de share al dispozitivului (unde există) și „Copiază linkul”. Fiecare doar deschide aplicația sau site-ul ales cu linkul pregătit; BRAZDA nu trimite nimic singură. Dacă previzualizarea nu apare la distribuire, pagina nu e încă servită la `https://brazda.chiuta.ro/` (activează GitHub Pages: Settings → Pages → ramura `main`, folderul rădăcină) sau rețeaua ține încă o previzualizare veche în cache (reîmprospăteaz-o cu Facebook Sharing Debugger).
+
+1.6.0 face interfața mai compactă pe desktop, tabletă și telefon (antet mai subțire, carduri mai strânse, două coloane la „Voyager azi” pe ecrane late) și adaugă un buton plutitor „înapoi sus”, un panou de accesibilitate (mărimea textului 85–160 %, contrast ridicat, fără animații, text lizibil cu spațiere mărită, linkuri subliniate cu focus accentuat și citirea cu voce tare a pasului curent prin sinteza vocală a browserului), un link „Sari la conținut” și respectarea setărilor de sistem pentru mișcare redusă și contrast ridicat. Alegerile rămân doar pe dispozitivul tău.
 
 ## Drepturi de autor și muzică
 
