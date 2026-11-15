@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Version: 1.6.0 · Letzte Aktualisierung: 2026-11-15
+Version: 1.8.0 · Letzte Aktualisierung: 2026-11-15
 
 Ein Schritt-für-Schritt-Decoder und -Encoder für die **Voyager Golden Record** (Voyager Interstellar Record). Eine HTML-Datei (`index.html`), keine externen Abhängigkeiten, kein Server, keine Tracker. Sie funktioniert offline: Die Datei einfach im Browser öffnen.
 
@@ -34,6 +34,8 @@ Die App hat 12 nummerierte Schritte und einen Live-Einstiegsschritt:
 1.5.0 ergänzt Teilen-Schaltflächen am Ende jedes Schritts: WhatsApp, Telegram, Facebook, X, LinkedIn, Reddit, E-Mail, das native Teilen-Menü des Geräts (falls vorhanden) und „Link kopieren“. Jede öffnet nur die gewählte App oder Seite mit fertigem Link; BRAZDA sendet nichts selbst. Erscheint die Vorschau nicht, wird die Seite noch nicht unter `https://brazda.chiuta.ro/` ausgeliefert (GitHub Pages aktivieren: Settings → Pages → Branch `main`, Ordner Root) oder das Netzwerk hält noch eine alte Vorschau im Cache (mit dem Facebook Sharing Debugger auffrischen).
 
 1.6.0 macht die Oberfläche auf Desktop, Tablet und Smartphone kompakter (schlankere Kopfzeile, engere Karten, zwei Spalten bei „Voyager heute“ auf breiten Bildschirmen) und ergänzt eine schwebende „Nach oben“-Schaltfläche, ein Barrierefreiheits-Panel (Textgröße 85–160 %, hoher Kontrast, keine Animationen, gut lesbarer Text mit weitem Abstand, unterstrichene Links mit starkem Fokus und Vorlesen des aktuellen Schritts über die Sprachausgabe des Browsers), einen Link „Zum Inhalt springen“ und die Beachtung der Systemeinstellungen für reduzierte Bewegung und hohen Kontrast. Die Auswahl bleibt nur auf deinem Gerät.
+
+1.8.0 ergänzt „Die Geschichte der Schlüssel“ (sechs kurze Erklärungen nach dem Artikel „Citind în stele“ von Adrian Bănuță, Rubrik „Misiunea Voyager – 50 de ani“, in eigenen Worten), zwei offizielle NASA/JPL-Fotos der Scheibe und ihrer Hülle sowie die zwei Tage Verzögerung für ein „Hallo“ an Voyager 1.
 
 ## Urheberrecht und Musik
 

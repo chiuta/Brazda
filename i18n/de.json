@@ -1,6 +1,6 @@
 {
- "g.1": "Sprache",
- "g.2": "Der Schritt-für-Schritt-Decoder der Voyager Golden Record — von der Hülle bis zum ersten Bild.",
+ "g.1": "Die Vorderseite der goldenen Scheibe schräg gesehen, mit dem Etikett „The Sounds of Earth“",
+ "g.2": "Die Aluminiumhülle der Scheibe mit den eingravierten Anleitungen",
  "g.3": "App-Schritte",
  "s0.1": "1 · Die Platte und die Hülle",
  "s0.2": "Die Golden Record startete 1977 an Bord der Sonden Voyager 1 und 2: eine vergoldete Schallplatte aus Kupfer mit 30 cm (12″) Durchmesser. Ein „Abspielgerät“ ist nicht eingebaut. Alles, was ein Finder hat, ist die <b>Hülle</b>, auf der wortlose Anleitungsdiagramme eingraviert sind.",
@@ -562,5 +562,23 @@
  "sh.mail": "E-Mail",
  "sh.msg": "BRAZDA — der Dekoder der Goldenen Schallplatte der Voyager: dekodiere die Scheibe Schritt für Schritt und sieh live, wie weit Voyager 1 entfernt ist.",
  "sh.sub": "Jede Schaltfläche öffnet die gewählte App oder Seite mit fertigem Link. BRAZDA sendet nichts von selbst und nutzt keine Tracker.",
- "a.skip": "Zum Inhalt springen"
+ "a.skip": "Zum Inhalt springen",
+ "k.t": "Die Geschichte der Schlüssel: wie ein mittelalterlicher Außerirdischer die Scheibe lesen könnte",
+ "k.p": "Stell dir vor, die Sonde wird von einer mittelalterlichen Zivilisation ohne Radioteleskope gefunden. Sie kennt kein Englisch, hat den Plattenspieler nie erfunden und kennt unsere mathematischen Zeichen nicht. Carl Sagans Team wählte die einzige Sprache, die zwei einander unbekannte Geister teilen können: die Physik.",
+ "k.1t": "Erster Schlüssel: Wasserstoff als Uhr",
+ "k.1": "Die zwei Kreise unten rechts zeigen das Wasserstoffatom in den beiden Zuständen seines Hyperfeinübergangs. Beim Wechsel von einem zum anderen sendet das Atom ein Radiosignal von etwa 1.420 MHz aus. Das zugehörige Intervall, rund 0,70 Nanosekunden, wird zur Zeiteinheit der ganzen Botschaft; die Binärziffer 1 ist genau dort gezeichnet.",
+ "k.2t": "Zweiter Schlüssel: die Drehzahl der Scheibe",
+ "k.2": "Die Zeichnung oben links zeigt die Scheibe von oben und die Nadel am Rand: Die Wiedergabe läuft von außen nach innen. Die danebenstehende Binärzahl, mit der Zeiteinheit multipliziert, ergibt etwa 3,6 Sekunden pro Umdrehung, also 16⅔ Umdrehungen pro Minute, die Hälfte von 33⅓ und eine Stufe, die viele alte Plattenspieler hatten, markiert mit „16“. Die Minute kommt nirgends vor: Die Uhr ist der Wasserstoff. Eine weitere Zahl gibt die Dauer einer Seite an, ungefähr eine Stunde.",
+ "k.3t": "„Grüße an alle“",
+ "k.3": "Wenn der Außerirdische bis hierher gekommen ist, hört er Grüße in 55 Sprachen, dann Wellen, Wind, Donner, Vögel, Wale und Musik aus aller Welt, von Bach bis Chuck Berry.",
+ "k.4t": "Bilder sind eine Konvention",
+ "k.4": "Ein Foto braucht keine Übersetzung, aber eine Deutung: Es ist die flache Projektion einer dreidimensionalen Welt. Die 115 Bilder sind analog kodiert, als Signalzeilen. Die Zeichnungen oben rechts erklären den Wiederaufbau: die Form des Startsignals, die Dauer einer Zeile (~8 ms), wie die Zeilen angeordnet sind und wie viele es sind (512). Dann folgt ein Kreis: Erscheint ein Kreis, stimmen die Proportionen; erscheint eine Ellipse, stimmt etwas nicht. Der Kreis ist das Testbild einer analogen Übertragung.",
+ "k.5t": "„Wo seid ihr?“: Adresse und Datum",
+ "k.5": "Die Karte der 14 Pulsare zeigt die Richtungen zu ihnen, und ihre Perioden, binär in der Wasserstoffeinheit geschrieben, wirken wie Koordinaten. Pulsare werden mit der Zeit langsamer: Der Unterschied zwischen später gemessenen Perioden und denen auf der Karte zeigt, wie viel Zeit seit 1977 vergangen ist. Die Karte ist Adresse und Datum zugleich. Eine zweite Uhr ist die kleine Menge Uran-238 auf der Hülle (Halbwertszeit ~4,5 Milliarden Jahre): Das Verhältnis von Uran zu seinen Zerfallsprodukten verrät das Alter der Scheibe.",
+ "k.6t": "Die Menschen hinter der Scheibe",
+ "k.6": "Carl Sagan leitete das Komitee. Frank Drake war technischer Direktor, Ann Druyan kreative Direktorin (Klänge und Musik), Timothy Ferris Produzent, Jon Lomberg Design-Direktor (die Bilder) und Linda Salzman Sagan organisierte die Grüße. Sie hatten weniger als sechs Monate und stützten sich auf einen weiten Kreis von Beratern und Freiwilligen.",
+ "k.src": "Zusammenfassung nach dem Artikel „Citind în stele“ (Lesen in den Sternen) von Adrian Bănuță (Rubrik „Misiunea Voyager – 50 de ani“, S. 016–019), in eigenen Worten neu geschrieben.",
+ "g.t": "Die Scheibe in Bildern",
+ "g.c": "NASA/JPL-Archivfotos der Goldenen Schallplatte, aus dem in Schritt 1 genannten Artikel übernommen. Die Hülle zeigt die dort erklärten Zeichnungen.",
+ "s12.29": "Eine jetzt an Voyager 1 gesendete Funknachricht braucht einen Tag, die Antwort einen weiteren: zwei Tage für ein „Hallo“."
 }

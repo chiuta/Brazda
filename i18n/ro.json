@@ -1,6 +1,6 @@
 {
- "g.1": "Limba",
- "g.2": "Decodorul pas cu pas al Discului de Aur Voyager — de la capac la prima imagine.",
+ "g.1": "Fața discului de aur, văzută oblic, cu eticheta „The Sounds of Earth”",
+ "g.2": "Capacul de aluminiu al discului, cu instrucțiunile gravate",
  "g.3": "Pașii aplicației",
  "s0.1": "1 · Discul și capacul",
  "s0.2": "Discul de Aur a plecat în 1977 la bordul sondelor Voyager 1 și 2: un disc fonograf de cupru placat cu aur, de 30 cm (12″). Nu are „cititor” în el. Tot ce are un descoperitor e <b>capacul</b>, pe care sunt gravate diagrame de instrucțiuni, fără cuvinte.",
@@ -562,5 +562,23 @@
  "sh.mail": "E-mail",
  "sh.msg": "BRAZDA — decodorul Discului de Aur Voyager: decodează pas cu pas discul și vezi în direct cât de departe e Voyager 1.",
  "sh.sub": "Fiecare buton deschide aplicația sau site-ul ales, cu linkul pregătit. BRAZDA nu trimite nimic singură și nu folosește urmăritoare.",
- "a.skip": "Sari la conținut"
+ "a.skip": "Sari la conținut",
+ "k.t": "Povestea cheilor: cum ar citi discul un extraterestru medieval",
+ "k.p": "Imaginează-ți că sonda e găsită de o civilizație medievală, fără radiotelescoape. Nu știe engleză, nu a inventat pick-upul, nu cunoaște simbolurile noastre matematice. Echipa lui Carl Sagan a ales singurul limbaj pe care îl pot împărți două minți care nu se cunosc: fizica.",
+ "k.1t": "Prima cheie: hidrogenul drept ceas",
+ "k.1": "Cele două cercuri din colțul dreapta-jos arată atomul de hidrogen în cele două stări ale tranziției hiperfine. La trecerea dintr-una în alta, atomul emite un semnal radio de circa 1 420 MHz. Intervalul asociat, de aproximativ 0,70 nanosecunde, devine unitatea de timp a întregului mesaj; cifra binară 1 e desenată chiar acolo.",
+ "k.2t": "A doua cheie: viteza discului",
+ "k.2": "Desenul din stânga-sus arată discul văzut de sus și acul așezat la margine: redarea merge de la exterior spre interior. Numărul binar de alături, înmulțit cu unitatea de timp, dă circa 3,6 secunde pe rotație, adică 16⅔ rotații pe minut, jumătate din viteza de 33⅓ și o treaptă care exista, marcată „16”, pe multe pick-upuri vechi. Minutul nu apare nicăieri: ceasul e hidrogenul. Un alt număr dă durata unei fețe, aproximativ o oră.",
+ "k.3t": "„Salutări tuturor”",
+ "k.3": "Dacă extraterestrul a ajuns până aici, aude salutări în 55 de limbi, apoi valuri, vânt, tunete, păsări, balene și muzică din toată lumea, de la Bach până la Chuck Berry.",
+ "k.4t": "Imaginile sunt o convenție",
+ "k.4": "O fotografie nu are nevoie de traducere, dar are nevoie de interpretare: e proiecția plană a unei lumi tridimensionale. Cele 115 imagini sunt codate analogic, ca linii de semnal. Desenele din colțul dreapta-sus spun cum se reconstruiesc: forma semnalului de început, durata unei linii (~8 ms), așezarea liniilor și numărul lor (512). Urmează un cerc: dacă pe ecran apare cerc, proporțiile sunt corecte; dacă apare elipsă, ceva nu e în regulă. Cercul e mira de reglaj a unei transmisii analogice.",
+ "k.5t": "„Unde sunteți?”: adresă și dată",
+ "k.5": "Harta cu 14 pulsari arată direcțiile spre ei, iar perioadele lor, scrise în binar în unitatea hidrogenului, funcționează ca niște coordonate. Pulsarii încetinesc în timp, deci diferența dintre perioadele măsurate de cineva mai târziu și cele de pe hartă spune cât a trecut de la 1977: harta e și adresă, și dată. Al doilea ceas e uraniul-238 depus în cantitate mică pe înveliș (timp de înjumătățire ~4,5 miliarde de ani): raportul dintre uraniu și produsele lui de dezintegrare arată vârsta discului.",
+ "k.6t": "Oamenii din spatele discului",
+ "k.6": "Carl Sagan a condus comitetul. Frank Drake a fost directorul tehnic, Ann Druyan directorul creativ (sunete și muzică), Timothy Ferris producătorul, Jon Lomberg directorul de design (imaginile), iar Linda Salzman Sagan a organizat saluturile. Au avut mai puțin de șase luni și s-au sprijinit pe un cerc larg de consultanți și voluntari.",
+ "k.src": "Rezumat după articolul „Citind în stele” de Adrian Bănuță (rubrica „Misiunea Voyager – 50 de ani”, pp. 016–019), rescris cu cuvinte proprii.",
+ "g.t": "Discul în imagini",
+ "g.c": "Fotografii de arhivă NASA/JPL ale Discului de Aur, preluate din articolul citat la pasul 1. Pe capac se văd desenele explicate acolo.",
+ "s12.29": "Un mesaj radio trimis acum spre Voyager 1 ajunge într-o zi, iar răspunsul mai are nevoie de încă una: două zile pentru un „alo”."
 }

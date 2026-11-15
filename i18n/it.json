@@ -1,6 +1,6 @@
 {
- "g.1": "Lingua",
- "g.2": "Il decodificatore passo dopo passo del Disco d'Oro Voyager — dalla copertina alla prima immagine.",
+ "g.1": "La faccia del disco d’oro vista di sbieco, con l’etichetta «The Sounds of Earth»",
+ "g.2": "La copertina di alluminio del disco, con le istruzioni incise",
  "g.3": "Passi dell'app",
  "s0.1": "1 · Il disco e la copertina",
  "s0.2": "Il Disco d'Oro è partito nel 1977 a bordo delle sonde Voyager 1 e 2: un disco fonografico di rame placcato in oro, da 30 cm (12″). Non contiene alcun «lettore». Tutto ciò che ha chi lo trova è la <b>copertina</b>, su cui sono incisi diagrammi di istruzioni, senza parole.",
@@ -562,5 +562,23 @@
  "sh.mail": "E-mail",
  "sh.msg": "BRAZDA — il decodificatore del Disco d’oro di Voyager: decodifica il disco passo passo e guarda dal vivo quanto è lontana Voyager 1.",
  "sh.sub": "Ogni pulsante apre l’app o il sito scelto con il link pronto. BRAZDA non invia nulla da sola e non usa tracker.",
- "a.skip": "Vai al contenuto"
+ "a.skip": "Vai al contenuto",
+ "k.t": "La storia delle chiavi: come un alieno medievale potrebbe leggere il disco",
+ "k.p": "Immagina che la sonda venga trovata da una civiltà medievale, senza radiotelescopi. Non conosce l’inglese, non ha inventato il giradischi e ignora i nostri simboli matematici. Il team di Carl Sagan scelse l’unico linguaggio che due menti che non si conoscono possono condividere: la fisica.",
+ "k.1t": "Prima chiave: l’idrogeno come orologio",
+ "k.1": "I due cerchi in basso a destra mostrano l’atomo di idrogeno nei due stati della sua transizione iperfine. Passando dall’uno all’altro l’atomo emette un segnale radio di circa 1 420 MHz. L’intervallo associato, circa 0,70 nanosecondi, diventa l’unità di tempo dell’intero messaggio; la cifra binaria 1 è disegnata proprio lì.",
+ "k.2t": "Seconda chiave: la velocità del disco",
+ "k.2": "Il disegno in alto a sinistra mostra il disco visto dall’alto e la puntina posata sul bordo: la riproduzione va dall’esterno verso l’interno. Il numero binario accanto, moltiplicato per l’unità di tempo, dà circa 3,6 secondi per giro, cioè 16⅔ giri al minuto, la metà di 33⅓ e una posizione presente su molti vecchi giradischi, segnata «16». Il minuto non compare da nessuna parte: l’orologio è l’idrogeno. Un altro numero dà la durata di una facciata, circa un’ora.",
+ "k.3t": "«Saluti a tutti»",
+ "k.3": "Se l’alieno è arrivato fin qui, ascolta saluti in 55 lingue, poi onde, vento, tuoni, uccelli, balene e musica da tutto il mondo, da Bach a Chuck Berry.",
+ "k.4t": "Le immagini sono una convenzione",
+ "k.4": "Una fotografia non ha bisogno di traduzione, ma di interpretazione: è la proiezione piatta di un mondo a tre dimensioni. Le 115 immagini sono codificate in analogico, come righe di segnale. I disegni in alto a destra spiegano come ricostruirle: la forma del segnale iniziale, la durata di una riga (~8 ms), la disposizione delle righe e il loro numero (512). Segue un cerchio: se sullo schermo appare un cerchio, le proporzioni sono giuste; se appare un’ellisse, qualcosa non va. Il cerchio è la monoscopio di una trasmissione analogica.",
+ "k.5t": "«Dove siete?»: indirizzo e data",
+ "k.5": "La mappa dei 14 pulsar indica le direzioni verso di loro, e i loro periodi, scritti in binario nell’unità dell’idrogeno, funzionano come coordinate. I pulsar rallentano nel tempo: la differenza tra i periodi misurati più tardi e quelli sulla mappa dice quanto tempo è passato dal 1977. La mappa è insieme indirizzo e data. Un secondo orologio è la piccola quantità di uranio-238 depositata sulla copertina (emivita ~4,5 miliardi di anni): il rapporto tra uranio e prodotti di decadimento rivela l’età del disco.",
+ "k.6t": "Le persone dietro il disco",
+ "k.6": "Carl Sagan presiedeva il comitato. Frank Drake fu il direttore tecnico, Ann Druyan la direttrice creativa (suoni e musica), Timothy Ferris il produttore, Jon Lomberg il direttore del design (le immagini) e Linda Salzman Sagan organizzò i saluti. Ebbero meno di sei mesi e si appoggiarono a un’ampia cerchia di consulenti e volontari.",
+ "k.src": "Riassunto basato sull’articolo «Citind în stele» (Leggere nelle stelle) di Adrian Bănuță (rubrica «Misiunea Voyager – 50 de ani», pp. 016–019), riscritto con parole nostre.",
+ "g.t": "Il disco in immagini",
+ "g.c": "Fotografie d’archivio NASA/JPL del Disco d’oro, tratte dall’articolo citato al passo 1. La copertina mostra i disegni spiegati lì.",
+ "s12.29": "Un messaggio radio inviato ora verso Voyager 1 impiega un giorno ad arrivare e la risposta un altro: due giorni per un «pronto»."
 }

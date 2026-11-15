@@ -1,6 +1,6 @@
 {
- "g.1": "Language",
- "g.2": "Step-by-step decoder of the Voyager Golden Record — from the cover to the first image.",
+ "g.1": "The face of the golden disc seen at an angle, with the “The Sounds of Earth” label",
+ "g.2": "The aluminum cover of the disc, with the engraved instructions",
  "g.3": "App steps",
  "s0.1": "1 · The record and its cover",
  "s0.2": "The Golden Record left in 1977 aboard the Voyager 1 and 2 probes: a gold-plated copper phonograph record, 30 cm (12″) across. It has no “player” built in. All a finder has is the <b>cover</b>, engraved with instruction diagrams and no words.",
@@ -562,5 +562,23 @@
  "sh.mail": "E-mail",
  "sh.msg": "BRAZDA — the Voyager Golden Record decoder: decode the disc step by step and see live how far Voyager 1 is.",
  "sh.sub": "Each button opens the chosen app or site with the link ready. BRAZDA sends nothing by itself and uses no trackers.",
- "a.skip": "Skip to content"
+ "a.skip": "Skip to content",
+ "k.t": "The story of the keys: how a medieval alien could read the disc",
+ "k.p": "Imagine the probe being found by a medieval civilization with no radio telescopes. It does not know English, never invented the record player, and does not know our mathematical symbols. Carl Sagan’s team chose the one language two minds that have never met can share: physics.",
+ "k.1t": "First key: hydrogen as a clock",
+ "k.1": "The two circles in the lower right show the hydrogen atom in the two states of its hyperfine transition. When it drops from one to the other, the atom emits a radio signal of about 1,420 MHz. The associated interval, roughly 0.70 nanoseconds, becomes the unit of time for the whole message; the binary digit 1 is drawn right there.",
+ "k.2t": "Second key: the speed of the disc",
+ "k.2": "The drawing at the upper left shows the disc seen from above and the stylus placed at its edge: playback runs from the outside inward. The binary number next to it, multiplied by the unit of time, gives about 3.6 seconds per turn, that is 16⅔ revolutions per minute, half of 33⅓ and a setting that many old turntables had, marked “16”. The minute appears nowhere: the clock is hydrogen. Another number gives the length of one side, about an hour.",
+ "k.3t": "“Greetings to all”",
+ "k.3": "If the alien has come this far, it hears greetings in 55 languages, then waves, wind, thunder, birds, whales and music from all over the world, from Bach to Chuck Berry.",
+ "k.4t": "Images are a convention",
+ "k.4": "A photograph needs no translation but does need interpretation: it is the flat projection of a three-dimensional world. The 115 images are encoded in analog form, as lines of signal. The drawings in the upper right explain how to rebuild them: the shape of the starting signal, the duration of a line (~8 ms), how the lines are laid out and how many there are (512). Then comes a circle: if a circle appears on screen, the proportions are right; if an ellipse appears, something is wrong. The circle is the test pattern of an analog transmission.",
+ "k.5t": "“Where are you?”: address and date",
+ "k.5": "The map of 14 pulsars shows the directions to them, and their periods, written in binary in the hydrogen unit, work like coordinates. Pulsars slow down over time, so the difference between periods measured later and those on the map says how much time has passed since 1977: the map is both address and date. A second clock is the small amount of uranium-238 deposited on the cover (half-life ~4.5 billion years): the ratio of uranium to its decay products reveals the disc’s age.",
+ "k.6t": "The people behind the disc",
+ "k.6": "Carl Sagan chaired the committee. Frank Drake was the technical director, Ann Druyan the creative director (sounds and music), Timothy Ferris the producer, Jon Lomberg the design director (the images) and Linda Salzman Sagan organized the greetings. They had less than six months and relied on a wide circle of consultants and volunteers.",
+ "k.src": "Summary based on the article “Citind în stele” (Reading the stars) by Adrian Bănuță (column “Misiunea Voyager – 50 de ani”, pp. 016–019), rewritten in our own words.",
+ "g.t": "The disc in pictures",
+ "g.c": "NASA/JPL archive photographs of the Golden Record, taken from the article cited in step 1. The cover shows the drawings explained there.",
+ "s12.29": "A radio message sent to Voyager 1 now takes a day to arrive, and the reply needs another one: two days for a “hello”."
 }

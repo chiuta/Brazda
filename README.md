@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Version: 1.6.0 · Last updated: 2026-11-15
+Version: 1.8.0 · Last updated: 2026-11-15
 
 A step-by-step decoder and encoder for the **Voyager Golden Record** (Voyager Interstellar Record). One HTML file (`index.html`), no external dependencies, no server, no trackers. It works offline: open the file in a browser.
 
@@ -34,6 +34,8 @@ The app has 12 numbered steps plus an opening live step:
 1.5.0 adds share buttons at the bottom of every step: WhatsApp, Telegram, Facebook, X, LinkedIn, Reddit, e-mail, the device’s native share sheet (where available) and “Copy link”. Each one only opens the chosen app or site with the link prepared; BRAZDA sends nothing itself. If the preview does not appear when you share, the page is not yet served at `https://brazda.chiuta.ro/` (enable GitHub Pages: Settings → Pages → branch `main`, folder root), or the network still has an old cached preview (refresh it with the Facebook Sharing Debugger).
 
 1.6.0 makes the interface more compact on desktop, tablet and phone (slimmer header, tighter cards, two columns for “Voyager today” on wide screens) and adds a floating “back to top” button, an accessibility panel (text size 85–160 %, high contrast, no animations, readable text with wider spacing, underlined links with strong focus, and read-aloud of the current step through the browser’s speech synthesis), a “Skip to content” link, and respect for the system’s reduced-motion and high-contrast settings. Choices are kept on your device only.
+
+1.8.0 adds “The story of the keys” (six short explanations from the article “Citind în stele” by Adrian Bănuță, Magazin Voyager column “Misiunea Voyager – 50 de ani”, rewritten in our own words: hydrogen clock, disc speed, greetings, images, pulsar map, the team), two official NASA/JPL photos of the record and its cover in the original-disc step, and the two-day “hello” delay for Voyager 1.
 
 ## Copyright and music
 

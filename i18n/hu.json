@@ -1,6 +1,6 @@
 {
- "g.1": "Nyelv",
- "g.2": "A Voyager Aranylemez lépésről lépésre működő dekódere — a borítótól az első képig.",
+ "g.1": "Az aranylemez előlapja ferdén, a „The Sounds of Earth” címkével",
+ "g.2": "A lemez alumínium borítója a belevésett utasításokkal",
  "g.3": "Az alkalmazás lépései",
  "s0.1": "1 · A lemez és a borító",
  "s0.2": "Az Aranylemez 1977-ben indult útnak a Voyager 1 és 2 szondák fedélzetén: egy 30 cm-es (12″) aranyozott réz hanglemez. Nincs hozzá „lejátszó”. Egy felfedezőnek csak a <b>borító</b> áll rendelkezésére, amelyre szavak nélküli útmutató ábrák vannak vésve.",
@@ -562,5 +562,23 @@
  "sh.mail": "E-mail",
  "sh.msg": "BRAZDA — a Voyager Aranylemez dekódolója: dekódold lépésről lépésre a lemezt, és nézd élőben, milyen messze van a Voyager 1.",
  "sh.sub": "Minden gomb a kiválasztott alkalmazást vagy oldalt nyitja meg kész linkkel. A BRAZDA magától nem küld semmit, és nem használ követőket.",
- "a.skip": "Ugrás a tartalomra"
+ "a.skip": "Ugrás a tartalomra",
+ "k.t": "A kulcsok története: hogyan olvashatná a lemezt egy középkori idegen",
+ "k.p": "Képzeld el, hogy a szondát egy középkori civilizáció találja meg, rádiótávcsövek nélkül. Nem tud angolul, nem találta fel a lemezjátszót, és nem ismeri a matematikai jeleinket. Carl Sagan csapata azt az egyetlen nyelvet választotta, amelyen két egymást nem ismerő elme egyetérthet: a fizikát.",
+ "k.1t": "Első kulcs: a hidrogén mint óra",
+ "k.1": "A jobb alsó sarokban lévő két kör a hidrogénatomot mutatja hiperfinom átmenetének két állapotában. Az egyikből a másikba lépve az atom körülbelül 1 420 MHz-es rádiójelet bocsát ki. A hozzá tartozó időtartam, nagyjából 0,70 nanoszekundum, az egész üzenet időegysége lesz; a bináris 1-es számjegy éppen ott van lerajzolva.",
+ "k.2t": "Második kulcs: a lemez sebessége",
+ "k.2": "A bal felső rajz felülről mutatja a lemezt, a tű pedig a szélén áll: a lejátszás kívülről befelé halad. A mellette lévő bináris szám az időegységgel szorozva körülbelül 3,6 másodpercet ad fordulatonként, vagyis percenként 16⅔ fordulatot, ami a 33⅓ fele, és sok régi lemezjátszón volt ilyen, „16”-tal jelölt fokozat. A perc sehol sem szerepel: az óra a hidrogén. Egy másik szám egy oldal hosszát adja meg, nagyjából egy óra.",
+ "k.3t": "„Üdvözlet mindenkinek”",
+ "k.3": "Ha az idegen idáig eljutott, 55 nyelven hall üdvözlést, majd hullámokat, szelet, mennydörgést, madarakat, bálnákat és zenét a világ minden tájáról, Bachtól Chuck Berryig.",
+ "k.4t": "A képek megegyezések",
+ "k.4": "A fényképnek nem fordítás, hanem értelmezés kell: egy háromdimenziós világ síkbeli vetülete. A 115 kép analóg módon van kódolva, jelsorokként. A jobb felső rajzok elmagyarázzák az újraépítést: a kezdőjel alakját, egy sor hosszát (~8 ms), a sorok elrendezését és számát (512). Ezután egy kör következik: ha kör jelenik meg, az arányok helyesek; ha ellipszis, valami nincs rendben. A kör egy analóg adás hangolóábrája.",
+ "k.5t": "„Hol vagytok?”: cím és dátum",
+ "k.5": "A 14 pulzár térképe a hozzájuk vezető irányokat mutatja, periódusaik pedig – bináris alakban, a hidrogén egységében – koordinátaként működnek. A pulzárok idővel lassulnak: a később mért és a térképen szereplő periódusok különbsége megmutatja, mennyi idő telt el 1977 óta. A térkép egyszerre cím és dátum. A második óra a borítóra felvitt kevés urán-238 (felezési idő ~4,5 milliárd év): az urán és bomlástermékei aránya elárulja a lemez korát.",
+ "k.6t": "A lemez mögött álló emberek",
+ "k.6": "Carl Sagan vezette a bizottságot. Frank Drake volt a műszaki igazgató, Ann Druyan a kreatív igazgató (hangok és zene), Timothy Ferris a producer, Jon Lomberg a tervezési igazgató (a képek), Linda Salzman Sagan pedig az üdvözletek szervezője. Kevesebb mint hat hónapjuk volt, és tanácsadók, önkéntesek széles körére támaszkodtak.",
+ "k.src": "Összefoglaló Adrian Bănuță „Citind în stele” (Olvasás a csillagokban) című cikke alapján („Misiunea Voyager – 50 de ani” rovat, 016–019. oldal), saját szavainkkal átírva.",
+ "g.t": "A lemez képekben",
+ "g.c": "NASA/JPL archív fényképek az Aranylemezről, az 1. lépésben említett cikkből átvéve. A borítón az ott elmagyarázott rajzok láthatók.",
+ "s12.29": "A Voyager 1-nek most küldött rádióüzenet egy nap alatt ér oda, a válasz pedig még egy nap alatt: két nap egy „halló”."
 }

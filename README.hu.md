@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Verzió: 1.6.0 · Utolsó frissítés: 2026-11-15
+Verzió: 1.8.0 · Utolsó frissítés: 2026-11-15
 
 Lépésről lépésre működő dekóder és kódoló a **Voyager Aranylemezhez** (Voyager Interstellar Record). Egyetlen HTML-fájl (`index.html`), külső függőségek, szerver és követők nélkül. Offline működik: elég megnyitni a fájlt egy böngészőben.
 
@@ -34,6 +34,8 @@ Az 1.4.0 látványos linkelőnézeteket ad: Open Graph és Twitter Card címkék
 Az 1.5.0 megosztás gombokat ad minden lépés aljára: WhatsApp, Telegram, Facebook, X, LinkedIn, Reddit, e-mail, az eszköz natív megosztómenüje (ahol van) és „Link másolása”. Mindegyik csak a kiválasztott alkalmazást vagy oldalt nyitja meg kész linkkel; a BRAZDA magától nem küld semmit. Ha az előnézet nem jelenik meg, az oldalt még nem a `https://brazda.chiuta.ro/` címről szolgálják ki (kapcsold be a GitHub Pagest: Settings → Pages → `main` ág, gyökérmappa), vagy a hálózat még régi előnézetet tart a gyorsítótárban (frissítsd a Facebook Sharing Debuggerrel).
 
 Az 1.6.0 kompaktabbá teszi a felületet asztali gépen, tableten és telefonon (vékonyabb fejléc, szorosabb kártyák, széles képernyőn két oszlop a „Voyager ma” lépésben), és hozzáad egy lebegő „vissza a tetejére” gombot, egy hozzáférhetőségi panelt (szövegméret 85–160 %, magas kontraszt, animációk nélkül, olvasható szöveg tágabb térközzel, aláhúzott linkek erős fókusszal, valamint az aktuális lépés felolvasása a böngésző beszédszintézisével), egy „Ugrás a tartalomra” linket, és figyelembe veszi a rendszer csökkentett mozgás és magas kontraszt beállításait. A választások csak az eszközödön maradnak.
+
+Az 1.8.0 hozzáadja „A kulcsok története” részt (hat rövid magyarázat Adrian Bănuță „Citind în stele” cikke alapján, „Misiunea Voyager – 50 de ani” rovat, saját szavainkkal), két hivatalos NASA/JPL fényképet a lemezről és borítójáról, valamint a Voyager 1-nek küldött „halló” kétnapos késését.
 
 ## Szerzői jog és zene
 

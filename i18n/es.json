@@ -1,6 +1,6 @@
 {
- "g.1": "Idioma",
- "g.2": "El decodificador paso a paso del Disco de Oro de la Voyager — de la cubierta a la primera imagen.",
+ "g.1": "La cara del disco de oro vista en oblicuo, con la etiqueta «The Sounds of Earth»",
+ "g.2": "La funda de aluminio del disco, con las instrucciones grabadas",
  "g.3": "Pasos de la aplicación",
  "s0.1": "1 · El disco y la cubierta",
  "s0.2": "El Disco de Oro partió en 1977 a bordo de las sondas Voyager 1 y 2: un disco fonográfico de cobre chapado en oro, de 30 cm (12″). No lleva ningún «lector» incorporado. Lo único que tiene un descubridor es la <b>cubierta</b>, en la que están grabados diagramas de instrucciones, sin palabras.",
@@ -562,5 +562,23 @@
  "sh.mail": "Correo",
  "sh.msg": "BRAZDA — el decodificador del Disco de Oro de Voyager: decodifica el disco paso a paso y mira en directo a qué distancia está Voyager 1.",
  "sh.sub": "Cada botón abre la aplicación o el sitio elegido con el enlace listo. BRAZDA no envía nada por sí sola y no usa rastreadores.",
- "a.skip": "Saltar al contenido"
+ "a.skip": "Saltar al contenido",
+ "k.t": "La historia de las claves: cómo un extraterrestre medieval podría leer el disco",
+ "k.p": "Imagina que la sonda la encuentra una civilización medieval, sin radiotelescopios. No conoce el inglés, no ha inventado el tocadiscos y desconoce nuestros símbolos matemáticos. El equipo de Carl Sagan eligió el único lenguaje que pueden compartir dos mentes que no se conocen: la física.",
+ "k.1t": "Primera clave: el hidrógeno como reloj",
+ "k.1": "Los dos círculos de abajo a la derecha muestran el átomo de hidrógeno en los dos estados de su transición hiperfina. Al pasar de uno a otro, el átomo emite una señal de radio de unos 1 420 MHz. El intervalo asociado, de unos 0,70 nanosegundos, se convierte en la unidad de tiempo de todo el mensaje; el dígito binario 1 está dibujado ahí mismo.",
+ "k.2t": "Segunda clave: la velocidad del disco",
+ "k.2": "El dibujo de arriba a la izquierda muestra el disco visto desde arriba y la aguja colocada en el borde: la reproducción va del exterior hacia el interior. El número binario de al lado, multiplicado por la unidad de tiempo, da unos 3,6 segundos por vuelta, es decir, 16⅔ revoluciones por minuto, la mitad de 33⅓ y una velocidad que tenían muchos tocadiscos antiguos, marcada «16». El minuto no aparece en ninguna parte: el reloj es el hidrógeno. Otro número da la duración de una cara, aproximadamente una hora.",
+ "k.3t": "«Saludos a todos»",
+ "k.3": "Si el extraterrestre ha llegado hasta aquí, oye saludos en 55 idiomas, luego olas, viento, truenos, pájaros, ballenas y música de todo el mundo, de Bach a Chuck Berry.",
+ "k.4t": "Las imágenes son una convención",
+ "k.4": "Una fotografía no necesita traducción, pero sí interpretación: es la proyección plana de un mundo tridimensional. Las 115 imágenes están codificadas de forma analógica, como líneas de señal. Los dibujos de arriba a la derecha explican cómo reconstruirlas: la forma de la señal inicial, la duración de una línea (~8 ms), cómo se disponen las líneas y cuántas son (512). Luego viene un círculo: si en pantalla aparece un círculo, las proporciones son correctas; si aparece una elipse, algo va mal. El círculo es la carta de ajuste de una transmisión analógica.",
+ "k.5t": "«¿Dónde estáis?»: dirección y fecha",
+ "k.5": "El mapa de 14 púlsares indica las direcciones hacia ellos, y sus periodos, escritos en binario en la unidad del hidrógeno, funcionan como coordenadas. Los púlsares se ralentizan con el tiempo: la diferencia entre los periodos medidos más tarde y los del mapa dice cuánto ha pasado desde 1977. El mapa es a la vez dirección y fecha. Un segundo reloj es la pequeña cantidad de uranio-238 depositada en la funda (semivida ~4500 millones de años): la proporción entre el uranio y sus productos de desintegración revela la edad del disco.",
+ "k.6t": "Las personas detrás del disco",
+ "k.6": "Carl Sagan presidió el comité. Frank Drake fue el director técnico, Ann Druyan la directora creativa (sonidos y música), Timothy Ferris el productor, Jon Lomberg el director de diseño (las imágenes) y Linda Salzman Sagan organizó los saludos. Tuvieron menos de seis meses y se apoyaron en un amplio círculo de consultores y voluntarios.",
+ "k.src": "Resumen basado en el artículo «Citind în stele» (Leyendo en las estrellas) de Adrian Bănuță (sección «Misiunea Voyager – 50 de ani», pp. 016–019), reescrito con palabras propias.",
+ "g.t": "El disco en imágenes",
+ "g.c": "Fotografías de archivo NASA/JPL del Disco de Oro, tomadas del artículo citado en el paso 1. La funda muestra los dibujos explicados allí.",
+ "s12.29": "Un mensaje de radio enviado ahora a Voyager 1 tarda un día en llegar y la respuesta otro más: dos días para un «hola»."
 }

@@ -18,7 +18,7 @@ def check(lang, ref):
         if tags(v) != tags(r): errs.append('markup %s: %s vs %s' % (k, tags(v), tags(r)))
         if v.count('\n') != r.count('\n'): errs.append('newlines ' + k)
         if v != v.strip() and r == r.strip(): errs.append('whitespace ' + k)
-        if lang != 'ro' and re.search('[ășțşţĂȘȚŞŢ]', v) and k != 'o.langs': errs.append('romanian leakage ' + k + ': ' + v[:50])
+        if lang != 'ro' and re.search('[ășțşţĂȘȚŞŢ]', v) and k not in ('o.langs','k.src'): errs.append('romanian leakage ' + k + ': ' + v[:50])
         if len(r) > 12 and len(v) > 2.2 * len(r) + 20: warn.append('long ' + k)
         if k.startswith(('e.th.', 'e.dl.', 'e.t.', 'o.h.', 'o.l.')) and '"' in v: errs.append('quote in attr value ' + k)
         if k.startswith('n.') and len(v) > 18: warn.append('nav label long ' + k + ' ' + v)

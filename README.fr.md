@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Version : 1.6.0 · Dernière mise à jour : 2026-11-15
+Version : 1.8.0 · Dernière mise à jour : 2026-11-15
 
 Un décodeur et codeur pas à pas du **Disque d'or Voyager** (Voyager Interstellar Record). Un seul fichier HTML (`index.html`), sans dépendances externes, sans serveur, sans traqueurs. Il fonctionne hors ligne : ouvre le fichier dans un navigateur.
 
@@ -34,6 +34,8 @@ La 1.4.0 ajoute des aperçus de lien attrayants : balises Open Graph et Twitter 
 La 1.5.0 ajoute des boutons de partage au bas de chaque étape : WhatsApp, Telegram, Facebook, X, LinkedIn, Reddit, e-mail, le partage natif de l’appareil (si disponible) et « Copier le lien ». Chacun ouvre seulement l’application ou le site choisi avec le lien prêt ; BRAZDA n’envoie rien elle-même. Si l’aperçu n’apparaît pas au partage, la page n’est pas encore servie à `https://brazda.chiuta.ro/` (activez GitHub Pages : Settings → Pages → branche `main`, dossier racine), ou le réseau garde un ancien aperçu en cache (rafraîchissez-le avec le Facebook Sharing Debugger).
 
 La 1.6.0 rend l’interface plus compacte sur ordinateur, tablette et téléphone (en-tête plus fin, cartes resserrées, deux colonnes pour « Voyager aujourd’hui » sur grand écran) et ajoute un bouton flottant « retour en haut », un panneau d’accessibilité (taille du texte 85–160 %, contraste élevé, sans animations, texte lisible à espacement élargi, liens soulignés avec focus renforcé, lecture à voix haute de l’étape via la synthèse vocale du navigateur), un lien « Aller au contenu » et le respect des réglages système de mouvement réduit et de contraste élevé. Les choix restent sur votre appareil.
+
+La 1.8.0 ajoute « L’histoire des clés » (six courtes explications tirées de l’article « Citind în stele » d’Adrian Bănuță, rubrique « Misiunea Voyager – 50 de ani », reformulées avec nos mots), deux photos officielles NASA/JPL du disque et de sa pochette, et le délai de deux jours pour un « allô » vers Voyager 1.
 
 ## Droit d'auteur et musique
 

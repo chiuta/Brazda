@@ -24,7 +24,7 @@ const fails=[];let nOk=0;const F=m=>{fails.push(m);console.log('  FAIL',m);};con
           return {sw:document.documentElement.scrollWidth,vw:innerWidth,raw,txt,nav:[...document.querySelectorAll('#nav button')].map(b=>b.textContent)};});
         OK(r.sw<=r.vw+1,`${tag} step ${i+1} horizontal overflow ${r.sw}>${r.vw}`);
         OK(!r.raw.length,`${tag} step ${i+1} raw keys: ${r.raw.slice(0,3)}`);
-        if(L!=='ro')OK(!/[ășțşţĂȘȚ]/.test(r.txt.replace(/Română|română/g,'')),`${tag} step ${i+1} Romanian leakage: ${(r.txt.match(/.{0,25}[ășț].{0,15}/)||[''])[0]}`);
+        if(L!=='ro')OK(!/[ășțşţĂȘȚ]/.test(r.txt.replace(/Română|română|Bănuță|Citind în stele|Misiunea Voyager – 50 de ani/g,'')),`${tag} step ${i+1} Romanian leakage: ${(r.txt.match(/.{0,25}[ășț].{0,15}/)||[''])[0]}`);
         OK(r.nav.every(x=>x.length>3),tag+' nav labels');
       }
       // switch language mid-session (after encode) to a different one and back

@@ -1,6 +1,6 @@
 {
- "g.1": "Langue",
- "g.2": "Le décodeur pas à pas du Disque d'or Voyager : de la pochette à la première image.",
+ "g.1": "La face du disque d’or vue en oblique, avec l’étiquette « The Sounds of Earth »",
+ "g.2": "La pochette en aluminium du disque, avec les instructions gravées",
  "g.3": "Étapes de l'application",
  "s0.1": "1 · Le disque et sa pochette",
  "s0.2": "Le Disque d'or est parti en 1977 à bord des sondes Voyager 1 et 2 : un disque phonographique en cuivre plaqué or, de 30 cm (12″). Il n'a pas de « lecteur » intégré. Tout ce que trouve un découvreur, c'est la <b>pochette</b>, sur laquelle sont gravés des schémas d'instructions, sans mots.",
@@ -562,5 +562,23 @@
  "sh.mail": "E-mail",
  "sh.msg": "BRAZDA — le décodeur du Disque d’or de Voyager : décodez le disque pas à pas et voyez en direct à quelle distance est Voyager 1.",
  "sh.sub": "Chaque bouton ouvre l’application ou le site choisi avec le lien prêt. BRAZDA n’envoie rien toute seule et n’utilise aucun traceur.",
- "a.skip": "Aller au contenu"
+ "a.skip": "Aller au contenu",
+ "k.t": "L’histoire des clés : comment un extraterrestre médiéval pourrait lire le disque",
+ "k.p": "Imaginez que la sonde soit trouvée par une civilisation médiévale, sans radiotélescopes. Elle ne connaît pas l’anglais, n’a pas inventé le tourne-disque et ignore nos symboles mathématiques. L’équipe de Carl Sagan a choisi la seule langue que deux esprits qui ne se connaissent pas peuvent partager : la physique.",
+ "k.1t": "Première clé : l’hydrogène comme horloge",
+ "k.1": "Les deux cercles en bas à droite montrent l’atome d’hydrogène dans les deux états de sa transition hyperfine. En passant de l’un à l’autre, l’atome émet un signal radio d’environ 1 420 MHz. L’intervalle associé, d’environ 0,70 nanoseconde, devient l’unité de temps de tout le message ; le chiffre binaire 1 y est dessiné.",
+ "k.2t": "Deuxième clé : la vitesse du disque",
+ "k.2": "Le dessin en haut à gauche montre le disque vu de dessus et l’aiguille posée au bord : la lecture va de l’extérieur vers l’intérieur. Le nombre binaire voisin, multiplié par l’unité de temps, donne environ 3,6 secondes par tour, soit 16⅔ tours par minute, la moitié de 33⅓ et un réglage que beaucoup d’anciens tourne-disques offraient, marqué « 16 ». La minute n’apparaît nulle part : l’horloge, c’est l’hydrogène. Un autre nombre donne la durée d’une face, environ une heure.",
+ "k.3t": "« Salutations à tous »",
+ "k.3": "Si l’extraterrestre est arrivé jusque-là, il entend des salutations en 55 langues, puis des vagues, du vent, du tonnerre, des oiseaux, des baleines et de la musique du monde entier, de Bach à Chuck Berry.",
+ "k.4t": "Les images sont une convention",
+ "k.4": "Une photographie n’a pas besoin de traduction, mais d’interprétation : c’est la projection plane d’un monde en trois dimensions. Les 115 images sont codées de façon analogique, en lignes de signal. Les dessins en haut à droite expliquent comment les reconstruire : la forme du signal de début, la durée d’une ligne (~8 ms), la disposition des lignes et leur nombre (512). Vient ensuite un cercle : s’il apparaît à l’écran, les proportions sont justes ; si c’est une ellipse, quelque chose cloche. Le cercle est la mire d’une transmission analogique.",
+ "k.5t": "« Où êtes-vous ? » : adresse et date",
+ "k.5": "La carte de 14 pulsars indique les directions vers eux, et leurs périodes, écrites en binaire dans l’unité de l’hydrogène, servent de coordonnées. Les pulsars ralentissent avec le temps : la différence entre les périodes mesurées plus tard et celles de la carte dit combien de temps s’est écoulé depuis 1977. La carte est à la fois adresse et date. Une seconde horloge : la petite quantité d’uranium-238 déposée sur la pochette (demi-vie ~4,5 milliards d’années) ; le rapport entre l’uranium et ses produits de désintégration révèle l’âge du disque.",
+ "k.6t": "Les personnes derrière le disque",
+ "k.6": "Carl Sagan présidait le comité. Frank Drake était directeur technique, Ann Druyan directrice créative (sons et musique), Timothy Ferris producteur, Jon Lomberg directeur du design (les images) et Linda Salzman Sagan a organisé les salutations. Ils ont eu moins de six mois et se sont appuyés sur un large cercle de consultants et de bénévoles.",
+ "k.src": "Résumé d’après l’article « Citind în stele » (Lire dans les étoiles) d’Adrian Bănuță (rubrique « Misiunea Voyager – 50 de ani », p. 016–019), réécrit avec nos propres mots.",
+ "g.t": "Le disque en images",
+ "g.c": "Photographies d’archives NASA/JPL du Disque d’or, tirées de l’article cité à l’étape 1. La pochette montre les dessins expliqués là.",
+ "s12.29": "Un message radio envoyé maintenant vers Voyager 1 met un jour à arriver, et la réponse en met un autre : deux jours pour un « allô »."
 }
