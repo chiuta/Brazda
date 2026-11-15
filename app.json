@@ -9,27 +9,29 @@
   "permissions": [
     "getUserMedia",
     "navigator.share",
+    "serviceWorker",
     "localStorage",
-    "Web Crypto"
+    "Web Crypto",
+    "WebGL"
   ],
   "storageKeys": [
     "brazda.lang"
   ],
-  "sizeBytes": 546245,
-  "sha256": "c14e11ff287748e0964beeb6f3d889cecf8e8bfaf232e7ced5b77bc5fbcc23a2",
+  "sizeBytes": 668450,
+  "sha256": "f09f35c2e6cf9f02caab8eaaf56c79fed78dd9f31cff26898366f850fdfd68c0",
   "csp": {
     "present": true,
     "directives": {
       "default-src": "'none'",
-      "script-src": "sha256×2",
+      "script-src": "sha256×3",
       "style-src": "'unsafe-inline'",
       "img-src": "'self' data: blob:",
+      "manifest-src": "'self'",
+      "worker-src": "'self'",
       "media-src": "data: blob:",
       "connect-src": "'none'",
       "base-uri": "'none'",
-      "form-action": "'none'",
-      "manifest-src": "'self'",
-      "worker-src": "'self'"
+      "form-action": "'none'"
     },
     "scriptInline": "hash",
     "connect": "'none'"
@@ -48,7 +50,7 @@
       "de"
     ],
     "pwa": {
-      "manifest": true,
+      "manifest": false,
       "serviceWorker": true
     },
     "modules": [
