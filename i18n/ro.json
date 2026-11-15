@@ -553,5 +553,13 @@
  "act.1": "Acum",
  "act.2": "Capacul",
  "act.3": "Imaginea",
- "act.4": "Codare"
+ "act.4": "Codare",
+ "sh.t": "Distribuie BRAZDA",
+ "sh.aria": "Butoane de distribuire",
+ "sh.nat": "Distribuie…",
+ "sh.copy": "Copiază linkul",
+ "sh.ok": "Link copiat",
+ "sh.mail": "E-mail",
+ "sh.msg": "BRAZDA — decodorul Discului de Aur Voyager: decodează pas cu pas discul și vezi în direct cât de departe e Voyager 1.",
+ "sh.sub": "Fiecare buton deschide aplicația sau site-ul ales, cu linkul pregătit. BRAZDA nu trimite nimic singură și nu folosește urmăritoare."
 }

@@ -2,7 +2,7 @@
   "schema": 1,
   "slug": "brazda",
   "name": "BRAZDA — decodorul Discului de Aur Voyager",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "updated": "2026-11-15",
   "description": "BRAZDA: decodor și codor pas cu pas pentru Discul de Aur Voyager, într-un singur fișier HTML, offline.",
   "egress": [],
@@ -17,8 +17,8 @@
   "storageKeys": [
     "brazda.lang"
   ],
-  "sizeBytes": 676444,
-  "sha256": "fb5ff47ce9ea46087aed7d86ec818d5c749e4255416dc41de0d8f73197a56566",
+  "sizeBytes": 682145,
+  "sha256": "a3662c8532047a3b9d027250bb8b8c1893ac09db7fc72334175076ab7211b527",
   "csp": {
     "present": true,
     "directives": {

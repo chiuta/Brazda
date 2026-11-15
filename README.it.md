@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Versione: 1.4.0 · Ultimo aggiornamento: 2026-11-15
+Versione: 1.5.0 · Ultimo aggiornamento: 2026-11-15
 
 Un decodificatore e codificatore passo dopo passo per il **Voyager Golden Record** (Voyager Interstellar Record, il Disco d'Oro). Un unico file HTML (`index.html`), senza dipendenze esterne, senza server, senza tracciamento. Funziona offline: apri il file in un browser.
 
@@ -30,6 +30,8 @@ L'app ha 12 passi numerati e un passo iniziale dal vivo:
 La 1.3.0 aggiunge: un disco rotante al passo 2 (una riga occupa sempre 0,8° del solco; un’immagine fa 1,14 giri), pulsar udibili al passo 4 (clic al periodo reale), una scala «Grand Tour» nel passo dal vivo (pianeti, Pale Blue Dot del 1990, shock di terminazione ed eliopause delle due sonde), una barra di quattro atti sopra la navigazione a passi e una PWA (manifesto, service worker, icone) che si installa e funziona offline quando l’app è servita via https; aperta come file singolo si comporta esattamente come prima. Il nuovo `tools/csp-hash.py` ricalcola gli hash CSP dopo ogni modifica dello script inline, e `npm run test:pwa` verifica il service worker offline.
 
 La 1.4.0 aggiunge anteprime di link accattivanti: tag Open Graph e Twitter Card con un’immagine 1200×630 (`og-image.jpg`), link canonico e dati schema.org, così il link si presenta bene su WhatsApp, Telegram, Facebook, X, LinkedIn e altri. I tag puntano a `https://brazda.chiuta.ro/` (vedi `CNAME`); l’anteprima funziona quando la pagina è servita da quell’indirizzo. `tools/fff-hash.py` aggiorna hash canonico e dimensione dopo le modifiche.
+
+La 1.5.0 aggiunge pulsanti di condivisione in fondo a ogni passo: WhatsApp, Telegram, Facebook, X, LinkedIn, Reddit, e-mail, la condivisione nativa del dispositivo (dove disponibile) e «Copia il link». Ognuno apre soltanto l’app o il sito scelto con il link pronto; BRAZDA non invia nulla da sola. Se l’anteprima non compare, la pagina non è ancora servita su `https://brazda.chiuta.ro/` (attiva GitHub Pages: Settings → Pages → ramo `main`, cartella root) oppure la rete conserva un’anteprima vecchia in cache (aggiornala con il Facebook Sharing Debugger).
 
 ## Diritto d'autore e musica
 

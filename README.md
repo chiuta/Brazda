@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Version: 1.4.0 · Last updated: 2026-11-15
+Version: 1.5.0 · Last updated: 2026-11-15
 
 A step-by-step decoder and encoder for the **Voyager Golden Record** (Voyager Interstellar Record). One HTML file (`index.html`), no external dependencies, no server, no trackers. It works offline: open the file in a browser.
 
@@ -30,6 +30,8 @@ The app has 12 numbered steps plus an opening live step:
 1.3.0 adds: a rotating disc in step 2 (a line always takes 0.8° of the groove; one image is 1.14 turns), audible pulsars in step 4 (clicks at the real period), a “Grand Tour” scale in the live step (planets, the Pale Blue Dot of 1990, termination shocks and heliopauses of both probes), a bar of four acts above the step navigation, and a PWA (manifest, service worker, icons) that installs and works offline when the app is served over https; opened as a single file it behaves exactly as before. The new `tools/csp-hash.py` recomputes the CSP script hashes after any inline-script edit, and `npm run test:pwa` checks the service worker offline.
 
 1.4.0 adds rich link previews: Open Graph and Twitter Card tags with a 1200×630 image (`og-image.jpg`), a canonical link and schema.org data, so links look good on WhatsApp, Telegram, Facebook, X, LinkedIn and others. The tags point to `https://brazda.chiuta.ro/` (see `CNAME`); the preview works once the page is served from that address. `tools/fff-hash.py` refreshes the canonical hash and size after edits.
+
+1.5.0 adds share buttons at the bottom of every step: WhatsApp, Telegram, Facebook, X, LinkedIn, Reddit, e-mail, the device’s native share sheet (where available) and “Copy link”. Each one only opens the chosen app or site with the link prepared; BRAZDA sends nothing itself. If the preview does not appear when you share, the page is not yet served at `https://brazda.chiuta.ro/` (enable GitHub Pages: Settings → Pages → branch `main`, folder root), or the network still has an old cached preview (refresh it with the Facebook Sharing Debugger).
 
 ## Copyright and music
 

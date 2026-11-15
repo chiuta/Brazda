@@ -553,5 +553,13 @@
  "act.1": "Maintenant",
  "act.2": "La pochette",
  "act.3": "L’image",
- "act.4": "Encodage"
+ "act.4": "Encodage",
+ "sh.t": "Partager BRAZDA",
+ "sh.aria": "Boutons de partage",
+ "sh.nat": "Partager…",
+ "sh.copy": "Copier le lien",
+ "sh.ok": "Lien copié",
+ "sh.mail": "E-mail",
+ "sh.msg": "BRAZDA — le décodeur du Disque d’or de Voyager : décodez le disque pas à pas et voyez en direct à quelle distance est Voyager 1.",
+ "sh.sub": "Chaque bouton ouvre l’application ou le site choisi avec le lien prêt. BRAZDA n’envoie rien toute seule et n’utilise aucun traceur."
 }

@@ -553,5 +553,13 @@
  "act.1": "Jetzt",
  "act.2": "Die Hülle",
  "act.3": "Das Bild",
- "act.4": "Kodierung"
+ "act.4": "Kodierung",
+ "sh.t": "BRAZDA teilen",
+ "sh.aria": "Teilen-Schaltflächen",
+ "sh.nat": "Teilen…",
+ "sh.copy": "Link kopieren",
+ "sh.ok": "Link kopiert",
+ "sh.mail": "E-Mail",
+ "sh.msg": "BRAZDA — der Dekoder der Goldenen Schallplatte der Voyager: dekodiere die Scheibe Schritt für Schritt und sieh live, wie weit Voyager 1 entfernt ist.",
+ "sh.sub": "Jede Schaltfläche öffnet die gewählte App oder Seite mit fertigem Link. BRAZDA sendet nichts von selbst und nutzt keine Tracker."
 }

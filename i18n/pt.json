@@ -553,5 +553,13 @@
  "act.1": "Agora",
  "act.2": "A capa",
  "act.3": "A imagem",
- "act.4": "Codificar"
+ "act.4": "Codificar",
+ "sh.t": "Partilhar a BRAZDA",
+ "sh.aria": "Botões de partilha",
+ "sh.nat": "Partilhar…",
+ "sh.copy": "Copiar a ligação",
+ "sh.ok": "Ligação copiada",
+ "sh.mail": "E-mail",
+ "sh.msg": "BRAZDA — o descodificador do Disco de Ouro da Voyager: descodifique o disco passo a passo e veja em direto a que distância está a Voyager 1.",
+ "sh.sub": "Cada botão abre a aplicação ou o site escolhido com a ligação pronta. A BRAZDA não envia nada por si e não usa rastreadores."
 }

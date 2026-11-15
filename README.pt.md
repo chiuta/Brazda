@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Versão: 1.4.0 · Última atualização: 2026-11-15
+Versão: 1.5.0 · Última atualização: 2026-11-15
 
 Um descodificador e codificador passo a passo do **Disco de Ouro da Voyager** (Voyager Interstellar Record). Um único ficheiro HTML (`index.html`), sem dependências externas, sem servidor, sem rastreadores. Funciona offline: basta abrir o ficheiro num navegador.
 
@@ -30,6 +30,8 @@ A aplicação tem 12 passos numerados e um passo inicial em direto:
 A 1.3.0 acrescenta: um disco giratório no passo 2 (uma linha ocupa sempre 0,8° do sulco; uma imagem são 1,14 voltas), pulsares audíveis no passo 4 (estalidos no período real), uma escala «Grande Viagem» no passo em direto (planetas, o Pale Blue Dot de 1990, choques de terminação e heliopausas das duas sondas), uma barra de quatro atos acima da navegação por passos e uma PWA (manifesto, service worker, ícones) que se instala e funciona offline quando a aplicação é servida por https; aberta como ficheiro único comporta-se exatamente como antes. A nova `tools/csp-hash.py` recalcula os hashes CSP após qualquer alteração do script inline, e `npm run test:pwa` verifica o service worker offline.
 
 A 1.4.0 acrescenta pré-visualizações de ligação atraentes: etiquetas Open Graph e Twitter Card com uma imagem de 1200×630 (`og-image.jpg`), ligação canónica e dados schema.org, para que a ligação apareça bem no WhatsApp, Telegram, Facebook, X, LinkedIn e outros. As etiquetas apontam para `https://brazda.chiuta.ro/` (ver `CNAME`); a pré-visualização funciona quando a página é servida nesse endereço. `tools/fff-hash.py` atualiza o hash canónico e o tamanho após alterações.
+
+A 1.5.0 acrescenta botões de partilha no fundo de cada passo: WhatsApp, Telegram, Facebook, X, LinkedIn, Reddit, e-mail, o menu nativo de partilha do dispositivo (onde existir) e «Copiar a ligação». Cada um apenas abre a aplicação ou o site escolhido com a ligação pronta; a BRAZDA não envia nada por si. Se a pré-visualização não aparecer, a página ainda não é servida em `https://brazda.chiuta.ro/` (ative o GitHub Pages: Settings → Pages → ramo `main`, pasta raiz) ou a rede guarda uma pré-visualização antiga em cache (atualize-a com o Facebook Sharing Debugger).
 
 ## Direitos de autor e música
 

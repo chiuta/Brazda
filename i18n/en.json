@@ -553,5 +553,13 @@
  "act.1": "Now",
  "act.2": "The cover",
  "act.3": "The image",
- "act.4": "Encoding"
+ "act.4": "Encoding",
+ "sh.t": "Share BRAZDA",
+ "sh.aria": "Share buttons",
+ "sh.nat": "Share…",
+ "sh.copy": "Copy link",
+ "sh.ok": "Link copied",
+ "sh.mail": "E-mail",
+ "sh.msg": "BRAZDA — the Voyager Golden Record decoder: decode the disc step by step and see live how far Voyager 1 is.",
+ "sh.sub": "Each button opens the chosen app or site with the link ready. BRAZDA sends nothing by itself and uses no trackers."
 }

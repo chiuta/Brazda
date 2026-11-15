@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Verzió: 1.4.0 · Utolsó frissítés: 2026-11-15
+Verzió: 1.5.0 · Utolsó frissítés: 2026-11-15
 
 Lépésről lépésre működő dekóder és kódoló a **Voyager Aranylemezhez** (Voyager Interstellar Record). Egyetlen HTML-fájl (`index.html`), külső függőségek, szerver és követők nélkül. Offline működik: elég megnyitni a fájlt egy böngészőben.
 
@@ -30,6 +30,8 @@ Az alkalmazásnak 12 számozott lépése és egy élő nyitólépése van:
 Az 1.3.0 újdonságai: forgó lemez a 2. lépésben (egy sor mindig a barázda 0,8°-át foglalja; egy kép 1,14 fordulat), hallható pulzárok a 4. lépésben (kattanások a valódi periódussal), „Grand Tour” skála az élő lépésben (bolygók, az 1990-es Pale Blue Dot, a két szonda lökéshullám-határa és heliopauzája), négy felvonásból álló sáv a lépésnavigáció fölött, valamint PWA (manifeszt, service worker, ikonok), amely https-en kiszolgálva telepíthető és offline is működik; egyetlen fájlként megnyitva pontosan úgy viselkedik, mint korábban. Az új `tools/csp-hash.py` újraszámolja a CSP-hash-eket a beágyazott szkript bármilyen módosítása után, az `npm run test:pwa` pedig offline ellenőrzi a service workert.
 
 Az 1.4.0 látványos linkelőnézeteket ad: Open Graph és Twitter Card címkék 1200×630-as képpel (`og-image.jpg`), kanonikus hivatkozás és schema.org adatok, hogy a link jól mutasson WhatsAppon, Telegramon, Facebookon, X-en, LinkedInen és máshol. A címkék a `https://brazda.chiuta.ro/` címre mutatnak (lásd `CNAME`); az előnézet akkor működik, ha az oldalt erről a címről szolgálják ki. A `tools/fff-hash.py` módosítások után frissíti a kanonikus hash-t és a méretet.
+
+Az 1.5.0 megosztás gombokat ad minden lépés aljára: WhatsApp, Telegram, Facebook, X, LinkedIn, Reddit, e-mail, az eszköz natív megosztómenüje (ahol van) és „Link másolása”. Mindegyik csak a kiválasztott alkalmazást vagy oldalt nyitja meg kész linkkel; a BRAZDA magától nem küld semmit. Ha az előnézet nem jelenik meg, az oldalt még nem a `https://brazda.chiuta.ro/` címről szolgálják ki (kapcsold be a GitHub Pagest: Settings → Pages → `main` ág, gyökérmappa), vagy a hálózat még régi előnézetet tart a gyorsítótárban (frissítsd a Facebook Sharing Debuggerrel).
 
 ## Szerzői jog és zene
 

@@ -553,5 +553,13 @@
  "act.1": "Most",
  "act.2": "A borító",
  "act.3": "A kép",
- "act.4": "Kódolás"
+ "act.4": "Kódolás",
+ "sh.t": "A BRAZDA megosztása",
+ "sh.aria": "Megosztás gombok",
+ "sh.nat": "Megosztás…",
+ "sh.copy": "Link másolása",
+ "sh.ok": "Link kimásolva",
+ "sh.mail": "E-mail",
+ "sh.msg": "BRAZDA — a Voyager Aranylemez dekódolója: dekódold lépésről lépésre a lemezt, és nézd élőben, milyen messze van a Voyager 1.",
+ "sh.sub": "Minden gomb a kiválasztott alkalmazást vagy oldalt nyitja meg kész linkkel. A BRAZDA magától nem küld semmit, és nem használ követőket."
 }
