@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Versiune: 1.3.1 · Ultima actualizare: 2026-11-15
+Versiune: 1.4.0 · Ultima actualizare: 2026-11-15
 
 Decodor și codor, pas cu pas, pentru **Discul de Aur Voyager** (Voyager Interstellar Record). Un singur fișier HTML (`index.html`), fără dependențe externe, fără server, fără urmăritoare. Funcționează offline: deschide fișierul într-un browser.
 
@@ -28,6 +28,8 @@ Aplicația are 12 pași numerotați și un pas viu de deschidere:
 ◉ **Voyager azi** (deschide aplicația): distanța lui Voyager 1 față de Pământ în timp real, cu numărătoare inversă până la pragul de o zi-lumină (18 noiembrie 2026, 10:16:07 UTC), cadran de 24 de ore-lumină, axa „razei unui mesaj” și unități în km, UA, zile-lumină sau timp-lumină. E calculată offline dintr-un model calibrat pe repere publicate; abaterea față de JPL Horizons nu a fost măsurată, iar Voyager 2 e o estimare mai grosieră (±1 UA). Pasul 1 are și o legendă accesibilă pentru diagrama capacului, iar pasul 11 poate exporta o **carte poștală PNG** a discului codat.
 
 1.3.0 adaugă: un disc rotitor în pasul 2 (o linie ocupă mereu 0,8° din șanț; o imagine înseamnă 1,14 rotații), pulsari audibili în pasul 4 (pocnituri la perioada reală), o scară „Marele Tur” în pasul viu (planete, Pale Blue Dot din 1990, șocurile terminale și heliopauzele celor două sonde), o bară de patru acte deasupra navigării pe pași și un PWA (manifest, service worker, icoane) care se instalează și merge offline când aplicația e servită prin https; deschisă ca fișier unic se comportă exact ca înainte. Noul `tools/csp-hash.py` recalculează hash-urile CSP după orice modificare a scriptului inline, iar `npm run test:pwa` verifică service worker-ul offline.
+
+1.4.0 adaugă previzualizări atractive la partajarea linkului: etichete Open Graph și Twitter Card cu o imagine de 1200×630 (`og-image.jpg`), link canonic și date schema.org, astfel încât linkul arată bine pe WhatsApp, Telegram, Facebook, X, LinkedIn și altele. Etichetele trimit la `https://brazda.chiuta.ro/` (vezi `CNAME`); previzualizarea funcționează după ce pagina e servită de la acea adresă. `tools/fff-hash.py` reînnoiește hash-ul canonic și dimensiunea după modificări.
 
 ## Drepturi de autor și muzică
 

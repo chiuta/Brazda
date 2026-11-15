@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Version: 1.3.1 · Letzte Aktualisierung: 2026-11-15
+Version: 1.4.0 · Letzte Aktualisierung: 2026-11-15
 
 Ein Schritt-für-Schritt-Decoder und -Encoder für die **Voyager Golden Record** (Voyager Interstellar Record). Eine HTML-Datei (`index.html`), keine externen Abhängigkeiten, kein Server, keine Tracker. Sie funktioniert offline: Die Datei einfach im Browser öffnen.
 
@@ -28,6 +28,8 @@ Die App hat 12 nummerierte Schritte und einen Live-Einstiegsschritt:
 ◉ **Voyager heute** (öffnet die App): die Entfernung von Voyager 1 zur Erde in Echtzeit, mit Countdown bis zur Schwelle von einem Lichttag (18. November 2026, 10:16:07 UTC), einem Zifferblatt mit 24 Lichtstunden, der Zeitleiste „Strahl einer Nachricht“ und Einheiten in km, AE, Lichttagen oder Lichtzeit. Die Berechnung läuft offline aus einem an veröffentlichten Eckdaten kalibrierten Modell; die Abweichung von JPL Horizons wurde nicht gemessen, und Voyager 2 ist eine gröbere Schätzung (±1 AE). Schritt 1 hat außerdem eine barrierefreie Legende für das Hüllendiagramm, und Schritt 11 kann eine **Postkarte als PNG** der kodierten Scheibe exportieren.
 
 1.3.0 ergänzt: eine sich drehende Scheibe in Schritt 2 (eine Zeile nimmt immer 0,8° der Rille ein; ein Bild sind 1,14 Umdrehungen), hörbare Pulsare in Schritt 4 (Klicks in der echten Periode), eine „Grand Tour“-Skala im Live-Schritt (Planeten, der Pale Blue Dot von 1990, Termination Shocks und Heliopausen beider Sonden), eine Leiste mit vier Akten über der Schrittnavigation und eine PWA (Manifest, Service Worker, Icons), die sich installieren lässt und offline funktioniert, wenn die App über https ausgeliefert wird; als einzelne Datei geöffnet verhält sie sich wie bisher. Das neue `tools/csp-hash.py` berechnet die CSP-Hashes nach jeder Änderung des Inline-Skripts neu, und `npm run test:pwa` prüft den Service Worker offline.
+
+1.4.0 ergänzt ansprechende Link-Vorschauen: Open-Graph- und Twitter-Card-Tags mit einem 1200×630-Bild (`og-image.jpg`), kanonischem Link und schema.org-Daten, damit der Link in WhatsApp, Telegram, Facebook, X, LinkedIn und anderen gut aussieht. Die Tags verweisen auf `https://brazda.chiuta.ro/` (siehe `CNAME`); die Vorschau funktioniert, sobald die Seite unter dieser Adresse ausgeliefert wird. `tools/fff-hash.py` aktualisiert nach Änderungen den kanonischen Hash und die Größe.
 
 ## Urheberrecht und Musik
 
