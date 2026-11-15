@@ -562,21 +562,5 @@
  "sh.mail": "E-mail",
  "sh.msg": "BRAZDA — le décodeur du Disque d’or de Voyager : décodez le disque pas à pas et voyez en direct à quelle distance est Voyager 1.",
  "sh.sub": "Chaque bouton ouvre l’application ou le site choisi avec le lien prêt. BRAZDA n’envoie rien toute seule et n’utilise aucun traceur.",
- "a.skip": "Aller au contenu",
- "a.btn": "Accessibilité",
- "a.up": "Retour en haut",
- "a.t": "Options d’accessibilité",
- "a.sz": "Taille du texte",
- "a.sm": "Plus petit",
- "a.lg": "Plus grand",
- "a.rs": "Tout réinitialiser",
- "a.hc": "Contraste élevé",
- "a.rm": "Sans animations",
- "a.rf": "Texte lisible (espacement élargi)",
- "a.ul": "Liens soulignés, focus renforcé",
- "a.tts": "🔊 Lire l’étape",
- "a.tts2": "■ Arrêter la lecture",
- "a.tt0": "La lecture vocale n’est pas disponible dans ce navigateur.",
- "a.cl": "Fermer",
- "a.pc": "{0}%"
+ "a.skip": "Aller au contenu"
 }

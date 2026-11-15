@@ -562,21 +562,5 @@
  "sh.mail": "E-mail",
  "sh.msg": "BRAZDA — o descodificador do Disco de Ouro da Voyager: descodifique o disco passo a passo e veja em direto a que distância está a Voyager 1.",
  "sh.sub": "Cada botão abre a aplicação ou o site escolhido com a ligação pronta. A BRAZDA não envia nada por si e não usa rastreadores.",
- "a.skip": "Saltar para o conteúdo",
- "a.btn": "Acessibilidade",
- "a.up": "Voltar ao topo",
- "a.t": "Opções de acessibilidade",
- "a.sz": "Tamanho do texto",
- "a.sm": "Mais pequeno",
- "a.lg": "Maior",
- "a.rs": "Repor tudo",
- "a.hc": "Contraste elevado",
- "a.rm": "Sem animações",
- "a.rf": "Texto legível (espaçamento maior)",
- "a.ul": "Ligações sublinhadas, foco reforçado",
- "a.tts": "🔊 Ler o passo",
- "a.tts2": "■ Parar a leitura",
- "a.tt0": "A leitura em voz alta não está disponível neste navegador.",
- "a.cl": "Fechar",
- "a.pc": "{0}%"
+ "a.skip": "Saltar para o conteúdo"
 }

@@ -562,21 +562,5 @@
  "sh.mail": "E-mail",
  "sh.msg": "BRAZDA — the Voyager Golden Record decoder: decode the disc step by step and see live how far Voyager 1 is.",
  "sh.sub": "Each button opens the chosen app or site with the link ready. BRAZDA sends nothing by itself and uses no trackers.",
- "a.skip": "Skip to content",
- "a.btn": "Accessibility",
- "a.up": "Back to top",
- "a.t": "Accessibility options",
- "a.sz": "Text size",
- "a.sm": "Smaller",
- "a.lg": "Larger",
- "a.rs": "Reset all",
- "a.hc": "High contrast",
- "a.rm": "No animations",
- "a.rf": "Readable text (wider spacing)",
- "a.ul": "Underlined links, strong focus",
- "a.tts": "🔊 Read this step",
- "a.tts2": "■ Stop reading",
- "a.tt0": "Speech is not available in this browser.",
- "a.cl": "Close",
- "a.pc": "{0}%"
+ "a.skip": "Skip to content"
 }

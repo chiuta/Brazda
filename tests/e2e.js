@@ -1,6 +1,6 @@
 // Test adversarial end-to-end pentru BRAZDA. Rulare: node e2e.js <cale/index.html> <director-capturi>
 const {chromium}=require('playwright');const fs=require('fs');const path=require('path');
-const FILE='file://'+path.resolve(process.argv[2])+'?lang=ro';const OUT=path.resolve(process.argv[3]||'shots');fs.mkdirSync(OUT,{recursive:true});
+const FILE='file://'+path.resolve(process.argv[2])+'?lang=ro&fffa11y=1';const OUT=path.resolve(process.argv[3]||'shots');fs.mkdirSync(OUT,{recursive:true});
 const fails=[];let nOk=0;
 const F=m=>{fails.push(m);console.log('  FAIL',m);};const OK=(c,m)=>{if(c)nOk++;else F(m);};
 
@@ -67,17 +67,17 @@ for(const [vn,vp,extra] of VPS){
   /* accesibilitate + sus */
   const scrollable=await page.evaluate(()=>document.documentElement.scrollHeight-innerHeight);
   if(scrollable>500){await page.evaluate(()=>window.scrollTo({top:document.documentElement.scrollHeight,behavior:'instant'}));await page.waitForTimeout(400);
-  OK(await page.evaluate(()=>document.querySelector('#up').classList.contains('show')),'SUS: butonul nu apare după derulare');
-  await page.click('#up');await page.waitForTimeout(1500);OK((await page.evaluate(()=>window.scrollY))<5,'SUS: nu revine în vârf');}
+  OK(await page.evaluate(()=>!document.querySelector('.fff-a11y-up').hidden),'SUS: butonul nu apare după derulare');
+  await page.click('.fff-a11y-up');await page.waitForTimeout(1500);OK((await page.evaluate(()=>window.scrollY))<5,'SUS: nu revine în vârf');}
   const f0=await page.evaluate(()=>parseFloat(getComputedStyle(document.documentElement).fontSize));
-  await page.click('#a11b');OK(await page.isVisible('#a11y'),'A11Y: panoul nu se deschide');
-  await page.click('#a_lg');OK((await page.evaluate(()=>parseFloat(getComputedStyle(document.documentElement).fontSize)))>f0,'A11Y: A+ nu mărește textul');
+  await page.click('.fff-a11y-aa');OK(await page.isVisible('.fff-a11y-panel'),'A11Y: panoul nu se deschide');
+  await page.click('.fff-a11y-panel [data-k=lg]');OK((await page.evaluate(()=>parseFloat(getComputedStyle(document.documentElement).fontSize)))>f0,'A11Y: A+ nu mărește textul');
   await overflow('A11Y text mărit');
-  await page.click('#a_hc');OK(await page.evaluate(()=>document.documentElement.classList.contains('hc')),'A11Y: contrast ridicat');
-  await page.click('#a_rm');OK(await page.evaluate(()=>document.documentElement.classList.contains('rm')),'A11Y: fără animații');
-  await page.click('#a_rf');await page.click('#a_ul');await overflow('A11Y toate opțiunile');
-  await page.click('#a_rs');OK(await page.evaluate(()=>!['hc','rm','rf','ul'].some(c=>document.documentElement.classList.contains(c))),'A11Y: resetarea nu curăță');
-  await page.keyboard.press('Escape');OK(!(await page.isVisible('#a11y')),'A11Y: Escape nu închide panoul');
+  await page.click('.fff-a11y-panel [data-k=hc]');OK(await page.evaluate(()=>document.documentElement.classList.contains('fff-hc')),'A11Y: contrast ridicat');
+  await page.click('.fff-a11y-panel [data-k=rm]');OK(await page.evaluate(()=>document.documentElement.classList.contains('fff-rm')),'A11Y: fără animații');
+  await page.click('.fff-a11y-panel [data-k=rf]');await page.click('.fff-a11y-panel [data-k=ul]');await overflow('A11Y toate opțiunile');
+  await page.click('.fff-a11y-panel [data-k=rs]');OK(await page.evaluate(()=>!['hc','rm','rf','ul'].some(c=>document.documentElement.classList.contains('fff-'+c))),'A11Y: resetarea nu curăță');
+  await page.keyboard.press('Escape');OK(!(await page.isVisible('.fff-a11y-panel')),'A11Y: Escape nu închide panoul');
   OK((await page.$('a.skip'))!==null,'A11Y: lipsește linkul Sari la conținut');
 
   /* S1 selecții */

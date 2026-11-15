@@ -562,21 +562,5 @@
  "sh.mail": "E-Mail",
  "sh.msg": "BRAZDA — der Dekoder der Goldenen Schallplatte der Voyager: dekodiere die Scheibe Schritt für Schritt und sieh live, wie weit Voyager 1 entfernt ist.",
  "sh.sub": "Jede Schaltfläche öffnet die gewählte App oder Seite mit fertigem Link. BRAZDA sendet nichts von selbst und nutzt keine Tracker.",
- "a.skip": "Zum Inhalt springen",
- "a.btn": "Barrierefreiheit",
- "a.up": "Nach oben",
- "a.t": "Barrierefreiheits-Optionen",
- "a.sz": "Textgröße",
- "a.sm": "Kleiner",
- "a.lg": "Größer",
- "a.rs": "Alles zurücksetzen",
- "a.hc": "Hoher Kontrast",
- "a.rm": "Keine Animationen",
- "a.rf": "Gut lesbarer Text (weiter Abstand)",
- "a.ul": "Unterstrichene Links, starker Fokus",
- "a.tts": "🔊 Schritt vorlesen",
- "a.tts2": "■ Vorlesen beenden",
- "a.tt0": "Sprachausgabe ist in diesem Browser nicht verfügbar.",
- "a.cl": "Schließen",
- "a.pc": "{0} %"
+ "a.skip": "Zum Inhalt springen"
 }
