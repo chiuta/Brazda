@@ -2,8 +2,8 @@
   "schema": 1,
   "slug": "brazda",
   "name": "BRAZDA — decodorul Discului de Aur Voyager",
-  "version": "1.8.1",
-  "updated": "2026-11-17",
+  "version": "1.8.2",
+  "updated": "2026-11-19",
   "description": "Decodează pas cu pas Discul de Aur Voyager și codează unul nou pentru o sondă din 2026–2027. Vezi distanța lui Voyager 1 în direct. Offline, în 8 limbi.",
   "egress": [],
   "permissions": [
@@ -18,8 +18,8 @@
   "storageKeys": [
     "brazda.lang"
   ],
-  "sizeBytes": 973740,
-  "sha256": "4c61f0ff47769b8d710bb55b1163582ec1b64b4a5bf49ba017f8ce98671b0a99",
+  "sizeBytes": 978067,
+  "sha256": "2dcb266a1255036f7ce91ec756eee6f13fb740d0dcc0bac21c0d5baf2d403fdf",
   "csp": {
     "present": true,
     "directives": {
@@ -68,7 +68,7 @@
     ]
   },
   "kit": {
-    "version": "1.8.0",
+    "version": "1.8.1",
     "modules": [
       "core",
       "store",
